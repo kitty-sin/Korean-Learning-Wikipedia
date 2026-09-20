@@ -10,16 +10,21 @@
    - 提取全庫 12,222 筆字詞中之核心具象詞彙，徹底涵蓋全部 15 大領域！
    - 每頁嚴格維持 **6～12 個單字**，圖文並茂、純繁體中文道地解釋、韓文粗體大字、羅馬拼音與點擊真人發音。
    - 頂部加入 **15 大領域水平滑動快捷選單**，隨時一鍵跳轉任何領域。
-   - 包含：時間曆法、人體五官、家族親屬男女稱、美妝護膚、服飾珠寶、逛街購物、飲食料理、居家生活、交通設施、自然動物、情緒感受、學校職場、休閒運動、色彩形狀、空間方位。
-2. **遠端 GitHub 儲存庫同步**：
-   - Commit: `62599b1` 已推播至 `kitty-sin/Korean-Learning-Wikipedia`。
+2. **RDQ 規格卡確認與版面視覺風格全面升級**：
+   - 依使用者於 RDQ 決策確認，全面換裝為 **方案 B【萌系馬卡龍粉嫩風 (Pastel Playful)】**！
+   - 融入草莓粉白、奶霜黃、薄荷綠、薰衣草紫、甜美圓角卡片與可愛手帳微糖質感。
+   - 單字卡採用 **方案 A【三層次多功能圖鑑卡】**，包含大圖標、韓文大字、拼音、中文粗體與實用生活記憶小貼士。
+   - 閱讀模式採 **方案 A【繪本畫布橫向翻頁】**。
+   - 規格文件保存在 [`rdq/RDQ-spec-encyclopedia-layout-style-20260920.md`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/rdq/RDQ-spec-encyclopedia-layout-style-20260920.md)。
+3. **遠端 GitHub 儲存庫同步**：
+   - Commit: `151a01b` 已推播至 `kitty-sin/Korean-Learning-Wikipedia`。
 
 ---
 
 ## 🚦 目前狀態
 
-- **運行狀態**：雙擊 [`index.html`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/index.html) 即可在瀏覽器直接查閱 15 大領域共 29 頁百科。
-- **Git Push 狀態**：✅ 已推播至 `origin/main`（Commit: `62599b1`）。
+- **運行狀態**：雙擊 [`index.html`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/index.html) 即可直接體驗 15 大領域、29 頁全新萌系馬卡龍粉嫩風格圖解百科。
+- **Git Push 狀態**：✅ 已推播至 `origin/main`（Commit: `151a01b`）。
 
 ---
 
