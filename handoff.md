@@ -43,4 +43,4 @@
 
 - **時間**：2026-09-20 14:30 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
-- **Git Commit**：初始化進行中
+- **Git Commit**：`a42e1d1` (`chore: initial commit for Korean-Learning-Wikipedia`)
