@@ -146,16 +146,16 @@ body {
   background: #FFFFFF;
   border: 1.5px solid #FFD8E2;
   border-radius: var(--radius-pill);
-  padding: 4px 6px;
+  padding: 5px 8px;
   display: inline-flex;
-  gap: 4px;
-  box-shadow: 0 4px 14px rgba(255, 182, 193, 0.12);
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(255, 182, 193, 0.15);
   flex-shrink: 0;
+  align-items: center;
 }
 
 .mode-tab-btn {
-  border: none;
-  background: transparent;
+  border: 1.5px solid transparent;
   font-size: 0.85rem;
   font-weight: 800;
   padding: 7px 15px;
@@ -164,20 +164,215 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #718096;
   white-space: nowrap;
-  transition: var(--transition-smooth);
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
 }
 
 .mode-tab-btn:hover {
-  color: var(--primary);
-  background: #FFF5F7;
+  transform: translateY(-2px);
+  filter: brightness(1.05);
 }
 
 .mode-tab-btn.active {
-  background: linear-gradient(135deg, #FF6584 0%, #FF4071 100%);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(255, 64, 113, 0.28);
+  color: #FFFFFF !important;
+  transform: translateY(-2px) scale(1.03);
+  border-color: #FFFFFF !important;
+}
+
+/* 1. 🌸 名詞 Noun - 珊瑚櫻花紅 (Coral Strawberry) */
+.mode-tab-btn[data-mode="noun"] {
+  background: #FFF0F3;
+  color: #D61B52;
+  border-color: #FFCCD7;
+}
+.mode-tab-btn[data-mode="noun"]:hover {
+  background: #FFE4EC;
+  border-color: #FF94AA;
+}
+.mode-tab-btn[data-mode="noun"].active {
+  background: linear-gradient(135deg, #FF5376 0%, #E61A4E 100%);
+  box-shadow: 0 4px 14px rgba(230, 26, 78, 0.35);
+}
+
+/* 2. ⚡ 動詞 Verb - 活力夕陽橘 (Sunset Amber Orange) */
+.mode-tab-btn[data-mode="verb"] {
+  background: #FFF5EB;
+  color: #D95A00;
+  border-color: #FFE0C2;
+}
+.mode-tab-btn[data-mode="verb"]:hover {
+  background: #FFEAD4;
+  border-color: #FFB87A;
+}
+.mode-tab-btn[data-mode="verb"].active {
+  background: linear-gradient(135deg, #FF9500 0%, #E65100 100%);
+  box-shadow: 0 4px 14px rgba(230, 81, 0, 0.35);
+}
+
+/* 3. 🌈 形容詞 Adjective - 莓果洋紅紫 (Berry Fuchsia) */
+.mode-tab-btn[data-mode="adjective"] {
+  background: #FDF2F8;
+  color: #BE185D;
+  border-color: #FBCFE8;
+}
+.mode-tab-btn[data-mode="adjective"]:hover {
+  background: #FCE7F3;
+  border-color: #F472B6;
+}
+.mode-tab-btn[data-mode="adjective"].active {
+  background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%);
+  box-shadow: 0 4px 14px rgba(190, 24, 93, 0.35);
+}
+
+/* 4. ✨ 副詞 Adverb - 薄荷翡翠綠 (Mint Emerald) */
+.mode-tab-btn[data-mode="adverb"] {
+  background: #ECFDF5;
+  color: #047857;
+  border-color: #A7F3D0;
+}
+.mode-tab-btn[data-mode="adverb"]:hover {
+  background: #D1FAE5;
+  border-color: #6EE7B7;
+}
+.mode-tab-btn[data-mode="adverb"].active {
+  background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.35);
+}
+
+/* 5. 👤 代名詞 Pronoun - 皇家香芋紫 (Royal Purple) */
+.mode-tab-btn[data-mode="pronoun"] {
+  background: #F5F3FF;
+  color: #6D28D9;
+  border-color: #DDD6FE;
+}
+.mode-tab-btn[data-mode="pronoun"]:hover {
+  background: #EDE9FE;
+  border-color: #C4B5FD;
+}
+.mode-tab-btn[data-mode="pronoun"].active {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+  box-shadow: 0 4px 14px rgba(109, 40, 217, 0.35);
+}
+
+/* 6. 🏛️ 專有名詞 Proper Noun - 蔚藍寶石 (Sapphire Blue) */
+.mode-tab-btn[data-mode="proper_noun"] {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border-color: #BFDBFE;
+}
+.mode-tab-btn[data-mode="proper_noun"]:hover {
+  background: #DBEAFE;
+  border-color: #93C5FD;
+}
+.mode-tab-btn[data-mode="proper_noun"].active {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
+}
+
+/* 7. 📦 依存名詞 Dependent Noun - 暖金黃蜜 (Honey Amber) */
+.mode-tab-btn[data-mode="dependent_noun"] {
+  background: #FFFBEB;
+  color: #B45309;
+  border-color: #FDE68A;
+}
+.mode-tab-btn[data-mode="dependent_noun"]:hover {
+  background: #FEF3C7;
+  border-color: #FCD34D;
+}
+.mode-tab-btn[data-mode="dependent_noun"].active {
+  background: linear-gradient(135deg, #F59E0B 0%, #B45309 100%);
+  box-shadow: 0 4px 14px rgba(180, 83, 9, 0.35);
+}
+
+/* 8. 🔢 數字雙系統 Numeral - 靛青紫羅蘭 (Electric Indigo) */
+.mode-tab-btn[data-mode="numeral"] {
+  background: #EEF2FF;
+  color: #4338CA;
+  border-color: #C7D2FE;
+}
+.mode-tab-btn[data-mode="numeral"]:hover {
+  background: #E0E7FF;
+  border-color: #A5B4FC;
+}
+.mode-tab-btn[data-mode="numeral"].active {
+  background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%);
+  box-shadow: 0 4px 14px rgba(67, 56, 202, 0.35);
+}
+
+/* 9. 🔤 冠形詞 Determiner - 薔薇胭脂紅 (Crimson Rose) */
+.mode-tab-btn[data-mode="determiner"] {
+  background: #FFF1F2;
+  color: #BE123C;
+  border-color: #FECDD3;
+}
+.mode-tab-btn[data-mode="determiner"]:hover {
+  background: #FFE4E6;
+  border-color: #FDA4AF;
+}
+.mode-tab-btn[data-mode="determiner"].active {
+  background: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%);
+  box-shadow: 0 4px 14px rgba(190, 18, 60, 0.35);
+}
+
+/* 10. 🧩 核心助詞 Particle - 湖水碧藍 (Teal Cyan) */
+.mode-tab-btn[data-mode="particle"] {
+  background: #ECFEFF;
+  color: #0E7490;
+  border-color: #A5F3FC;
+}
+.mode-tab-btn[data-mode="particle"]:hover {
+  background: #CFFAFE;
+  border-color: #67E8F9;
+}
+.mode-tab-btn[data-mode="particle"].active {
+  background: linear-gradient(135deg, #06B6D4 0%, #0E7490 100%);
+  box-shadow: 0 4px 14px rgba(14, 116, 144, 0.35);
+}
+
+/* 11. 💬 生活問候 Greeting - 夢幻薰衣草 (Vivid Lavender) */
+.mode-tab-btn[data-mode="greeting"] {
+  background: #FAF5FF;
+  color: #7E22CE;
+  border-color: #E9D5FF;
+}
+.mode-tab-btn[data-mode="greeting"]:hover {
+  background: #F3E8FF;
+  border-color: #D8B4FE;
+}
+.mode-tab-btn[data-mode="greeting"].active {
+  background: linear-gradient(135deg, #A855F7 0%, #7E22CE 100%);
+  box-shadow: 0 4px 14px rgba(126, 34, 206, 0.35);
+}
+
+/* 12. 🌍 外來語借詞 Loanword - 湛藍天空 (Sky Blue) */
+.mode-tab-btn[data-mode="loanword"] {
+  background: #F0F9FF;
+  color: #0369A1;
+  border-color: #BAE6FD;
+}
+.mode-tab-btn[data-mode="loanword"]:hover {
+  background: #E0F2FE;
+  border-color: #7DD3FC;
+}
+.mode-tab-btn[data-mode="loanword"].active {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  box-shadow: 0 4px 14px rgba(3, 105, 161, 0.35);
+}
+
+/* 13. 🍲 三麗鷗美食 Sanrio Food - 甜心草莓粉 (Sweet Peach Blossom) */
+.mode-tab-btn[data-mode="sanrio_food"] {
+  background: #FFF1F5;
+  color: #D81B60;
+  border-color: #F8BBD0;
+}
+.mode-tab-btn[data-mode="sanrio_food"]:hover {
+  background: #FCE4EC;
+  border-color: #F48FB1;
+}
+.mode-tab-btn[data-mode="sanrio_food"].active {
+  background: linear-gradient(135deg, #FF6584 0%, #D81B60 100%);
+  box-shadow: 0 4px 14px rgba(216, 27, 96, 0.35);
 }
 
 .mode-divider {

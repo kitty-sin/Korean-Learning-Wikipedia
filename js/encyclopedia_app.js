@@ -13,43 +13,43 @@ class EncyclopediaApp {
       // 📚 核心品詞 (7)
       noun: {
         id: 'noun',
-        label: '生活名詞',
+        label: '名詞 Noun',
         icon: '🌸',
         pages: typeof ENCYCLOPEDIA_PAGES !== 'undefined' ? ENCYCLOPEDIA_PAGES : []
       },
       verb: {
         id: 'verb',
-        label: '日常動詞',
+        label: '動詞 Verb',
         icon: '⚡',
         pages: typeof VERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? VERB_ENCYCLOPEDIA_PAGES : []
       },
       adjective: {
         id: 'adjective',
-        label: '描摹形容詞',
+        label: '形容詞 Adjective',
         icon: '🌈',
         pages: typeof ADJECTIVE_ENCYCLOPEDIA_PAGES !== 'undefined' ? ADJECTIVE_ENCYCLOPEDIA_PAGES : []
       },
       adverb: {
         id: 'adverb',
-        label: '程度副詞',
+        label: '副詞 Adverb',
         icon: '✨',
         pages: typeof ADVERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? ADVERB_ENCYCLOPEDIA_PAGES : []
       },
       pronoun: {
         id: 'pronoun',
-        label: '人稱指示代名詞',
+        label: '代名詞 Pronoun',
         icon: '👤',
         pages: typeof PRONOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? PRONOUN_ENCYCLOPEDIA_PAGES : []
       },
       proper_noun: {
         id: 'proper_noun',
-        label: '地理專有名詞',
+        label: '專有名詞 Proper Noun',
         icon: '🏛️',
         pages: typeof PROPER_NOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? PROPER_NOUN_ENCYCLOPEDIA_PAGES : []
       },
       dependent_noun: {
         id: 'dependent_noun',
-        label: '量詞依存名詞',
+        label: '依存名詞 Dependent Noun',
         icon: '📦',
         pages: typeof DEPENDENT_NOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? DEPENDENT_NOUN_ENCYCLOPEDIA_PAGES : []
       },
@@ -57,25 +57,25 @@ class EncyclopediaApp {
       // 🧩 語法核心 (4)
       numeral: {
         id: 'numeral',
-        label: '數字雙系統',
+        label: '數字雙系統 Numeral',
         icon: '🔢',
         pages: typeof NUMERAL_ENCYCLOPEDIA_PAGES !== 'undefined' ? NUMERAL_ENCYCLOPEDIA_PAGES : []
       },
       determiner: {
         id: 'determiner',
-        label: '冠形詞',
+        label: '冠形詞 Determiner',
         icon: '🔤',
         pages: typeof DETERMINER_ENCYCLOPEDIA_PAGES !== 'undefined' ? DETERMINER_ENCYCLOPEDIA_PAGES : []
       },
       particle: {
         id: 'particle',
-        label: '核心助詞',
+        label: '核心助詞 Particle',
         icon: '🧩',
         pages: typeof PARTICLE_ENCYCLOPEDIA_PAGES !== 'undefined' ? PARTICLE_ENCYCLOPEDIA_PAGES : []
       },
       greeting: {
         id: 'greeting',
-        label: '生活問候敬語',
+        label: '生活問候 Greeting',
         icon: '💬',
         pages: typeof GREETING_ENCYCLOPEDIA_PAGES !== 'undefined' ? GREETING_ENCYCLOPEDIA_PAGES : []
       },
@@ -83,13 +83,13 @@ class EncyclopediaApp {
       // 🌟 專題圖鑑 (2)
       loanword: {
         id: 'loanword',
-        label: '外來語借詞',
+        label: '外來語借詞 Loanword',
         icon: '🌍',
         pages: typeof LOANWORD_ENCYCLOPEDIA_PAGES !== 'undefined' ? LOANWORD_ENCYCLOPEDIA_PAGES : []
       },
       sanrio_food: {
         id: 'sanrio_food',
-        label: '三麗鷗美食百科',
+        label: '三麗鷗美食 Sanrio Food',
         icon: '🍲',
         pages: typeof SANRIO_FOOD_ENCYCLOPEDIA_PAGES !== 'undefined' ? SANRIO_FOOD_ENCYCLOPEDIA_PAGES : []
       }

@@ -30,9 +30,25 @@
    - 原形單字點擊發音 [쓰다]，卡片三個音標各自獨立點讀！
    - 底部提示框去冗精簡，移除重複的 해요體 前綴，直接俐落呈現生活實用例句。
    - 增加卡片與小喇叭發音時之 `.is-playing` 萌系粉紅光暈動態回饋。
-3. **多群組導航列與馬卡龍粉嫩手帳風格**：
-   - 主應用 [`index.html`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/index.html) 頂部支援 13 大模式即時切換與平滑橫向滾動。
-   - 點擊卡片真人發音朗讀（Web Speech API）、大字粗體韓文、純繁體中文道地解釋。
+3. **導航與視覺樣式升級（依手繪圖稿指示）**：
+   - **紅圈指示**：頂部品牌標章已全面改為「`Korean Illustrated Encyclopedia`」（取代舊有 Visual Encyclopedia）。
+   - **藍圈指示**：分類標籤名稱統一去冗精簡為中英雙語格式，如「`🌸 名詞 Noun`」、「`⚡ 動詞 Verb`」等，移除非必要的頁數干擾。
+   - **綠圈指示**：13 大合頁標籤頁全面升級為**專屬獨立色彩的馬卡龍彩虹膠囊（Colorful Candy Pills）**：
+     - 🌸 名詞：珊瑚櫻花紅 (Coral Strawberry)
+     - ⚡ 動詞：活力夕陽橘 (Sunset Amber Orange)
+     - 🌈 形容詞：莓果洋紅紫 (Berry Fuchsia)
+     - ✨ 副詞：薄荷翡翠綠 (Mint Emerald)
+     - 👤 代名詞：皇家香芋紫 (Royal Purple)
+     - 🏛️ 專有名詞：蔚藍寶石 (Sapphire Blue)
+     - 📦 依存名詞：暖金黃蜜 (Honey Amber)
+     - 🔢 數字雙系統：靛青紫羅蘭 (Electric Indigo)
+     - 🔤 冠形詞：薔薇胭脂紅 (Crimson Rose)
+     - 🧩 核心助詞：湖水碧藍 (Teal Cyan)
+     - 💬 生活問候：夢幻薰衣草 (Vivid Lavender)
+     - 🌍 外來語借詞：湛藍天空 (Sky Blue)
+     - 🍲 三麗鷗美食：甜心草莓粉 (Sweet Peach Blossom)
+   - 未選取時呈現高質感柔和粉彩色系與同色系細邊框，選取（active）或滑鼠懸停時綻放鮮豔立體漸層、亮白純文字與立體懸浮光暈。
+
 4. **專屬資料集檔案清單 (全部 13 份)**：
    - [`js/encyclopedia_data.js`](./js/encyclopedia_data.js) (名詞)
    - [`js/verbs_data.js`](./js/verbs_data.js) (動詞)
@@ -52,14 +68,14 @@
 
 ## 🚦 目前狀態
 
-- **運行狀態**：本地雙擊 [`index.html`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/index.html) 或 [`verbs.html`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/verbs.html) 均可完美執行 13 大模式切換、點讀發音與翻頁。
-- **Git 狀態**：待 Commit 並推播至遠端 GitHub。
+- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`，13 大模式色彩分明、雙敬語發音與圖鑑功能運作順暢。
+- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
 
 ---
 
 ## ➡️ 下一步
 
-1. 依使用者體驗回饋微調任何特定單元頁面或排版間距。
+1. 依使用者後續回饋微調任何特定單元頁面或排版間距。
 2. 評估與 `Korean-Learning` 前端互動樂園進行跨專案雙向資料管道整合。
 
 ---
@@ -73,6 +89,6 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 15:55 PT
+- **時間**：2026-09-20 16:30 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 
