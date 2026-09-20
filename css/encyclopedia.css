@@ -189,20 +189,82 @@ body {
   flex-shrink: 0;
 }
 
-/* 動詞專屬 해요體膠囊標籤 */
+/* 動詞與形容詞變形標籤列 (해요體 & 하십시오體 雙變形) */
+.conjugation-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+  width: fit-content;
+}
+
 .card-haeyo-pill {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   background: #FFF0F4;
-  border: 1px solid #FFAEC1;
+  border: 1.5px solid #FFAEC1;
   color: #E91E63;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 800;
-  padding: 3px 10px;
-  border-radius: 12px;
-  margin: 6px 0 4px;
-  width: fit-content;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(233, 30, 99, 0.08);
+}
+
+.card-hasipsio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF5F7;
+  border: 1.5px solid #FF85A1;
+  color: #C2185B;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(194, 24, 91, 0.08);
+}
+
+/* 膠囊標籤右側小喇叭獨立點讀鈕 */
+.btn-sound-pill {
+  background: #FFEBF0;
+  border: 1px solid #FFCCD7;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  cursor: pointer;
+  color: #FF4071;
+  box-shadow: 0 2px 5px rgba(255, 64, 113, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.btn-sound-pill:hover {
+  transform: scale(1.18);
+  background: #FF4071;
+  color: #FFFFFF;
+}
+
+.btn-sound-pill:active {
+  transform: scale(0.92);
+}
+
+.vocab-card.is-playing {
+  border-color: #FF6584;
+  box-shadow: 0 0 0 3px rgba(255, 101, 132, 0.2), var(--shadow-hover);
+  transform: translateY(-3px) scale(1.01);
+}
+
+.btn-sound-pill.is-playing,
+.btn-sound-mini.is-playing {
+  background: #FF4071 !important;
+  color: #FFFFFF !important;
+  transform: scale(1.2) !important;
+  box-shadow: 0 0 0 4px rgba(255, 64, 113, 0.25) !important;
 }
 
 /* 15 大生活領域水平滑動列 (馬卡龍糖果色標籤) */

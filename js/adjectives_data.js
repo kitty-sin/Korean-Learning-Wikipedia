@@ -20,7 +20,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "추워요",
         "zh": "冷 / 寒冷",
         "icon": "🥶",
-        "tip": "해요體: 추워요 (ㅂ不規則) · 例: 오늘 날씨가 너무 추워요 (今天太冷了)"
+        "tip": "(ㅂ不規則) · 例: 오늘 날씨가 너무 추워요 (今天太冷了)",
+        "hasipsio": "춥습니다"
       },
       {
         "kr": "덥다",
@@ -28,7 +29,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "더워요",
         "zh": "熱 / 炎熱",
         "icon": "🥵",
-        "tip": "해요體: 더워요 (ㅂ不規則) · 例: 여름에는 아주 더워요 (夏天非常熱)"
+        "tip": "(ㅂ不規則) · 例: 여름에는 아주 더워요 (夏天非常熱)",
+        "hasipsio": "덥습니다"
       },
       {
         "kr": "따뜻하다",
@@ -36,7 +38,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "따뜻해요",
         "zh": "溫暖 / 暖和",
         "icon": "☀️",
-        "tip": "해요體: 따뜻해요 · 例: 따뜻한 봄바람 (溫暖春風)"
+        "tip": "例: 따뜻한 봄바람 (溫暖春風)",
+        "hasipsio": "따뜻합니다"
       },
       {
         "kr": "시원하다",
@@ -44,7 +47,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "시원해요",
         "zh": "涼爽 / 清涼舒暢",
         "icon": "🎐",
-        "tip": "해요體: 시원해요 · 例: 시원한 커피 (涼爽冰咖啡 / 湯頭清甜)"
+        "tip": "例: 시원한 커피 (涼爽冰咖啡 / 湯頭清甜)",
+        "hasipsio": "시원합니다"
       },
       {
         "kr": "맑다",
@@ -52,7 +56,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "맑아요",
         "zh": "晴朗 / 清澈",
         "icon": "🌤️",
-        "tip": "해요體: 맑아요 (雙收音 ㄺ 發 ㄱ) · 例: 맑은 하늘 (澄澈晴空)"
+        "tip": "(雙收音 ㄺ 發 ㄱ) · 例: 맑은 하늘 (澄澈晴空)",
+        "hasipsio": "맑습니다"
       },
       {
         "kr": "흐리다",
@@ -60,7 +65,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "흐려요",
         "zh": "陰沉 / 陰天",
         "icon": "☁️",
-        "tip": "해요體: 흐려요 · 例: 날씨가 흐려서 비가 올 것 같아요 (天氣陰霾)"
+        "tip": "例: 날씨가 흐려서 비가 올 것 같아요 (天氣陰霾)",
+        "hasipsio": "흐립니다"
       },
       {
         "kr": "습하다",
@@ -68,7 +74,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "습해요",
         "zh": "潮濕 / 濕悶",
         "icon": "💧",
-        "tip": "해요體: 습해요 (漢字：濕) · 例: 비 온 뒤라 습해요 (雨後潮濕)"
+        "tip": "(漢字：濕) · 例: 비 온 뒤라 습해요 (雨後潮濕)",
+        "hasipsio": "습합니다"
       },
       {
         "kr": "건조하다",
@@ -76,7 +83,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "건조해요",
         "zh": "乾燥 / 乾裂",
         "icon": "🏜️",
-        "tip": "해요體: 건조해요 (漢字：乾燥) · 例: 피부가 건조해요 (肌膚乾燥)"
+        "tip": "(漢字：乾燥) · 例: 피부가 건조해요 (肌膚乾燥)",
+        "hasipsio": "건조합니다"
       }
     ]
   },
@@ -98,7 +106,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "맛있어요",
         "zh": "好吃 / 美味",
         "icon": "😋",
-        "tip": "해요體: 맛있어요 · 例: 한국 음식이 정말 맛있어요 (韓食超好吃)"
+        "tip": "例: 한국 음식이 정말 맛있어요 (韓食超好吃)",
+        "hasipsio": "맛있습니다"
       },
       {
         "kr": "맛없다",
@@ -106,7 +115,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "맛없어요",
         "zh": "難吃 / 不美味",
         "icon": "🤢",
-        "tip": "해요體: 맛없어요 · 例: 간이 안 맞아서 맛없어요 (味道不對很難吃)"
+        "tip": "例: 간이 안 맞아서 맛없어요 (味道不對很難吃)",
+        "hasipsio": "맛없습니다"
       },
       {
         "kr": "달다",
@@ -114,7 +124,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "달아요",
         "zh": "甜 / 香甜",
         "icon": "🍯",
-        "tip": "해요體: 달아요 · 例: 이 딸기가 아주 달아요 (這草莓很甜)"
+        "tip": "例: 이 딸기가 아주 달아요 (這草莓很甜)",
+        "hasipsio": "답니다"
       },
       {
         "kr": "쓰다",
@@ -122,7 +133,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "써요",
         "zh": "苦 / 苦澀",
         "icon": "☕",
-        "tip": "해요體: 써요 · 例: 약이 너무 써요 (藥太苦了)"
+        "tip": "例: 약이 너무 써요 (藥太苦了)",
+        "hasipsio": "씁니다"
       },
       {
         "kr": "맵다",
@@ -130,7 +142,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "매워요",
         "zh": "辣 / 辛辣",
         "icon": "🌶️",
-        "tip": "해요體: 매워요 (ㅂ不規則) · 例: 떡볶이가 조금 매워요 (年糕微辣)"
+        "tip": "(ㅂ不規則) · 例: 떡볶이가 조금 매워요 (年糕微辣)",
+        "hasipsio": "맵습니다"
       },
       {
         "kr": "짜다",
@@ -138,7 +151,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "짜요",
         "zh": "鹹 / 鹹澀",
         "icon": "🧂",
-        "tip": "해요體: 짜요 · 例: 국물이 조금 짜요 (湯有點鹹)"
+        "tip": "例: 국물이 조금 짜요 (湯有點鹹)",
+        "hasipsio": "짭니다"
       },
       {
         "kr": "시다",
@@ -146,7 +160,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "셔요",
         "zh": "酸 / 微酸",
         "icon": "🍋",
-        "tip": "해요體: 셔요 · 例: 레몬이 시큼하고 셔요 (檸檬好酸)"
+        "tip": "例: 레몬이 시큼하고 셔요 (檸檬好酸)",
+        "hasipsio": "십니다"
       },
       {
         "kr": "싱겁다",
@@ -154,7 +169,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "싱거워요",
         "zh": "清淡 / 沒味道",
         "icon": "🥣",
-        "tip": "해요體: 싱거워요 (ㅂ不規則) · 例: 소금을 더 넣어요, 싱거워요"
+        "tip": "(ㅂ不規則) · 例: 소금을 더 넣어요, 싱거워요",
+        "hasipsio": "싱겁습니다"
       }
     ]
   },
@@ -176,7 +192,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "커요",
         "zh": "大 / 高大",
         "icon": "🐘",
-        "tip": "해요體: 커요 · 反義: 작다 · 例: 키가 커요 (身形高大)"
+        "tip": "反義: 작다 · 例: 키가 커요 (身形高大)",
+        "hasipsio": "큽니다"
       },
       {
         "kr": "작다",
@@ -184,7 +201,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "작아요",
         "zh": "小 / 嬌小",
         "icon": "🐭",
-        "tip": "해요體: 작아요 · 反義: 크다 · 例: 글씨가 작아요 (字體小)"
+        "tip": "反義: 크다 · 例: 글씨가 작아요 (字體小)",
+        "hasipsio": "작습니다"
       },
       {
         "kr": "길다",
@@ -192,7 +210,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "길어요",
         "zh": "長 / 漫長",
         "icon": "🦒",
-        "tip": "해요體: 길어요 · 反義: 짧다 · 例: 바지가 너무 길어요 (褲子太長)"
+        "tip": "反義: 짧다 · 例: 바지가 너무 길어요 (褲子太長)",
+        "hasipsio": "깁니다"
       },
       {
         "kr": "짧다",
@@ -200,7 +219,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "짧아요",
         "zh": "短 / 簡短",
         "icon": "🩳",
-        "tip": "해요體: 짧아요 (雙收音 ㄼ 發 ㄹ) · 例: 치마가 짧아요 (裙子短)"
+        "tip": "(雙收音 ㄼ 發 ㄹ) · 例: 치마가 짧아요 (裙子短)",
+        "hasipsio": "짧습니다"
       },
       {
         "kr": "높다",
@@ -208,7 +228,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "높아요",
         "zh": "高 / 高聳",
         "icon": "🏔️",
-        "tip": "해요體: 높아요 · 反義: 낮다 · 例: 산이 높아요 (山很高)"
+        "tip": "反義: 낮다 · 例: 산이 높아요 (山很高)",
+        "hasipsio": "높습니다"
       },
       {
         "kr": "낮다",
@@ -216,7 +237,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "낮아요",
         "zh": "低 / 矮",
         "icon": "🪵",
-        "tip": "해요體: 낮아요 · 反義: 높다 · 例: 온도가 낮아요 (氣溫低)"
+        "tip": "反義: 높다 · 例: 온도가 낮아요 (氣溫低)",
+        "hasipsio": "낮습니다"
       },
       {
         "kr": "넓다",
@@ -224,7 +246,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "넓어요",
         "zh": "寬闊 / 廣大",
         "icon": "🏞️",
-        "tip": "해요體: 넓어요 (雙收音 ㄼ 發 ㄹ) · 例: 방이 넓어요 (房間寬敞)"
+        "tip": "(雙收音 ㄼ 發 ㄹ) · 例: 방이 넓어요 (房間寬敞)",
+        "hasipsio": "넓습니다"
       },
       {
         "kr": "좁다",
@@ -232,7 +255,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "좁아요",
         "zh": "狹窄 / 窄小",
         "icon": "🚪",
-        "tip": "해요體: 좁아요 (規則變化) · 例: 길이 좁아요 (巷弄狹窄)"
+        "tip": "(規則變化) · 例: 길이 좁아요 (巷弄狹窄)",
+        "hasipsio": "좁습니다"
       },
       {
         "kr": "무겁다",
@@ -240,7 +264,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "무거워요",
         "zh": "重 / 沉重",
         "icon": "🏋️",
-        "tip": "해요體: 무거워요 (ㅂ不規則) · 例: 짐이 무거워요 (行李好重)"
+        "tip": "(ㅂ不規則) · 例: 짐이 무거워요 (行李好重)",
+        "hasipsio": "무겁습니다"
       },
       {
         "kr": "가볍다",
@@ -248,7 +273,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "가벼워요",
         "zh": "輕 / 輕盈",
         "icon": "🪶",
-        "tip": "해요體: 가벼워요 (ㅂ不規則) · 例: 가방이 가벼워요 (包包很輕)"
+        "tip": "(ㅂ不規則) · 例: 가방이 가벼워요 (包包很輕)",
+        "hasipsio": "가볍습니다"
       }
     ]
   },
@@ -270,7 +296,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "예뻐요",
         "zh": "漂亮 / 美麗",
         "icon": "🌸",
-        "tip": "해요體: 예뻐요 · 例: 옷이 정말 예뻐요 (衣服真漂亮)"
+        "tip": "例: 옷이 정말 예뻐요 (衣服真漂亮)",
+        "hasipsio": "예쁩니다"
       },
       {
         "kr": "귀엽다",
@@ -278,7 +305,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "귀여워요",
         "zh": "可愛 / 討人喜愛",
         "icon": "🧸",
-        "tip": "해요體: 귀여워요 (ㅂ不規則) · 例: 아기가 참 귀여워요 (寶寶好萌)"
+        "tip": "(ㅂ不規則) · 例: 아기가 참 귀여워요 (寶寶好萌)",
+        "hasipsio": "귀엽습니다"
       },
       {
         "kr": "멋있다",
@@ -286,7 +314,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "멋있어요",
         "zh": "帥氣 / 有型瀟灑",
         "icon": "😎",
-        "tip": "해요體: 멋있어요 · 例: 배우가 정말 멋있어요 (演員真帥)"
+        "tip": "例: 배우가 정말 멋있어요 (演員真帥)",
+        "hasipsio": "멋있습니다"
       },
       {
         "kr": "아름답다",
@@ -294,7 +323,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "아름다워요",
         "zh": "美麗 / 優雅動人",
         "icon": "💎",
-        "tip": "해요體: 아름다워요 (ㅂ不規則) · 例: 노을이 아름다워요 (晚霞動人)"
+        "tip": "(ㅂ不規則) · 例: 노을이 아름다워요 (晚霞動人)",
+        "hasipsio": "아름답습니다"
       },
       {
         "kr": "깨끗하다",
@@ -302,7 +332,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "깨끗해요",
         "zh": "乾淨 / 整潔",
         "icon": "🫧",
-        "tip": "해요體: 깨끗해요 · 反義: 더럽다 · 例: 거리가 깨끗해요 (街道乾淨)"
+        "tip": "反義: 더럽다 · 例: 거리가 깨끗해요 (街道乾淨)",
+        "hasipsio": "깨끗합니다"
       },
       {
         "kr": "더럽다",
@@ -310,7 +341,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "더러워요",
         "zh": "骯髒 / 污穢",
         "icon": "🗑️",
-        "tip": "해요體: 더러워요 (ㅂ不規則) · 例: 손이 더러워요 (手髒了)"
+        "tip": "(ㅂ不規則) · 例: 손이 더러워요 (手髒了)",
+        "hasipsio": "더럽습니다"
       },
       {
         "kr": "조용하다",
@@ -318,7 +350,8 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "조용해요",
         "zh": "安靜 / 幽靜",
         "icon": "🤫",
-        "tip": "해요體: 조용해요 · 例: 도서관은 조용해요 (圖書館很安靜)"
+        "tip": "例: 도서관은 조용해요 (圖書館很安靜)",
+        "hasipsio": "조용합니다"
       },
       {
         "kr": "시끄럽다",
@@ -326,12 +359,9 @@ const ADJECTIVE_ENCYCLOPEDIA_PAGES = [
         "haeyo": "시끄러워요",
         "zh": "吵鬧 / 喧鬧",
         "icon": "📢",
-        "tip": "해요體: 시끄러워요 (ㅂ不規則) · 例: 밖이 시끄러워요 (外面吵)"
+        "tip": "(ㅂ不規則) · 例: 밖이 시끄러워요 (外面吵)",
+        "hasipsio": "시끄럽습니다"
       }
     ]
   }
 ];
-
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ADJECTIVE_ENCYCLOPEDIA_PAGES };
-}

@@ -279,11 +279,22 @@ class EncyclopediaApp {
               <div class="vocab-card" onclick="app.speak('${item.kr}', this)">
                 <div class="card-top">
                   <span class="card-icon">${item.icon || '🏷️'}</span>
-                  <button class="btn-sound-mini" title="點擊發音">🔊</button>
+                  <button class="btn-sound-mini" onclick="event.stopPropagation(); app.speak('${item.kr}', this.closest('.vocab-card'));" title="點擊發音: ${item.kr}">🔊</button>
                 </div>
                 <div class="card-word-ko">${item.kr}</div>
                 <div class="card-word-rom">${item.rom || ''}</div>
-                ${item.haeyo ? `<div class="card-haeyo-pill">⚡ 해요體: ${item.haeyo}</div>` : ''}
+                ${item.haeyo ? `
+                  <div class="conjugation-row">
+                    <div class="card-haeyo-pill">⚡ 해요體: ${item.haeyo}</div>
+                    <button class="btn-sound-pill" onclick="event.stopPropagation(); app.speak('${item.haeyo}', this);" title="發音: ${item.haeyo}">🔊</button>
+                  </div>
+                ` : ''}
+                ${item.hasipsio ? `
+                  <div class="conjugation-row">
+                    <div class="card-hasipsio-pill">「하십시오體」: ${item.hasipsio}</div>
+                    <button class="btn-sound-pill" onclick="event.stopPropagation(); app.speak('${item.hasipsio}', this);" title="發音: ${item.hasipsio}">🔊</button>
+                  </div>
+                ` : ''}
                 <div class="card-word-zh">${item.zh || ''}</div>
                 ${item.tip ? `<div class="card-tip">${item.tip}</div>` : ''}
               </div>
