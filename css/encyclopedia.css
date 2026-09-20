@@ -338,6 +338,17 @@ body[data-mode="sanrio_food"] {
   border-color: #FFFFFF !important;
 }
 
+.mode-tab-btn.active::after {
+  content: " ▾";
+  font-size: 0.72rem;
+  margin-left: 2px;
+  opacity: 0.85;
+}
+
+body.domain-popout-open .mode-tab-btn.active::after {
+  content: " ▴";
+}
+
 /* 1. 🌸 名詞 Noun - 珊瑚櫻花紅 (Coral Strawberry) */
 .mode-tab-btn[data-mode="noun"] {
   background: #FFF0F3;
@@ -620,62 +631,355 @@ body[data-mode="sanrio_food"] {
   box-shadow: 0 0 0 4px rgba(255, 64, 113, 0.25) !important;
 }
 
-/* 15 大生活領域水平滑動列 (馬卡龍糖果色標籤) */
-.domain-bar-container {
-  position: sticky;
-  top: 57px;
-  z-index: 95;
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  border-bottom: 1.5px solid var(--border-soft);
-  padding: 10px 16px;
+/* ==========================================================================
+   ✨ 彈出式副頁生活領域標籤抽屜 (Pop-out Sub-page Domain Drawer)
+   ========================================================================== */
+.domain-popout-wrapper {
+  position: relative;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 16px;
+  z-index: 90;
+  display: none; /* 預設隱藏：只看到 13 大合頁標籤，按進去才彈出 */
+}
+
+.domain-popout-wrapper.is-open {
+  display: block;
+  animation: popoutSlide 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes popoutSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.domain-popout-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid #FFD8E2;
+  border-radius: 20px;
+  padding: 12px 18px 14px;
+  box-shadow: 0 14px 36px rgba(255, 182, 193, 0.22), 0 4px 12px rgba(0, 0, 0, 0.04);
+  margin-bottom: 12px;
+}
+
+.domain-popout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #FFE0E8;
+}
+
+.domain-popout-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #4A5568;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.domain-popout-close {
+  background: #FFF0F4;
+  border: 1px solid #FFCCD7;
+  color: #E91E63;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  font-weight: 800;
+  transition: var(--transition-smooth);
+}
+
+.domain-popout-close:hover {
+  background: #FF4071;
+  color: #FFFFFF;
+  transform: scale(1.1);
 }
 
 .domain-bar {
-  max-width: 980px;
-  margin: 0 auto;
   display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  padding: 4px 2px;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 2px;
 }
 
 .domain-bar::-webkit-scrollbar {
-  display: none;
+  width: 5px;
 }
 
+.domain-bar::-webkit-scrollbar-thumb {
+  background: #FFCCD7;
+  border-radius: 10px;
+}
+
+/* ==========================================================================
+   🌈 副頁標籤專屬彩虹色彩體系 (Domain Sub-page Colorful Candy Pills)
+   ========================================================================== */
 .domain-tab-btn {
-  background: #FFFFFF;
-  border: 1.5px solid #FFE4EA;
+  border: 1.5px solid transparent;
   border-radius: var(--radius-pill);
-  padding: 7px 16px;
+  padding: 6px 14px;
   font-size: 0.85rem;
-  font-weight: 700;
-  color: #5C6274;
+  font-weight: 800;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   white-space: nowrap;
-  transition: var(--transition-smooth);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  user-select: none;
 }
 
 .domain-tab-btn:hover {
-  background: #FFF0F4;
-  border-color: #FFB8C8;
-  color: var(--primary);
   transform: translateY(-2px);
+  filter: brightness(1.05);
 }
 
 .domain-tab-btn.active {
-  background: linear-gradient(135deg, #FF6584 0%, #FF4071 100%);
-  color: #FFFFFF;
-  border-color: #FF4071;
-  box-shadow: 0 6px 16px rgba(255, 64, 113, 0.28);
-  transform: translateY(-2px);
+  color: #FFFFFF !important;
+  transform: translateY(-2px) scale(1.03);
+  border-color: #FFFFFF !important;
+}
+
+/* 0. 珊瑚櫻桃紅 */
+.domain-tab-btn[data-color="0"] {
+  background: #FFF0F3;
+  color: #D61B52;
+  border-color: #FFCCD7;
+}
+.domain-tab-btn[data-color="0"]:hover {
+  background: #FFE4EC;
+  border-color: #FF94AA;
+}
+.domain-tab-btn[data-color="0"].active {
+  background: linear-gradient(135deg, #FF5376 0%, #E61A4E 100%);
+  box-shadow: 0 4px 12px rgba(230, 26, 78, 0.35);
+}
+
+/* 1. 活力蜜柑橘 */
+.domain-tab-btn[data-color="1"] {
+  background: #FFF5EB;
+  color: #D95A00;
+  border-color: #FFE0C2;
+}
+.domain-tab-btn[data-color="1"]:hover {
+  background: #FFEAD4;
+  border-color: #FFB87A;
+}
+.domain-tab-btn[data-color="1"].active {
+  background: linear-gradient(135deg, #FF9500 0%, #E65100 100%);
+  box-shadow: 0 4px 12px rgba(230, 81, 0, 0.35);
+}
+
+/* 2. 暖金黃蜜 */
+.domain-tab-btn[data-color="2"] {
+  background: #FFFBEB;
+  color: #B45309;
+  border-color: #FDE68A;
+}
+.domain-tab-btn[data-color="2"]:hover {
+  background: #FEF3C7;
+  border-color: #FCD34D;
+}
+.domain-tab-btn[data-color="2"].active {
+  background: linear-gradient(135deg, #F59E0B 0%, #B45309 100%);
+  box-shadow: 0 4px 12px rgba(180, 83, 9, 0.35);
+}
+
+/* 3. 薄荷翡翠綠 */
+.domain-tab-btn[data-color="3"] {
+  background: #ECFDF5;
+  color: #047857;
+  border-color: #A7F3D0;
+}
+.domain-tab-btn[data-color="3"]:hover {
+  background: #D1FAE5;
+  border-color: #6EE7B7;
+}
+.domain-tab-btn[data-color="3"].active {
+  background: linear-gradient(135deg, #10B981 0%, #047857 100%);
+  box-shadow: 0 4px 12px rgba(4, 120, 87, 0.35);
+}
+
+/* 4. 湖水青碧藍 */
+.domain-tab-btn[data-color="4"] {
+  background: #ECFEFF;
+  color: #0E7490;
+  border-color: #A5F3FC;
+}
+.domain-tab-btn[data-color="4"]:hover {
+  background: #CFFAFE;
+  border-color: #67E8F9;
+}
+.domain-tab-btn[data-color="4"].active {
+  background: linear-gradient(135deg, #06B6D4 0%, #0E7490 100%);
+  box-shadow: 0 4px 12px rgba(14, 116, 144, 0.35);
+}
+
+/* 5. 蔚藍海寶石 */
+.domain-tab-btn[data-color="5"] {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border-color: #BFDBFE;
+}
+.domain-tab-btn[data-color="5"]:hover {
+  background: #DBEAFE;
+  border-color: #93C5FD;
+}
+.domain-tab-btn[data-color="5"].active {
+  background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.35);
+}
+
+/* 6. 靛青紫羅蘭 */
+.domain-tab-btn[data-color="6"] {
+  background: #EEF2FF;
+  color: #4338CA;
+  border-color: #C7D2FE;
+}
+.domain-tab-btn[data-color="6"]:hover {
+  background: #E0E7FF;
+  border-color: #A5B4FC;
+}
+.domain-tab-btn[data-color="6"].active {
+  background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%);
+  box-shadow: 0 4px 12px rgba(67, 56, 202, 0.35);
+}
+
+/* 7. 皇家香芋紫 */
+.domain-tab-btn[data-color="7"] {
+  background: #F5F3FF;
+  color: #6D28D9;
+  border-color: #DDD6FE;
+}
+.domain-tab-btn[data-color="7"]:hover {
+  background: #EDE9FE;
+  border-color: #C4B5FD;
+}
+.domain-tab-btn[data-color="7"].active {
+  background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%);
+  box-shadow: 0 4px 12px rgba(109, 40, 217, 0.35);
+}
+
+/* 8. 莓果洋紅 */
+.domain-tab-btn[data-color="8"] {
+  background: #FDF2F8;
+  color: #BE185D;
+  border-color: #FBCFE8;
+}
+.domain-tab-btn[data-color="8"]:hover {
+  background: #FCE7F3;
+  border-color: #F472B6;
+}
+.domain-tab-btn[data-color="8"].active {
+  background: linear-gradient(135deg, #EC4899 0%, #BE185D 100%);
+  box-shadow: 0 4px 12px rgba(190, 24, 93, 0.35);
+}
+
+/* 9. 薔薇胭脂紅 */
+.domain-tab-btn[data-color="9"] {
+  background: #FFF1F2;
+  color: #BE123C;
+  border-color: #FECDD3;
+}
+.domain-tab-btn[data-color="9"]:hover {
+  background: #FFE4E6;
+  border-color: #FDA4AF;
+}
+.domain-tab-btn[data-color="9"].active {
+  background: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%);
+  box-shadow: 0 4px 12px rgba(190, 18, 60, 0.35);
+}
+
+/* 10. 鮮蘋萊姆綠 */
+.domain-tab-btn[data-color="10"] {
+  background: #F7FEE7;
+  color: #4D7C0F;
+  border-color: #D9F99D;
+}
+.domain-tab-btn[data-color="10"]:hover {
+  background: #ECFCCB;
+  border-color: #BEF264;
+}
+.domain-tab-btn[data-color="10"].active {
+  background: linear-gradient(135deg, #84CC16 0%, #4D7C0F 100%);
+  box-shadow: 0 4px 12px rgba(77, 124, 15, 0.35);
+}
+
+/* 11. 湛藍晴空 */
+.domain-tab-btn[data-color="11"] {
+  background: #F0F9FF;
+  color: #0369A1;
+  border-color: #BAE6FD;
+}
+.domain-tab-btn[data-color="11"]:hover {
+  background: #E0F2FE;
+  border-color: #7DD3FC;
+}
+.domain-tab-btn[data-color="11"].active {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  box-shadow: 0 4px 12px rgba(3, 105, 161, 0.35);
+}
+
+/* 12. 甜心水蜜桃 */
+.domain-tab-btn[data-color="12"] {
+  background: #FFF1F5;
+  color: #D81B60;
+  border-color: #F8BBD0;
+}
+.domain-tab-btn[data-color="12"]:hover {
+  background: #FCE4EC;
+  border-color: #F48FB1;
+}
+.domain-tab-btn[data-color="12"].active {
+  background: linear-gradient(135deg, #FF6584 0%, #D81B60 100%);
+  box-shadow: 0 4px 12px rgba(216, 27, 96, 0.35);
+}
+
+/* 13. 暖金紅褐 */
+.domain-tab-btn[data-color="13"] {
+  background: #FFF7ED;
+  color: #C2410C;
+  border-color: #FFEDD5;
+}
+.domain-tab-btn[data-color="13"]:hover {
+  background: #FFEDD5;
+  border-color: #FDBA74;
+}
+.domain-tab-btn[data-color="13"].active {
+  background: linear-gradient(135deg, #F97316 0%, #C2410C 100%);
+  box-shadow: 0 4px 12px rgba(194, 65, 12, 0.35);
+}
+
+/* 14. 夢幻紫晶 */
+.domain-tab-btn[data-color="14"] {
+  background: #FAF5FF;
+  color: #7E22CE;
+  border-color: #E9D5FF;
+}
+.domain-tab-btn[data-color="14"]:hover {
+  background: #F3E8FF;
+  border-color: #D8B4FE;
+}
+.domain-tab-btn[data-color="14"].active {
+  background: linear-gradient(135deg, #A855F7 0%, #7E22CE 100%);
+  box-shadow: 0 4px 12px rgba(126, 34, 206, 0.35);
 }
 
 /* 主容器 */
@@ -1089,10 +1393,30 @@ body[data-mode="sanrio_food"] {
 .toc-item-num {
   font-size: 0.85rem;
   font-weight: 900;
-  color: #FF8FA3;
-  background: #FFF0F3;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.toc-item[data-color="0"] .toc-item-num { background: #FFF0F3; color: #D61B52; border-color: #FFCCD7; }
+.toc-item[data-color="1"] .toc-item-num { background: #FFF5EB; color: #D95A00; border-color: #FFE0C2; }
+.toc-item[data-color="2"] .toc-item-num { background: #FFFBEB; color: #B45309; border-color: #FDE68A; }
+.toc-item[data-color="3"] .toc-item-num { background: #ECFDF5; color: #047857; border-color: #A7F3D0; }
+.toc-item[data-color="4"] .toc-item-num { background: #ECFEFF; color: #0E7490; border-color: #A5F3FC; }
+.toc-item[data-color="5"] .toc-item-num { background: #EFF6FF; color: #1D4ED8; border-color: #BFDBFE; }
+.toc-item[data-color="6"] .toc-item-num { background: #EEF2FF; color: #4338CA; border-color: #C7D2FE; }
+.toc-item[data-color="7"] .toc-item-num { background: #F5F3FF; color: #6D28D9; border-color: #DDD6FE; }
+.toc-item[data-color="8"] .toc-item-num { background: #FDF2F8; color: #BE185D; border-color: #FBCFE8; }
+.toc-item[data-color="9"] .toc-item-num { background: #FFF1F2; color: #BE123C; border-color: #FECDD3; }
+.toc-item[data-color="10"] .toc-item-num { background: #F7FEE7; color: #4D7C0F; border-color: #D9F99D; }
+.toc-item[data-color="11"] .toc-item-num { background: #F0F9FF; color: #0369A1; border-color: #BAE6FD; }
+.toc-item[data-color="12"] .toc-item-num { background: #FFF1F5; color: #D81B60; border-color: #F8BBD0; }
+.toc-item[data-color="13"] .toc-item-num { background: #FFF7ED; color: #C2410C; border-color: #FFEDD5; }
+.toc-item[data-color="14"] .toc-item-num { background: #FAF5FF; color: #7E22CE; border-color: #E9D5FF; }
+
+.toc-item:hover {
+  transform: translateX(4px);
+  filter: brightness(0.98);
 }
 
 .toc-item-title {

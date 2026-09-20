@@ -56,7 +56,18 @@
      - **動態模式**：純 CSS 極致靜態流暢，零效能消耗與耗電負擔。
    - 規格檔歸檔於 [`rdq/RDQ-spec-encyclopedia-background-20260920.md`](./rdq/RDQ-spec-encyclopedia-background-20260920.md)。
 
-5. **專屬資料集檔案清單 (全部 13 份)**：
+5. **副頁標籤彩虹化與彈出式抽屜升級（依紅圈與綠圈指示）**：
+   - **綠圈指示（只見 13 大標籤，點入才彈出副頁）**：
+     - 首頁與動詞頁頂部預設**僅顯示 13 大合頁標籤**，畫面極致乾淨。
+     - 當使用者點選任一合頁標籤（或點擊已選標籤）時，**即刻優雅彈出（Pop-out）副頁領域主題抽屜**（`.domain-popout-wrapper`），並可隨時點擊 `✕` 或空白處收起。
+     - Active 標籤右側配備動態 `▾` / `▴` 開合指示箭頭。
+   - **紅圈指示（副頁標籤全數賦予不同獨立色彩）**：
+     - 副頁標籤徹底告別過去「僅 active 一顆有顏色、其餘皆死白灰字」的單調問題。
+     - 全面建構 15 大獨立彩虹主題色系（`data-color="0..14"`），包含珊瑚紅、蜜柑橘、金蜜黃、翡翠綠、青碧藍、海寶藍、紫羅蘭、香芋紫、洋紅、胭脂紅、萊姆綠、晴空藍、蜜桃粉、紅褐、紫晶等。
+     - 每一顆副頁標籤均擁有專屬的柔和粉嫩底色、同色系邊框與高飽和文字，選取時綻放立體飽和漸層與微光。
+   - **主題目錄彈窗 (TOC Modal) 同步升級**：目錄列表數字序號膠囊同步依領域輪換專屬彩虹標色。
+
+6. **專屬資料集檔案清單 (全部 13 份)**：
    - [`js/encyclopedia_data.js`](./js/encyclopedia_data.js) (名詞)
    - [`js/verbs_data.js`](./js/verbs_data.js) (動詞)
    - [`js/adjectives_data.js`](./js/adjectives_data.js) (形容詞)
@@ -75,8 +86,8 @@
 
 ## 🚦 目前狀態
 
-- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`，13 大模式色彩分明、日系方眼手帳背景層次分明、雙敬語發音與圖鑑功能運作流暢。
-- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css`、`rdq/RDQ-spec-encyclopedia-background-20260920.md` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
+- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。首頁僅展示 13 大合頁標籤，點選即彈出 15 色多彩副頁領域膠囊抽屜，體驗順暢。
+- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
 
 ---
 
@@ -96,6 +107,6 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 16:32 PT
+- **時間**：2026-09-20 16:48 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 

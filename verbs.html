@@ -28,73 +28,82 @@
   <div class="mode-switcher-container">
     <div class="mode-switch-pill" role="tablist" aria-label="圖鑑模式分類切換">
       <!-- 📚 核心品詞 (7) -->
-      <button class="mode-tab-btn" data-mode="noun" onclick="app.setMode('noun')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="noun" onclick="app.setMode('noun', true)" role="tab" aria-selected="false">
         <span>🌸</span>
         <span>名詞 Noun</span>
       </button>
-      <button class="mode-tab-btn active" data-mode="verb" onclick="app.setMode('verb')" role="tab" aria-selected="true">
+      <button class="mode-tab-btn active" data-mode="verb" onclick="app.setMode('verb', true)" role="tab" aria-selected="true">
         <span>⚡</span>
         <span>動詞 Verb</span>
       </button>
-      <button class="mode-tab-btn" data-mode="adjective" onclick="app.setMode('adjective')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="adjective" onclick="app.setMode('adjective', true)" role="tab" aria-selected="false">
         <span>🌈</span>
         <span>形容詞 Adjective</span>
       </button>
-      <button class="mode-tab-btn" data-mode="adverb" onclick="app.setMode('adverb')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="adverb" onclick="app.setMode('adverb', true)" role="tab" aria-selected="false">
         <span>✨</span>
         <span>副詞 Adverb</span>
       </button>
-      <button class="mode-tab-btn" data-mode="pronoun" onclick="app.setMode('pronoun')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="pronoun" onclick="app.setMode('pronoun', true)" role="tab" aria-selected="false">
         <span>👤</span>
         <span>代名詞 Pronoun</span>
       </button>
-      <button class="mode-tab-btn" data-mode="proper_noun" onclick="app.setMode('proper_noun')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="proper_noun" onclick="app.setMode('proper_noun', true)" role="tab" aria-selected="false">
         <span>🏛️</span>
         <span>專有名詞 Proper Noun</span>
       </button>
-      <button class="mode-tab-btn" data-mode="dependent_noun" onclick="app.setMode('dependent_noun')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="dependent_noun" onclick="app.setMode('dependent_noun', true)" role="tab" aria-selected="false">
         <span>📦</span>
         <span>依存名詞 Dependent Noun</span>
       </button>
 
       <!-- 🧩 語法核心 (4) -->
       <span class="mode-divider" title="語法核心"></span>
-      <button class="mode-tab-btn" data-mode="numeral" onclick="app.setMode('numeral')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="numeral" onclick="app.setMode('numeral', true)" role="tab" aria-selected="false">
         <span>🔢</span>
         <span>數字雙系統 Numeral</span>
       </button>
-      <button class="mode-tab-btn" data-mode="determiner" onclick="app.setMode('determiner')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="determiner" onclick="app.setMode('determiner', true)" role="tab" aria-selected="false">
         <span>🔤</span>
         <span>冠形詞 Determiner</span>
       </button>
-      <button class="mode-tab-btn" data-mode="particle" onclick="app.setMode('particle')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="particle" onclick="app.setMode('particle', true)" role="tab" aria-selected="false">
         <span>🧩</span>
         <span>核心助詞 Particle</span>
       </button>
-      <button class="mode-tab-btn" data-mode="greeting" onclick="app.setMode('greeting')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="greeting" onclick="app.setMode('greeting', true)" role="tab" aria-selected="false">
         <span>💬</span>
         <span>生活問候 Greeting</span>
       </button>
 
       <!-- 🌟 專題圖鑑 (2) -->
       <span class="mode-divider" title="專題圖鑑"></span>
-      <button class="mode-tab-btn" data-mode="loanword" onclick="app.setMode('loanword')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="loanword" onclick="app.setMode('loanword', true)" role="tab" aria-selected="false">
         <span>🌍</span>
         <span>外來語借詞 Loanword</span>
       </button>
-      <button class="mode-tab-btn" data-mode="sanrio_food" onclick="app.setMode('sanrio_food')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn" data-mode="sanrio_food" onclick="app.setMode('sanrio_food', true)" role="tab" aria-selected="false">
         <span>🍲</span>
         <span>三麗鷗美食 Sanrio Food</span>
       </button>
     </div>
   </div>
 
-  <!-- 領域水平滑動標籤列 -->
-  <nav class="domain-bar-container" aria-label="領域分類導航">
-    <div class="domain-bar" id="domain-bar">
-      <!-- JS 動態生成領域快捷標籤 -->
+  <!-- 彈出式副頁生活領域標籤抽屜 (Pop-out Sub-page Domain Drawer) -->
+  <div class="domain-popout-wrapper" id="domain-popout-wrapper" aria-label="副頁領域彈出導航">
+    <div class="domain-popout-card">
+      <div class="domain-popout-header">
+        <div class="domain-popout-title" id="domain-popout-title">
+          <span>⚡</span>
+          <span>動詞 · 副頁領域主題</span>
+        </div>
+        <button class="domain-popout-close" id="btn-close-domain-popout" onclick="app.closeDomainPopout()" title="收起副頁標籤">✕</button>
+      </div>
+      <div class="domain-bar" id="domain-bar">
+        <!-- JS 動態生成領域快捷彩色標籤 -->
+      </div>
     </div>
-  </nav>
+  </div>
 
   <!-- 主閱讀器畫布 -->
   <main class="encyclopedia-container">

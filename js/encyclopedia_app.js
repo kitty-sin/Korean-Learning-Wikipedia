@@ -98,6 +98,7 @@ class EncyclopediaApp {
     this.pages = this.modes[this.currentMode].pages;
     this.currentPageIndex = 0;
     this.synth = window.speechSynthesis || null;
+    this.isDomainPopoutOpen = false;
 
     // 同步 body data-mode 屬性以驅動背景主題色氛圍聯動
     document.body.dataset.mode = this.currentMode;
@@ -120,11 +121,21 @@ class EncyclopediaApp {
     this.btnCloseModal = document.getElementById('btn-close-modal');
     this.tocList = document.getElementById('toc-list');
     this.domainBar = document.getElementById('domain-bar');
+    this.domainPopoutWrapper = document.getElementById('domain-popout-wrapper');
+    this.domainPopoutTitle = document.getElementById('domain-popout-title');
+    this.btnCloseDomainPopout = document.getElementById('btn-close-domain-popout');
   }
 
-  // 切換 13 大百科圖鑑模式
-  setMode(mode) {
+  // 切換 13 大百科圖鑑模式 (支援點選時彈出副頁標籤抽屜)
+  setMode(mode, fromTabClick = false) {
     if (!this.modes[mode]) return;
+
+    // 若點選當前已經作用中 (active) 的標籤，切換副頁彈出抽屜之開關
+    if (fromTabClick && this.currentMode === mode) {
+      this.toggleDomainPopout();
+      return;
+    }
+
     this.currentMode = mode;
     this.pages = this.modes[mode].pages;
     this.currentPageIndex = 0;
@@ -144,10 +155,42 @@ class EncyclopediaApp {
 
     this.renderDomainSelector();
     this.render();
+
+    // 依使用者指示：點進去才彈出看到副頁標籤
+    if (fromTabClick) {
+      this.openDomainPopout();
+    } else {
+      this.closeDomainPopout();
+    }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // 頂部生活領域快捷水平滾動列
+  toggleDomainPopout() {
+    if (this.isDomainPopoutOpen) {
+      this.closeDomainPopout();
+    } else {
+      this.openDomainPopout();
+    }
+  }
+
+  openDomainPopout() {
+    this.isDomainPopoutOpen = true;
+    if (this.domainPopoutWrapper) {
+      this.domainPopoutWrapper.classList.add('is-open');
+    }
+    document.body.classList.add('domain-popout-open');
+  }
+
+  closeDomainPopout() {
+    this.isDomainPopoutOpen = false;
+    if (this.domainPopoutWrapper) {
+      this.domainPopoutWrapper.classList.remove('is-open');
+    }
+    document.body.classList.remove('domain-popout-open');
+  }
+
+  // 彈出式副頁生活領域快捷彩虹標籤列
   renderDomainSelector() {
     if (!this.domainBar) return;
 
@@ -157,15 +200,27 @@ class EncyclopediaApp {
       if (!domainMap.has(p.domainId)) {
         domainMap.set(p.domainId, {
           domainId: p.domainId,
-          name: p.domainName.replace(/^v?\d+_/, ''),
+          name: p.domainName.replace(/^(v|adj|adv|pro|prop|dep|num|det|par|grt|loan|s)?\d+_/, ''),
           icon: p.domainIcon,
           firstPageIndex: idx
         });
       }
     });
 
-    this.domainBar.innerHTML = Array.from(domainMap.values()).map(d => `
-      <button class="domain-tab-btn" data-domain="${d.domainId}" data-index="${d.firstPageIndex}" onclick="app.goToPage(${d.firstPageIndex})">
+    const domains = Array.from(domainMap.values());
+    const modeConfig = this.modes[this.currentMode] || { label: '百科', icon: '📖' };
+
+    // 更新彈出抽屜頂部標題與總數
+    if (this.domainPopoutTitle) {
+      this.domainPopoutTitle.innerHTML = `
+        <span>${modeConfig.icon}</span>
+        <span>${modeConfig.label} · 副頁領域主題 (共 ${domains.length} 個主題)</span>
+      `;
+    }
+
+    // 賦予每張副頁標籤專屬獨立的彩虹色彩 (data-color 0~14)
+    this.domainBar.innerHTML = domains.map((d, idx) => `
+      <button class="domain-tab-btn" data-domain="${d.domainId}" data-color="${idx % 15}" data-index="${d.firstPageIndex}" onclick="app.goToPage(${d.firstPageIndex});">
         <span class="domain-tab-icon">${d.icon}</span>
         <span class="domain-tab-label">${d.name}</span>
       </button>
@@ -194,6 +249,17 @@ class EncyclopediaApp {
       });
     }
 
+    // 點擊外部關閉副頁彈出抽屜
+    document.addEventListener('click', (e) => {
+      if (this.isDomainPopoutOpen && this.domainPopoutWrapper) {
+        const inPopout = this.domainPopoutWrapper.contains(e.target);
+        const inTabs = e.target.closest('.mode-switcher-container');
+        if (!inPopout && !inTabs) {
+          this.closeDomainPopout();
+        }
+      }
+    });
+
     // 鍵盤左右鍵翻頁
     window.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') {
@@ -202,6 +268,7 @@ class EncyclopediaApp {
         this.nextPage();
       } else if (e.key === 'Escape') {
         this.closeToc();
+        this.closeDomainPopout();
       }
     });
 
@@ -359,7 +426,7 @@ class EncyclopediaApp {
     if (tocModalTitle) tocModalTitle.textContent = modeName;
 
     this.tocList.innerHTML = this.pages.map((p, idx) => `
-      <div class="toc-item ${idx === this.currentPageIndex ? 'active' : ''}" onclick="app.goToPage(${idx}); app.closeToc();">
+      <div class="toc-item ${idx === this.currentPageIndex ? 'active' : ''}" data-color="${idx % 15}" onclick="app.goToPage(${idx}); app.closeToc();">
         <div class="toc-item-left">
           <span class="toc-item-num">${String(idx + 1).padStart(2, '0')}</span>
           <span style="font-size:1.3rem;">${p.domainIcon || '📖'}</span>
