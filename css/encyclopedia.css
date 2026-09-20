@@ -1,0 +1,608 @@
+/* ==========================================================================
+   韓語圖解百科全書 (Korean Visual Illustrated Encyclopedia)
+   視覺系統：日韓清新生活雜誌風、低認知負荷、舒適留白、大字體點讀
+   ========================================================================== */
+
+:root {
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --bg-canvas: #FAF8F5;
+  --bg-card: #FFFFFF;
+  --text-main: #2C3437;
+  --text-sub: #5C6B73;
+  --text-rom: #889296;
+  --border-soft: #EFECE6;
+  --primary: #4A90E2;
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --shadow-card: 0 6px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 10px 28px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --transition-smooth: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-canvas);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* 頂部導航列 */
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250, 248, 245, 0.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-badge {
+  background: #FFE8EC;
+  color: #E91E63;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #2D3748;
+  letter-spacing: -0.3px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-toc, .btn-audio-toggle {
+  background: #FFFFFF;
+  border: 1px solid var(--border-soft);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: var(--transition-smooth);
+}
+
+.btn-toc:hover, .btn-audio-toggle:hover {
+  background: #F4F0E8;
+  transform: translateY(-1px);
+}
+
+/* 主容器 */
+.encyclopedia-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 20px 100px;
+  width: 100%;
+  flex: 1;
+}
+
+/* 頂部頁面進度條 */
+.page-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.page-stepper {
+  display: flex;
+  gap: 6px;
+}
+
+.step-dot {
+  width: 24px;
+  height: 6px;
+  border-radius: 4px;
+  background: #E2DCD2;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.step-dot.active {
+  width: 42px;
+  background: var(--primary);
+}
+
+.page-counter {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-sub);
+}
+
+/* 單元百科卡片（雜誌主頁） */
+.book-page-canvas {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-card);
+  padding: 36px 40px;
+  position: relative;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 頁面頂部 Header */
+.page-hero {
+  border-bottom: 2px dashed #F0EAE1;
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.page-category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  background: #EDF2F7;
+  color: #4A5568;
+}
+
+.page-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.page-title-ko {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #1A202C;
+  letter-spacing: -0.5px;
+}
+
+.page-title-zh {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #4A5568;
+}
+
+.page-title-rom {
+  font-size: 0.95rem;
+  color: var(--text-rom);
+  font-style: italic;
+  margin-left: 4px;
+}
+
+.page-desc {
+  font-size: 0.95rem;
+  color: var(--text-sub);
+  line-height: 1.6;
+}
+
+/* 章節分組 */
+.page-section {
+  margin-bottom: 36px;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-heading {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #2D3748;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 卡片排版風格 1：標準網格卡 (Cards Grid) */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+/* 緊湊網格卡 (4~5 欄) */
+.cards-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+/* 單個詞條卡片 (Vocab Card) */
+.vocab-card {
+  background: #FAF8F5;
+  border: 1px solid #ECE6DB;
+  border-radius: var(--radius-md);
+  padding: 16px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.vocab-card:hover {
+  background: #FFFFFF;
+  border-color: #D3C9B8;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.vocab-card:active {
+  transform: scale(0.98);
+}
+
+.vocab-card.is-playing {
+  border-color: var(--primary);
+  background: #F0F7FF;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.card-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.btn-sound-mini {
+  background: rgba(0, 0, 0, 0.04);
+  color: #6C7A89;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  transition: var(--transition-smooth);
+}
+
+.vocab-card:hover .btn-sound-mini {
+  background: var(--primary);
+  color: #FFFFFF;
+}
+
+.card-word-ko {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #1A202C;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.card-word-rom {
+  font-size: 0.8rem;
+  color: var(--text-rom);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.card-word-zh {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2C3E50;
+  line-height: 1.3;
+}
+
+.card-tip {
+  font-size: 0.76rem;
+  color: #7F8C8D;
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #E2DCD2;
+}
+
+/* 橫條藥丸式卡片 (Pills List) */
+.pills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.pill-card {
+  background: #FAF8F5;
+  border: 1px solid #ECE6DB;
+  border-radius: 30px;
+  padding: 10px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.pill-card:hover {
+  background: #FFFFFF;
+  border-color: #D3C9B8;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.pill-card.is-playing {
+  border-color: var(--primary);
+  background: #F0F7FF;
+}
+
+.pill-icon {
+  font-size: 1.4rem;
+}
+
+.pill-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pill-ko {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1A202C;
+}
+
+.pill-zh {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4A5568;
+}
+
+/* 男稱 vs 女稱對照盒 (Family Comparison Box) */
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.comparison-box {
+  background: #FDFCF9;
+  border: 1.5px dashed #E5DEC9;
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.comparison-label {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #8E44AD;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.comparison-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 底部常駐換頁控制列 (Floating Navigation Bar) */
+.bottom-nav-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 8px 16px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
+}
+
+.nav-btn {
+  background: #F4F0E8;
+  border: none;
+  color: var(--text-main);
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: var(--text-main);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.nav-page-info {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #4A5568;
+  letter-spacing: 0.5px;
+}
+
+/* 百科全域目錄抽屜 (Table of Contents Modal) */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-backdrop.show {
+  display: flex;
+}
+
+.toc-modal {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  max-width: 580px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.toc-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1A202C;
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  color: #A0AEC0;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid #EDF2F7;
+  background: #FDFCF9;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.toc-item:hover {
+  background: #F4F0E8;
+  border-color: #CBD5E0;
+  transform: translateX(4px);
+}
+
+.toc-item.active {
+  background: #EBF8FF;
+  border-color: #3182CE;
+}
+
+.toc-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toc-item-num {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #A0AEC0;
+}
+
+.toc-item-title {
+  font-weight: 700;
+  color: #2D3748;
+}
+
+.toc-item-zh {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+/* 響應式優化 */
+@media (max-width: 768px) {
+  .book-page-canvas {
+    padding: 24px 20px;
+  }
+  .page-title-ko {
+    font-size: 1.75rem;
+  }
+  .cards-grid, .cards-grid-compact {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .bottom-nav-bar {
+    width: calc(100% - 32px);
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+  .nav-btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>韓語圖解生活百科全書 · Korean Visual Encyclopedia</title>
+  <meta name="description" content="韓語生活圖解百科全書：每頁聚焦核心生活單字、清晰圖像、道地繁體中文釋義、韓文發音點讀與極致舒適留白排版。">
+  <!-- 引入樣式表 -->
+  <link rel="stylesheet" href="css/encyclopedia.css">
+</head>
+<body>
+
+  <!-- 頂部常駐導航列 -->
+  <header class="app-header">
+    <div class="brand-area">
+      <span class="brand-badge">Visual Encyclopedia</span>
+      <div class="brand-title">📖 韓語生活圖解百科全書</div>
+    </div>
+    <div class="header-controls">
+      <button class="btn-toc" id="btn-toc">
+        <span>📑</span>
+        <span>百科目錄</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 主閱讀器畫布 -->
+  <main class="encyclopedia-container">
+    <!-- 頂部進度條 -->
+    <div class="page-progress-bar">
+      <div class="page-stepper" id="page-stepper">
+        <!-- JS 動態生成 Dot 點點 -->
+      </div>
+      <div class="page-counter" id="page-counter">01 / 05</div>
+    </div>
+
+    <!-- 雜誌書籍主頁面 -->
+    <article class="book-page-canvas" id="page-canvas">
+      <!-- JS 動態渲染本頁主題內容 -->
+    </article>
+  </main>
+
+  <!-- 底部常駐換頁控制列 -->
+  <nav class="bottom-nav-bar" aria-label="翻頁導航">
+    <button class="nav-btn" id="btn-prev" disabled>
+      <span>←</span>
+      <span>上一頁</span>
+    </button>
+    <div class="nav-page-info" id="nav-page-info">Page 01 / 05</div>
+    <button class="nav-btn" id="btn-next">
+      <span>下一頁</span>
+      <span>→</span>
+    </button>
+  </nav>
+
+  <!-- 百科全域目錄彈窗 (Table of Contents Modal) -->
+  <div class="modal-backdrop" id="toc-modal" role="dialog" aria-modal="true">
+    <div class="toc-modal">
+      <div class="toc-header">
+        <div class="toc-title">📚 圖解百科主題總覽</div>
+        <button class="btn-close-modal" id="btn-close-modal" aria-label="關閉目錄">✕</button>
+      </div>
+      <div class="toc-list" id="toc-list">
+        <!-- JS 動態渲染目錄列表 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 載入資料集與應用核心邏輯 -->
+  <script src="js/encyclopedia_data.js"></script>
+  <script src="js/encyclopedia_app.js"></script>
+</body>
+</html>
