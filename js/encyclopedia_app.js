@@ -1,12 +1,15 @@
 /**
  * 韓語全量圖解生活百科全書互動引擎 (Encyclopedia App Logic)
- * 涵蓋 15 大生活領域、29 個單元頁、300+ 核心生活詞彙
- * 支援：領域快捷選單、翻頁動畫、點擊真人發音、全域目錄抽屜、鍵盤與手勢操作
+ * 支援雙圖鑑模式：【🌸 生活名詞圖鑑 (Noun · 29頁)】與【⚡ 日常動詞圖鑑 (Verb · 12領域)】
+ * 嚴格遵循：清晰圖像、純繁中解釋、韓文原形、日常해요體變形、真人語音點讀與極致舒適留白
  */
 
 class EncyclopediaApp {
   constructor() {
-    this.pages = typeof ENCYCLOPEDIA_PAGES !== 'undefined' ? ENCYCLOPEDIA_PAGES : [];
+    this.currentMode = 'noun'; // 'noun' 或 'verb'
+    this.nounPages = typeof ENCYCLOPEDIA_PAGES !== 'undefined' ? ENCYCLOPEDIA_PAGES : [];
+    this.verbPages = typeof VERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? VERB_ENCYCLOPEDIA_PAGES : [];
+    this.pages = this.nounPages;
     this.currentPageIndex = 0;
     this.synth = window.speechSynthesis || null;
 
@@ -28,19 +31,54 @@ class EncyclopediaApp {
     this.btnCloseModal = document.getElementById('btn-close-modal');
     this.tocList = document.getElementById('toc-list');
     this.domainBar = document.getElementById('domain-bar');
+    this.tabNoun = document.getElementById('tab-noun');
+    this.tabVerb = document.getElementById('tab-verb');
   }
 
-  // 頂部 15 大生活領域快捷水平滾動列
+  // 切換名詞篇 / 動詞篇
+  setMode(mode) {
+    if (this.currentMode === mode) return;
+    this.currentMode = mode;
+    this.currentPageIndex = 0;
+
+    if (mode === 'noun') {
+      this.pages = this.nounPages;
+      if (this.tabNoun) {
+        this.tabNoun.classList.add('active');
+        this.tabNoun.setAttribute('aria-selected', 'true');
+      }
+      if (this.tabVerb) {
+        this.tabVerb.classList.remove('active');
+        this.tabVerb.setAttribute('aria-selected', 'false');
+      }
+    } else {
+      this.pages = this.verbPages;
+      if (this.tabVerb) {
+        this.tabVerb.classList.add('active');
+        this.tabVerb.setAttribute('aria-selected', 'true');
+      }
+      if (this.tabNoun) {
+        this.tabNoun.classList.remove('active');
+        this.tabNoun.setAttribute('aria-selected', 'false');
+      }
+    }
+
+    this.renderDomainSelector();
+    this.render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // 頂部生活領域快捷水平滾動列
   renderDomainSelector() {
     if (!this.domainBar) return;
 
-    // 提取不重複的 15 大領域
+    // 提取不重複的領域
     const domainMap = new Map();
     this.pages.forEach((p, idx) => {
       if (!domainMap.has(p.domainId)) {
         domainMap.set(p.domainId, {
           domainId: p.domainId,
-          name: p.domainName.replace(/^\d+_/, ''),
+          name: p.domainName.replace(/^v?\d+_/, ''),
           icon: p.domainIcon,
           firstPageIndex: idx
         });
@@ -113,8 +151,9 @@ class EncyclopediaApp {
 
     // 更新指示器與計數
     const pageNumStr = `${String(this.currentPageIndex + 1).padStart(2, '0')} / ${String(this.pages.length).padStart(2, '0')}`;
-    if (this.pageCounter) this.pageCounter.textContent = pageNumStr;
-    if (this.navPageInfo) this.navPageInfo.textContent = `Page ${pageNumStr}`;
+    const modeBadge = this.currentMode === 'noun' ? '名詞篇' : '動詞篇';
+    if (this.pageCounter) this.pageCounter.textContent = `${modeBadge} ${pageNumStr}`;
+    if (this.navPageInfo) this.navPageInfo.textContent = `${modeBadge} Page ${pageNumStr}`;
 
     // 更新 Stepper Dots
     if (this.pageStepper) {
@@ -170,6 +209,7 @@ class EncyclopediaApp {
                 </div>
                 <div class="card-word-ko">${item.kr}</div>
                 <div class="card-word-rom">${item.rom || ''}</div>
+                ${item.haeyo ? `<div class="card-haeyo-pill">⚡ 해요體: ${item.haeyo}</div>` : ''}
                 <div class="card-word-zh">${item.zh || ''}</div>
                 ${item.tip ? `<div class="card-tip">${item.tip}</div>` : ''}
               </div>
@@ -222,6 +262,10 @@ class EncyclopediaApp {
 
   openToc() {
     if (!this.tocList || !this.tocModal) return;
+    const modeName = this.currentMode === 'noun' ? '🌸 名詞篇主題目錄' : '⚡ 動詞篇主題目錄';
+    const tocModalTitle = document.querySelector('.toc-modal .toc-title');
+    if (tocModalTitle) tocModalTitle.textContent = modeName;
+
     this.tocList.innerHTML = this.pages.map((p, idx) => `
       <div class="toc-item ${idx === this.currentPageIndex ? 'active' : ''}" onclick="app.goToPage(${idx}); app.closeToc();">
         <div class="toc-item-left">

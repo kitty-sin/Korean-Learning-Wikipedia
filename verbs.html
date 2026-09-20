@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>韓語圖解生活百科全書 · Korean Visual Encyclopedia</title>
-  <meta name="description" content="韓語生活圖解百科全書：每頁聚焦核心生活單字、清晰圖像、道地繁體中文釋義、韓文發音點讀與極致舒適留白排版。">
+  <title>韓語圖解日常動詞百科 · Korean Visual Verb Encyclopedia</title>
+  <meta name="description" content="韓語日常動詞圖解百科：涵蓋12大動作生活領域、韓文原形、日常해요體變形、實用生活搭配句、清晰動作圖示與真人發音點讀。">
   <!-- 引入樣式表 -->
   <link rel="stylesheet" href="css/encyclopedia.css">
 </head>
@@ -13,13 +13,13 @@
   <!-- 頂部常駐導航列 -->
   <header class="app-header">
     <div class="brand-area">
-      <span class="brand-badge">Visual Encyclopedia</span>
-      <div class="brand-title">📖 韓語生活圖解百科全書</div>
+      <span class="brand-badge" style="background:linear-gradient(135deg, #FFF3E0, #FFE0B2);color:#E65100;">Verb Encyclopedia</span>
+      <div class="brand-title">⚡ 韓語日常動詞圖解百科</div>
     </div>
     <div class="header-controls">
       <button class="btn-toc" id="btn-toc">
         <span>📑</span>
-        <span>百科目錄</span>
+        <span>動詞目錄</span>
       </button>
     </div>
   </header>
@@ -27,18 +27,18 @@
   <!-- 名詞 / 動詞雙圖鑑模式切換列 -->
   <div class="mode-switcher-container">
     <div class="mode-switch-pill" role="tablist" aria-label="圖鑑類別切換">
-      <button class="mode-tab-btn active" id="tab-noun" onclick="app.setMode('noun')" role="tab" aria-selected="true">
+      <button class="mode-tab-btn" id="tab-noun" onclick="app.setMode('noun')" role="tab" aria-selected="false">
         <span>🌸</span>
         <span>生活名詞圖鑑 (Noun · 29頁)</span>
       </button>
-      <button class="mode-tab-btn" id="tab-verb" onclick="app.setMode('verb')" role="tab" aria-selected="false">
+      <button class="mode-tab-btn active" id="tab-verb" onclick="app.setMode('verb')" role="tab" aria-selected="true">
         <span>⚡</span>
         <span>日常動詞圖鑑 (Verb · 12領域)</span>
       </button>
     </div>
   </div>
 
-  <!-- 生活領域水平滑動標籤列 -->
+  <!-- 領域水平滑動標籤列 -->
   <nav class="domain-bar-container" aria-label="領域分類導航">
     <div class="domain-bar" id="domain-bar">
       <!-- JS 動態生成領域快捷標籤 -->
@@ -52,7 +52,7 @@
       <div class="page-stepper" id="page-stepper">
         <!-- JS 動態生成 Dot 點點 -->
       </div>
-      <div class="page-counter" id="page-counter">01 / 05</div>
+      <div class="page-counter" id="page-counter">動詞篇 01 / 12</div>
     </div>
 
     <!-- 雜誌書籍主頁面 -->
@@ -67,7 +67,7 @@
       <span>←</span>
       <span>上一頁</span>
     </button>
-    <div class="nav-page-info" id="nav-page-info">Page 01 / 05</div>
+    <div class="nav-page-info" id="nav-page-info">動詞篇 Page 01 / 12</div>
     <button class="nav-btn" id="btn-next">
       <span>下一頁</span>
       <span>→</span>
@@ -78,7 +78,7 @@
   <div class="modal-backdrop" id="toc-modal" role="dialog" aria-modal="true">
     <div class="toc-modal">
       <div class="toc-header">
-        <div class="toc-title">📚 圖解百科主題總覽</div>
+        <div class="toc-title">⚡ 動詞篇主題目錄</div>
         <button class="btn-close-modal" id="btn-close-modal" aria-label="關閉目錄">✕</button>
       </div>
       <div class="toc-list" id="toc-list">
@@ -91,5 +91,13 @@
   <script src="js/encyclopedia_data.js"></script>
   <script src="js/verbs_data.js"></script>
   <script src="js/encyclopedia_app.js"></script>
+  <script>
+    // 預設進入動詞篇模式
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.app) {
+        window.app.setMode('verb');
+      }
+    });
+  </script>
 </body>
 </html>
