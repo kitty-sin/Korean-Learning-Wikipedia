@@ -8,49 +8,90 @@ class EncyclopediaApp {
   constructor() {
     this.currentMode = 'noun';
     
-    // 7 大詞性圖鑑資料庫註冊
+    // 13 大全景韓語圖解資料庫註冊
     this.modes = {
+      // 📚 核心品詞 (7)
       noun: {
         id: 'noun',
-        label: '名詞篇',
+        label: '生活名詞',
         icon: '🌸',
         pages: typeof ENCYCLOPEDIA_PAGES !== 'undefined' ? ENCYCLOPEDIA_PAGES : []
       },
       verb: {
         id: 'verb',
-        label: '動詞篇',
+        label: '日常動詞',
         icon: '⚡',
         pages: typeof VERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? VERB_ENCYCLOPEDIA_PAGES : []
       },
       adjective: {
         id: 'adjective',
-        label: '形容詞篇',
+        label: '描摹形容詞',
         icon: '🌈',
         pages: typeof ADJECTIVE_ENCYCLOPEDIA_PAGES !== 'undefined' ? ADJECTIVE_ENCYCLOPEDIA_PAGES : []
       },
       adverb: {
         id: 'adverb',
-        label: '副詞篇',
+        label: '程度副詞',
         icon: '✨',
         pages: typeof ADVERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? ADVERB_ENCYCLOPEDIA_PAGES : []
       },
       pronoun: {
         id: 'pronoun',
-        label: '代名詞篇',
+        label: '人稱指示代名詞',
         icon: '👤',
         pages: typeof PRONOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? PRONOUN_ENCYCLOPEDIA_PAGES : []
       },
       proper_noun: {
         id: 'proper_noun',
-        label: '專有名詞篇',
+        label: '地理專有名詞',
         icon: '🏛️',
         pages: typeof PROPER_NOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? PROPER_NOUN_ENCYCLOPEDIA_PAGES : []
       },
       dependent_noun: {
         id: 'dependent_noun',
-        label: '依存名詞篇',
+        label: '量詞依存名詞',
         icon: '📦',
         pages: typeof DEPENDENT_NOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? DEPENDENT_NOUN_ENCYCLOPEDIA_PAGES : []
+      },
+
+      // 🧩 語法核心 (4)
+      numeral: {
+        id: 'numeral',
+        label: '數字雙系統',
+        icon: '🔢',
+        pages: typeof NUMERAL_ENCYCLOPEDIA_PAGES !== 'undefined' ? NUMERAL_ENCYCLOPEDIA_PAGES : []
+      },
+      determiner: {
+        id: 'determiner',
+        label: '冠形詞',
+        icon: '🔤',
+        pages: typeof DETERMINER_ENCYCLOPEDIA_PAGES !== 'undefined' ? DETERMINER_ENCYCLOPEDIA_PAGES : []
+      },
+      particle: {
+        id: 'particle',
+        label: '核心助詞',
+        icon: '🧩',
+        pages: typeof PARTICLE_ENCYCLOPEDIA_PAGES !== 'undefined' ? PARTICLE_ENCYCLOPEDIA_PAGES : []
+      },
+      greeting: {
+        id: 'greeting',
+        label: '生活問候敬語',
+        icon: '💬',
+        pages: typeof GREETING_ENCYCLOPEDIA_PAGES !== 'undefined' ? GREETING_ENCYCLOPEDIA_PAGES : []
+      },
+
+      // 🌟 專題圖鑑 (2)
+      loanword: {
+        id: 'loanword',
+        label: '外來語借詞',
+        icon: '🌍',
+        pages: typeof LOANWORD_ENCYCLOPEDIA_PAGES !== 'undefined' ? LOANWORD_ENCYCLOPEDIA_PAGES : []
+      },
+      sanrio_food: {
+        id: 'sanrio_food',
+        label: '三麗鷗美食百科',
+        icon: '🍲',
+        pages: typeof SANRIO_FOOD_ENCYCLOPEDIA_PAGES !== 'undefined' ? SANRIO_FOOD_ENCYCLOPEDIA_PAGES : []
       }
     };
 

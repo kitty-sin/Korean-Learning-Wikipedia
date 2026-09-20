@@ -24,36 +24,67 @@
     </div>
   </header>
 
-  <!-- 7 大詞性圖鑑模式切換列 -->
+  <!-- 13 大全景韓語圖解模式切換列 (7大品詞 + 4大語法核心 + 2大專題圖鑑) -->
   <div class="mode-switcher-container">
-    <div class="mode-switch-pill" role="tablist" aria-label="圖鑑詞性類別切換">
+    <div class="mode-switch-pill" role="tablist" aria-label="圖鑑模式分類切換">
+      <!-- 📚 核心品詞 (7) -->
       <button class="mode-tab-btn" data-mode="noun" onclick="app.setMode('noun')" role="tab" aria-selected="false">
         <span>🌸</span>
-        <span>名詞 (Noun · 29頁)</span>
+        <span>名詞 (29頁)</span>
       </button>
       <button class="mode-tab-btn active" data-mode="verb" onclick="app.setMode('verb')" role="tab" aria-selected="true">
         <span>⚡</span>
-        <span>動詞 (Verb · 12領域)</span>
+        <span>動詞 (12領域)</span>
       </button>
       <button class="mode-tab-btn" data-mode="adjective" onclick="app.setMode('adjective')" role="tab" aria-selected="false">
         <span>🌈</span>
-        <span>形容詞 (Adjective · 4領域)</span>
+        <span>形容詞 (4領域)</span>
       </button>
       <button class="mode-tab-btn" data-mode="adverb" onclick="app.setMode('adverb')" role="tab" aria-selected="false">
         <span>✨</span>
-        <span>副詞 (Adverb · 3領域)</span>
+        <span>副詞 (3領域)</span>
       </button>
       <button class="mode-tab-btn" data-mode="pronoun" onclick="app.setMode('pronoun')" role="tab" aria-selected="false">
         <span>👤</span>
-        <span>代名詞 (Pronoun · 2領域)</span>
+        <span>代名詞 (2領域)</span>
       </button>
       <button class="mode-tab-btn" data-mode="proper_noun" onclick="app.setMode('proper_noun')" role="tab" aria-selected="false">
         <span>🏛️</span>
-        <span>專有名詞 (Proper · 2領域)</span>
+        <span>專有名詞 (2領域)</span>
       </button>
       <button class="mode-tab-btn" data-mode="dependent_noun" onclick="app.setMode('dependent_noun')" role="tab" aria-selected="false">
         <span>📦</span>
-        <span>依存名詞/量詞 (2領域)</span>
+        <span>依存名詞/量詞</span>
+      </button>
+
+      <!-- 🧩 語法核心 (4) -->
+      <span class="mode-divider" title="語法核心"></span>
+      <button class="mode-tab-btn" data-mode="numeral" onclick="app.setMode('numeral')" role="tab" aria-selected="false">
+        <span>🔢</span>
+        <span>數字雙系統 (5頁)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="determiner" onclick="app.setMode('determiner')" role="tab" aria-selected="false">
+        <span>🔤</span>
+        <span>冠形詞 (2領域)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="particle" onclick="app.setMode('particle')" role="tab" aria-selected="false">
+        <span>🧩</span>
+        <span>核心助詞 (4領域)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="greeting" onclick="app.setMode('greeting')" role="tab" aria-selected="false">
+        <span>💬</span>
+        <span>生活問候敬語 (4頁)</span>
+      </button>
+
+      <!-- 🌟 專題圖鑑 (2) -->
+      <span class="mode-divider" title="專題圖鑑"></span>
+      <button class="mode-tab-btn" data-mode="loanword" onclick="app.setMode('loanword')" role="tab" aria-selected="false">
+        <span>🌍</span>
+        <span>外來語生活借詞 (242詞)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="sanrio_food" onclick="app.setMode('sanrio_food')" role="tab" aria-selected="false">
+        <span>🍲</span>
+        <span>三麗鷗 100 美食 (10大角色)</span>
       </button>
     </div>
   </div>
@@ -115,6 +146,12 @@
   <script src="js/pronouns_data.js"></script>
   <script src="js/proper_nouns_data.js"></script>
   <script src="js/dependent_nouns_data.js"></script>
+  <script src="js/numerals_data.js"></script>
+  <script src="js/determiners_data.js"></script>
+  <script src="js/particles_data.js"></script>
+  <script src="js/greetings_data.js"></script>
+  <script src="js/loanwords_data.js"></script>
+  <script src="js/sanrio_food_data.js"></script>
   <script src="js/encyclopedia_app.js"></script>
   <script>
     // 預設進入動詞篇模式

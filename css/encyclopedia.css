@@ -180,6 +180,15 @@ body {
   box-shadow: 0 4px 14px rgba(255, 64, 113, 0.28);
 }
 
+.mode-divider {
+  width: 1.5px;
+  height: 20px;
+  background: #FFD8E2;
+  margin: 0 4px;
+  align-self: center;
+  flex-shrink: 0;
+}
+
 /* 動詞專屬 해요體膠囊標籤 */
 .card-haeyo-pill {
   display: inline-flex;
