@@ -16,18 +16,18 @@
 ## 🚦 目前狀態
 
 - **L1（本地）**：已就緒。目錄結構、規格文件與初始詞庫資料皆已受 Git 版本控制。
-- **L2（GitHub）**：本地已初始化，遠端 repo（`kitty-sin/Korean-Learning-Wikipedia`）待依使用者意向建立並關聯推播。
+- **L2（GitHub）**：✅ 已建立遠端私有儲存庫並完成初次推播（[`kitty-sin/Korean-Learning-Wikipedia`](https://github.com/kitty-sin/Korean-Learning-Wikipedia)）。
 - **L3（Obsidian）**：待後續依需要於創作庫建立對應筆記連結。
 
 ---
 
 ## ➡️ 下一步
 
-1. **確認 GitHub 遠端儲存庫設定**：是否透過 GitHub CLI 自動建立 `kitty-sin/Korean-Learning-Wikipedia`（Private / Public）並進行初次推播？
-2. **百科架構演進方向確認**：
-   - 選項 A：純知識庫與辭典索引 Markdown/CSV 體系（利於 Obsidian / 檢索）。
-   - 選項 B：架構化 Wiki 靜態網站（例如 VitePress / Starlight 或整合搜尋引擎）。
-   - 選項 C：擴充文法辭條、生活主題單字集與音變百科專題。
+1. **百科架構演進方向確認**：
+   - 選項 A：純知識庫與辭典索引 Markdown/CSV 體系（利於 Obsidian 雙向鏈結與速查）。
+   - 選項 B：架構化 Wiki 靜態網站（例如 VitePress / Starlight 或整合多向即時搜尋的前端靜態辭典）。
+   - 選項 C：百科詞條深化（擴充文法句型庫、生活主題單字集與音變發音規則專題）。
+2. 與前端應用 `Korean-Learning` 建立語料雙向同步或引用機制。
 
 ---
 
@@ -41,6 +41,6 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 14:30 PT
+- **時間**：2026-09-20 14:32 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
-- **Git Commit**：`a42e1d1` (`chore: initial commit for Korean-Learning-Wikipedia`)
+- **Git Push 狀態**：✅ 已推播至 `origin/main`（私有倉庫）

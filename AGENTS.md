@@ -11,7 +11,7 @@
 - **關聯專案**：
   - 前端應用／互動樂園：`Korean-Learning`（[GitHub Pages 線上版](https://kitty-sin.github.io/sanrio-korean-learning/)）
   - 閱讀與跟讀系統：`Korean-Learning-OpenCode`（두루책방 1–6단계 124本繪本）
-- **GitHub 倉庫**：待建置（預計 `kitty-sin/Korean-Learning-Wikipedia`）
+- **GitHub 倉庫**：[https://github.com/kitty-sin/Korean-Learning-Wikipedia](https://github.com/kitty-sin/Korean-Learning-Wikipedia)（私有倉庫）
 - **Obsidian 關聯筆記**：創作庫 / Korean-Learning-Wikipedia.md
 
 ---
@@ -21,6 +21,7 @@
 - [x] **階段一：專案初始化與結構規範建立**
   - [x] 建立標準 `.gitignore`、`AGENTS.md`、`handoff.md`、`README.md`
   - [x] 初始化 Git 版本控制 (`main` 分支)
+  - [x] 建立 GitHub 遠端私有儲存庫並完成初次推播
   - [x] 盤點收錄之初始語料（5,666 基準詞庫、Kitty 自訂新增詞庫、漢字詞與音節矩陣、主題美食詞彙）
 - [ ] **階段二：百科架構與結構化梳理**
   - [ ] 規劃百科分類層級（詞彙庫、漢字音變、文法句型、發音與音變規則、文化與日常主題）
@@ -29,7 +30,7 @@
   - [ ] 評估並建置 Wiki 靜態站點（如 VitePress / Starlight / MkDocs 或單頁式全域速查百科）
   - [ ] 支援即時多向搜尋（韓文、羅馬拼音、中文、英文、詞性與等級）
 - [ ] **階段四：多端整合與雲端同步**
-  - [ ] 推播至 GitHub 遠端儲存庫
+  - [x] 推播至 GitHub 遠端儲存庫（`kitty-sin/Korean-Learning-Wikipedia`）
   - [ ] 與 `Korean-Learning` 進行雙向資料同步管線整合
 
 ---
