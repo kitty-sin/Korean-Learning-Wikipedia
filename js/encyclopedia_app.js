@@ -348,30 +348,63 @@ class EncyclopediaApp {
       if (page.items && page.items.length) {
         cardsHtml = `
           <div class="cards-grid">
-            ${page.items.map(item => `
-              <div class="vocab-card" onclick="app.speak('${item.kr}', this)">
-                <div class="card-top">
-                  <span class="card-icon">${item.icon || '🏷️'}</span>
-                  <button class="btn-sound-mini" onclick="event.stopPropagation(); app.speak('${item.kr}', this.closest('.vocab-card'));" title="點擊發音: ${item.kr}">🔊</button>
+            ${page.items.map(item => {
+              const hasSlash = item.kr && item.kr.includes('/');
+              let wordKoHtml = '';
+              let topSoundBtnHtml = '';
+              let cardClickAction = '';
+
+              if (hasSlash) {
+                const parts = item.kr.split('/').map(w => w.trim()).filter(Boolean);
+                const partsJson = JSON.stringify(parts).replace(/"/g, '&quot;');
+                cardClickAction = `app.speakSequential(${partsJson.replace(/&quot;/g, "'")}, this)`;
+                topSoundBtnHtml = `
+                  <button class="btn-sound-mini" onclick="event.stopPropagation(); app.speakSequential(${partsJson.replace(/&quot;/g, "'")}, this.closest('.vocab-card'));" title="順序發音: ${parts.join(' ➔ ')}">🔊</button>
+                `;
+                wordKoHtml = `
+                  <div class="dual-word-container">
+                    ${parts.map((p, pIdx) => `
+                      ${pIdx > 0 ? '<span class="dual-word-divider">/</span>' : ''}
+                      <div class="dual-word-chip" onclick="event.stopPropagation(); app.speak('${p.replace(/'/g, "\\'")}', this);" title="點擊分別單獨發音: ${p}">
+                        <span class="dual-word-text">${p}</span>
+                        <button class="btn-sound-chip" title="發音: ${p}">🔊</button>
+                      </div>
+                    `).join('')}
+                  </div>
+                `;
+              } else {
+                cardClickAction = `app.speak('${item.kr.replace(/'/g, "\\'")}', this)`;
+                topSoundBtnHtml = `
+                  <button class="btn-sound-mini" onclick="event.stopPropagation(); app.speak('${item.kr.replace(/'/g, "\\'")}', this.closest('.vocab-card'));" title="點擊發音: ${item.kr}">🔊</button>
+                `;
+                wordKoHtml = `<div class="card-word-ko">${item.kr}</div>`;
+              }
+
+              return `
+                <div class="vocab-card" onclick="${cardClickAction}">
+                  <div class="card-top">
+                    <span class="card-icon">${item.icon || '🏷️'}</span>
+                    ${topSoundBtnHtml}
+                  </div>
+                  ${wordKoHtml}
+                  <div class="card-word-rom">${item.rom || ''}</div>
+                  ${item.haeyo ? `
+                    <div class="conjugation-row">
+                      <div class="card-haeyo-pill">⚡ 해요體: ${item.haeyo}</div>
+                      <button class="btn-sound-pill" onclick="event.stopPropagation(); app.speak('${item.haeyo}', this);" title="發音: ${item.haeyo}">🔊</button>
+                    </div>
+                  ` : ''}
+                  ${item.hasipsio ? `
+                    <div class="conjugation-row">
+                      <div class="card-hasipsio-pill">「하십시오體」: ${item.hasipsio}</div>
+                      <button class="btn-sound-pill" onclick="event.stopPropagation(); app.speak('${item.hasipsio}', this);" title="發音: ${item.hasipsio}">🔊</button>
+                    </div>
+                  ` : ''}
+                  <div class="card-word-zh">${item.zh || ''}</div>
+                  ${item.tip ? `<div class="card-tip">${item.tip}</div>` : ''}
                 </div>
-                <div class="card-word-ko">${item.kr}</div>
-                <div class="card-word-rom">${item.rom || ''}</div>
-                ${item.haeyo ? `
-                  <div class="conjugation-row">
-                    <div class="card-haeyo-pill">⚡ 해요體: ${item.haeyo}</div>
-                    <button class="btn-sound-pill" onclick="event.stopPropagation(); app.speak('${item.haeyo}', this);" title="發音: ${item.haeyo}">🔊</button>
-                  </div>
-                ` : ''}
-                ${item.hasipsio ? `
-                  <div class="conjugation-row">
-                    <div class="card-hasipsio-pill">「하십시오體」: ${item.hasipsio}</div>
-                    <button class="btn-sound-pill" onclick="event.stopPropagation(); app.speak('${item.hasipsio}', this);" title="發音: ${item.hasipsio}">🔊</button>
-                  </div>
-                ` : ''}
-                <div class="card-word-zh">${item.zh || ''}</div>
-                ${item.tip ? `<div class="card-tip">${item.tip}</div>` : ''}
-              </div>
-            `).join('')}
+              `;
+            }).join('')}
           </div>
         `;
       }
@@ -448,20 +481,49 @@ class EncyclopediaApp {
   }
 
   speak(text, el = null) {
-    if (!this.synth) return;
+    if (!this.synth || !text) return;
     this.synth.cancel();
 
     if (el) {
       el.classList.add('is-playing');
-      setTimeout(() => el.classList.remove('is-playing'), 800);
+      setTimeout(() => el.classList.remove('is-playing'), 850);
     }
 
-    const cleanText = text.split('/')[0].trim();
-    const utterance = new SpeechSynthesisUtterance(cleanText);
+    // 若包含斜線則依序分別發音，絕不念出「슬래시 (slash)」
+    if (text.includes('/')) {
+      const parts = text.split('/').map(w => w.trim()).filter(Boolean);
+      this.speakSequential(parts, el);
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text.trim());
     utterance.lang = 'ko-KR';
     utterance.rate = 0.88;
-
     this.synth.speak(utterance);
+  }
+
+  // 多詞彙依序分別朗讀（詞與詞之間保留 0.65 秒自然停頓）
+  speakSequential(words, el = null) {
+    if (!this.synth || !words || !words.length) return;
+    this.synth.cancel();
+
+    if (el) {
+      el.classList.add('is-playing');
+      setTimeout(() => el.classList.remove('is-playing'), words.length * 850);
+    }
+
+    words.forEach((w, idx) => {
+      const utter = new SpeechSynthesisUtterance(w.trim());
+      utter.lang = 'ko-KR';
+      utter.rate = 0.88;
+      if (idx > 0) {
+        setTimeout(() => {
+          this.synth.speak(utter);
+        }, idx * 650);
+      } else {
+        this.synth.speak(utter);
+      }
+    });
   }
 }
 

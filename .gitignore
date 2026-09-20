@@ -16,6 +16,7 @@ credentials.*
 
 # 本地歷史存檔目錄（不推播至 GitHub）
 _archive/
+scratch/
 
 # Node.js 依賴與建置產物
 node_modules/

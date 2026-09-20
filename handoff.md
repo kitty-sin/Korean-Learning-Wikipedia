@@ -67,7 +67,12 @@
      - 每一顆副頁標籤均擁有專屬的柔和粉嫩底色、同色系邊框與高飽和文字，選取時綻放立體飽和漸層與微光。
    - **主題目錄彈窗 (TOC Modal) 同步升級**：目錄列表數字序號膠囊同步依領域輪換專屬彩虹標色。
 
-6. **專屬資料集檔案清單 (全部 13 份)**：
+6. **雙詞彙（如 `아버지 / 아빠`）分別獨立發音全面落實**：
+   - **全庫盤點**：清查 13 份資料集，共有 38 處詞條包含斜線 `/`（如尊稱vs口語 `아버지 / 아빠`、固有詞vs漢字詞 `하얀색 / 흰색`、同義副詞 `아주 / 매우`、助詞變體 `이 / 가` 等）。
+   - **獨立點讀晶片**：遇到帶有斜線的詞彙時，標題自動渲染為雙獨立晶片 `[ 아버지 🔊 ]  /  [ 아빠 🔊 ]`，使用者點擊任一詞即可**單獨聆聽該詞標準發音**，並伴隨專屬粉紅立體光暈。
+   - **告別機器人念斜線**：升級語音引擎，當使用者點擊卡片本體或右上角通用喇叭時，自動觸發順序發音（`speakSequential`，中間微帶 0.65 秒自然呼吸間隔），徹底杜絕瀏覽器朗讀「슬래시 (slash)」的尷尬情況。
+
+7. **專屬資料集檔案清單 (全部 13 份)**：
    - [`js/encyclopedia_data.js`](./js/encyclopedia_data.js) (名詞)
    - [`js/verbs_data.js`](./js/verbs_data.js) (動詞)
    - [`js/adjectives_data.js`](./js/adjectives_data.js) (形容詞)
@@ -86,8 +91,8 @@
 
 ## 🚦 目前狀態
 
-- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。首頁僅展示 13 大合頁標籤，點選即彈出 15 色多彩副頁領域膠囊抽屜，體驗順暢。
-- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
+- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。首頁僅展示 13 大合頁標籤，點選即彈出 15 色多彩副頁領域膠囊抽屜；所有雙詞彙卡片（如 `아버지 / 아빠`）均支援雙單字獨立點讀發音。
+- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css`、`.gitignore` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
 
 ---
 
@@ -107,6 +112,6 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 16:48 PT
+- **時間**：2026-09-20 16:55 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 

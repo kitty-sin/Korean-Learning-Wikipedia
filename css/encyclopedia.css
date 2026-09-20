@@ -590,6 +590,90 @@ body.domain-popout-open .mode-tab-btn.active::after {
   box-shadow: 0 2px 6px rgba(194, 24, 91, 0.08);
 }
 
+/* 🔊 雙詞彙獨立分別發音膠囊 (Dual-Word Independent Pronunciation Chips) */
+.dual-word-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0 6px;
+}
+
+.dual-word-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FFF5F8;
+  border: 1.5px solid #FFCCD7;
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(255, 94, 134, 0.08);
+  user-select: none;
+}
+
+.dual-word-chip:hover {
+  background: #FFE8EF;
+  border-color: #FF5E86;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 94, 134, 0.2);
+}
+
+.dual-word-chip:active {
+  transform: scale(0.96);
+}
+
+.dual-word-chip.is-playing {
+  background: linear-gradient(135deg, #FF6584, #FF4071) !important;
+  border-color: #FF4071 !important;
+  box-shadow: 0 0 0 4px rgba(255, 64, 113, 0.25), 0 6px 14px rgba(255, 64, 113, 0.35) !important;
+  transform: translateY(-2px) scale(1.04) !important;
+}
+
+.dual-word-chip.is-playing .dual-word-text,
+.dual-word-chip.is-playing .btn-sound-chip {
+  color: #FFFFFF !important;
+}
+
+.dual-word-text {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #2D3142;
+  letter-spacing: -0.2px;
+}
+
+.btn-sound-chip {
+  background: #FFEBF0;
+  border: 1px solid #FFCCD7;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: #FF4071;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: transform 0.15s ease;
+}
+
+.dual-word-chip:hover .btn-sound-chip {
+  background: #FF4071;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+.dual-word-divider {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #CBD5E0;
+  user-select: none;
+  padding: 0 1px;
+}
+
 /* 膠囊標籤右側小喇叭獨立點讀鈕 */
 .btn-sound-pill {
   background: #FFEBF0;
