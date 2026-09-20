@@ -1,0 +1,33 @@
+# 系統與編輯器暫存檔
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+~$*
+*.swp
+*.bak
+
+# 環境變數與機密金鑰（不可進版控）
+.env
+.env.*
+*.key
+credentials.*
+*.pem
+
+# 本地歷史存檔目錄（不推播至 GitHub）
+_archive/
+
+# Node.js 依賴與建置產物
+node_modules/
+dist/
+build/
+.cache/
+.vitepress/cache/
+.vitepress/dist/
+
+# Python 暫存檔
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
