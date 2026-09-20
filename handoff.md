@@ -49,7 +49,14 @@
      - 🍲 三麗鷗美食：甜心草莓粉 (Sweet Peach Blossom)
    - 未選取時呈現高質感柔和粉彩色系與同色系細邊框，選取（active）或滑鼠懸停時綻放鮮豔立體漸層、亮白純文字與立體懸浮光暈。
 
-4. **專屬資料集檔案清單 (全部 13 份)**：
+4. **RDQ 需求規格探索：背景視覺豐富化升級 (2026-09-20)**：
+   - 透過 RDQ 互動探索確認三大背景決策：
+     - **紋理風格**：日系精緻方眼手帳與微點陣（`24px × 24px` 微米網格 ＋ `48px × 48px` 散落柔和微點），營造高級文具手帳質感，完全不干擾字卡閱讀。
+     - **色彩氛圍聯動**：隨頂部 13 大彩色標籤頁智能切換柔和環境氛圍色（動詞微透活力暖橘光、副詞微透薄荷綠、名詞微透櫻花粉等）。
+     - **動態模式**：純 CSS 極致靜態流暢，零效能消耗與耗電負擔。
+   - 規格檔歸檔於 [`rdq/RDQ-spec-encyclopedia-background-20260920.md`](./rdq/RDQ-spec-encyclopedia-background-20260920.md)。
+
+5. **專屬資料集檔案清單 (全部 13 份)**：
    - [`js/encyclopedia_data.js`](./js/encyclopedia_data.js) (名詞)
    - [`js/verbs_data.js`](./js/verbs_data.js) (動詞)
    - [`js/adjectives_data.js`](./js/adjectives_data.js) (形容詞)
@@ -68,8 +75,8 @@
 
 ## 🚦 目前狀態
 
-- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`，13 大模式色彩分明、雙敬語發音與圖鑑功能運作順暢。
-- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
+- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`，13 大模式色彩分明、日系方眼手帳背景層次分明、雙敬語發音與圖鑑功能運作流暢。
+- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css`、`rdq/RDQ-spec-encyclopedia-background-20260920.md` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
 
 ---
 
@@ -89,6 +96,6 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 16:30 PT
+- **時間**：2026-09-20 16:32 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 

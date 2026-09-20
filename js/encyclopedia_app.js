@@ -99,6 +99,9 @@ class EncyclopediaApp {
     this.currentPageIndex = 0;
     this.synth = window.speechSynthesis || null;
 
+    // 同步 body data-mode 屬性以驅動背景主題色氛圍聯動
+    document.body.dataset.mode = this.currentMode;
+
     this.initElements();
     this.renderDomainSelector();
     this.bindEvents();
@@ -119,12 +122,15 @@ class EncyclopediaApp {
     this.domainBar = document.getElementById('domain-bar');
   }
 
-  // 切換 7 大詞性圖鑑模式
+  // 切換 13 大百科圖鑑模式
   setMode(mode) {
     if (!this.modes[mode]) return;
     this.currentMode = mode;
     this.pages = this.modes[mode].pages;
     this.currentPageIndex = 0;
+
+    // 智能背景氛圍色聯動：更新 body data-mode
+    document.body.dataset.mode = mode;
 
     // 更新頂部模式按鈕 active 狀態與橫向捲動可視度
     document.querySelectorAll('.mode-tab-btn').forEach(btn => {

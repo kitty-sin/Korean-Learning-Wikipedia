@@ -6,8 +6,14 @@
 
 :root {
   --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  --bg-canvas: #FFF7F9;
-  --bg-canvas-gradient: linear-gradient(135deg, #FFF5F7 0%, #FAF2FD 50%, #F0F7FF 100%);
+  
+  /* 📖 背景手帳方眼紙與環境氛圍變數 (Notebook Graph Grid & Ambient Tone) */
+  --bg-ambient-top: #FFEBF0;
+  --bg-ambient-bottom: #F0F4FF;
+  --bg-canvas-base: #FFF9FA;
+  --bg-grid-line: rgba(255, 94, 134, 0.045);
+  --bg-grid-dot: rgba(255, 94, 134, 0.12);
+
   --bg-card: #FFFFFF;
   --text-main: #2D3142;
   --text-sub: #5C6274;
@@ -39,7 +45,37 @@
 
 body {
   font-family: var(--font-main);
-  background: var(--bg-canvas-gradient);
+  background-color: var(--bg-canvas-base);
+  /* 🎨 日系手帳方眼微米網格 + 散落微點陣 + 雙向柔焦環境光 */
+  background-image:
+    /* 1. 散落柔和微點陣 (Micro Polka Dots, 48px × 48px) */
+    radial-gradient(circle at center, var(--bg-grid-dot) 1.2px, transparent 1.2px),
+    /* 2. 手帳方眼紙垂直微米線 (Vertical Graph Grid Lines, 24px) */
+    linear-gradient(to right, var(--bg-grid-line) 1px, transparent 1px),
+    /* 3. 手帳方眼紙水平微米線 (Horizontal Graph Grid Lines, 24px) */
+    linear-gradient(to bottom, var(--bg-grid-line) 1px, transparent 1px),
+    /* 4. 頂部柔和環境光暈 (Top Ambient Atmosphere) */
+    radial-gradient(ellipse 70% 45% at 50% -10%, var(--bg-ambient-top) 0%, transparent 80%),
+    /* 5. 底部微弱柔光 (Bottom Ambient Atmosphere) */
+    radial-gradient(ellipse 80% 50% at 100% 100%, var(--bg-ambient-bottom) 0%, transparent 80%);
+  background-size:
+    48px 48px,
+    24px 24px,
+    24px 24px,
+    100% 100%,
+    100% 100%;
+  background-position:
+    24px 24px,
+    0 0,
+    0 0,
+    center top,
+    right bottom;
+  background-repeat:
+    repeat,
+    repeat,
+    repeat,
+    no-repeat,
+    no-repeat;
   background-attachment: fixed;
   color: var(--text-main);
   min-height: 100vh;
@@ -47,6 +83,128 @@ body {
   flex-direction: column;
   line-height: 1.5;
   overflow-x: hidden;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+/* ==========================================================================
+   🎨 13 大分類智能背景氛圍色聯動 (Adaptive Mode Ambient Backgrounds)
+   ========================================================================== */
+
+/* 1. 🌸 名詞 Noun (珊瑚櫻花紅) */
+body[data-mode="noun"] {
+  --bg-ambient-top: #FFE8EE;
+  --bg-ambient-bottom: #FFF0F5;
+  --bg-canvas-base: #FFF9FA;
+  --bg-grid-line: rgba(230, 26, 78, 0.045);
+  --bg-grid-dot: rgba(230, 26, 78, 0.12);
+}
+
+/* 2. ⚡ 動詞 Verb (活力夕陽橘) */
+body[data-mode="verb"] {
+  --bg-ambient-top: #FFF1E0;
+  --bg-ambient-bottom: #FFF8EB;
+  --bg-canvas-base: #FFFBF5;
+  --bg-grid-line: rgba(230, 81, 0, 0.045);
+  --bg-grid-dot: rgba(230, 81, 0, 0.12);
+}
+
+/* 3. 🌈 形容詞 Adjective (莓果洋紅紫) */
+body[data-mode="adjective"] {
+  --bg-ambient-top: #FCE7F3;
+  --bg-ambient-bottom: #FAF5FF;
+  --bg-canvas-base: #FCF7FA;
+  --bg-grid-line: rgba(190, 24, 93, 0.045);
+  --bg-grid-dot: rgba(190, 24, 93, 0.12);
+}
+
+/* 4. ✨ 副詞 Adverb (薄荷翡翠綠) */
+body[data-mode="adverb"] {
+  --bg-ambient-top: #E6FDF2;
+  --bg-ambient-bottom: #F0FDF4;
+  --bg-canvas-base: #F7FEFB;
+  --bg-grid-line: rgba(4, 120, 87, 0.045);
+  --bg-grid-dot: rgba(4, 120, 87, 0.12);
+}
+
+/* 5. 👤 代名詞 Pronoun (皇家香芋紫) */
+body[data-mode="pronoun"] {
+  --bg-ambient-top: #F3E8FF;
+  --bg-ambient-bottom: #FAF5FF;
+  --bg-canvas-base: #FAF8FE;
+  --bg-grid-line: rgba(109, 40, 217, 0.045);
+  --bg-grid-dot: rgba(109, 40, 217, 0.12);
+}
+
+/* 6. 🏛️ 專有名詞 Proper Noun (蔚藍寶石藍) */
+body[data-mode="proper_noun"] {
+  --bg-ambient-top: #EBF3FF;
+  --bg-ambient-bottom: #F0F9FF;
+  --bg-canvas-base: #F7FAFE;
+  --bg-grid-line: rgba(29, 78, 216, 0.045);
+  --bg-grid-dot: rgba(29, 78, 216, 0.12);
+}
+
+/* 7. 📦 依存名詞 Dependent Noun (暖金黃蜜色) */
+body[data-mode="dependent_noun"] {
+  --bg-ambient-top: #FEF3C7;
+  --bg-ambient-bottom: #FFFDF0;
+  --bg-canvas-base: #FFFCF2;
+  --bg-grid-line: rgba(180, 83, 9, 0.045);
+  --bg-grid-dot: rgba(180, 83, 9, 0.12);
+}
+
+/* 8. 🔢 數字雙系統 Numeral (靛青紫羅蘭) */
+body[data-mode="numeral"] {
+  --bg-ambient-top: #E0E7FF;
+  --bg-ambient-bottom: #F5F3FF;
+  --bg-canvas-base: #F7F8FE;
+  --bg-grid-line: rgba(67, 56, 202, 0.045);
+  --bg-grid-dot: rgba(67, 56, 202, 0.12);
+}
+
+/* 9. 🔤 冠形詞 Determiner (薔薇胭脂紅) */
+body[data-mode="determiner"] {
+  --bg-ambient-top: #FFE4E6;
+  --bg-ambient-bottom: #FFF5F7;
+  --bg-canvas-base: #FFFAFB;
+  --bg-grid-line: rgba(190, 18, 60, 0.045);
+  --bg-grid-dot: rgba(190, 18, 60, 0.12);
+}
+
+/* 10. 🧩 核心助詞 Particle (湖水碧青藍) */
+body[data-mode="particle"] {
+  --bg-ambient-top: #E0F7FA;
+  --bg-ambient-bottom: #F0FDFA;
+  --bg-canvas-base: #F6FCFD;
+  --bg-grid-line: rgba(14, 116, 144, 0.045);
+  --bg-grid-dot: rgba(14, 116, 144, 0.12);
+}
+
+/* 11. 💬 生活問候 Greeting (夢幻薰衣草) */
+body[data-mode="greeting"] {
+  --bg-ambient-top: #F5E8FF;
+  --bg-ambient-bottom: #FDF4FF;
+  --bg-canvas-base: #FCF9FE;
+  --bg-grid-line: rgba(126, 34, 206, 0.045);
+  --bg-grid-dot: rgba(126, 34, 206, 0.12);
+}
+
+/* 12. 🌍 外來語借詞 Loanword (湛藍晴空藍) */
+body[data-mode="loanword"] {
+  --bg-ambient-top: #E0F2FE;
+  --bg-ambient-bottom: #EFF6FF;
+  --bg-canvas-base: #F6FAFE;
+  --bg-grid-line: rgba(3, 105, 161, 0.045);
+  --bg-grid-dot: rgba(3, 105, 161, 0.12);
+}
+
+/* 13. 🍲 三麗鷗美食 Sanrio Food (甜心草莓粉) */
+body[data-mode="sanrio_food"] {
+  --bg-ambient-top: #FFE4EC;
+  --bg-ambient-bottom: #FFF0F6;
+  --bg-canvas-base: #FFFAF8;
+  --bg-grid-line: rgba(216, 27, 96, 0.045);
+  --bg-grid-dot: rgba(216, 27, 96, 0.12);
 }
 
 /* 頂部導航列 */
