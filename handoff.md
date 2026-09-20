@@ -6,19 +6,20 @@
 
 ## ⏯️ 目前做到哪
 
-1. **圖解百科全書前 5 大主題頁建置完成並上線**：
-   - 包含：Page 01（時間與星期）、Page 02（人體部位與五官）、Page 03（家族稱謂與男女對照）、Page 04（美妝彩妝與護膚）、Page 05（逛街購物與隨身配件）。
-   - 實現：全繁體中文解釋、每頁 6～12 詞舒適留白、點擊真人發音（Web Speech API）、鍵盤左右鍵與手機滑動流暢翻頁、頂部目錄抽屜。
-   - 檔案：[`index.html`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/index.html)、[`css/encyclopedia.css`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/css/encyclopedia.css)、[`js/encyclopedia_data.js`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/js/encyclopedia_data.js)、[`js/encyclopedia_app.js`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/js/encyclopedia_app.js)。
+1. **全面覆蓋 15 大生活領域圖解百科，全量完成 29 個精緻單元頁**：
+   - 提取全庫 12,222 筆字詞中之核心具象詞彙，徹底涵蓋全部 15 大領域！
+   - 每頁嚴格維持 **6～12 個單字**，圖文並茂、純繁體中文道地解釋、韓文粗體大字、羅馬拼音與點擊真人發音。
+   - 頂部加入 **15 大領域水平滑動快捷選單**，隨時一鍵跳轉任何領域。
+   - 包含：時間曆法、人體五官、家族親屬男女稱、美妝護膚、服飾珠寶、逛街購物、飲食料理、居家生活、交通設施、自然動物、情緒感受、學校職場、休閒運動、色彩形狀、空間方位。
 2. **遠端 GitHub 儲存庫同步**：
-   - 最新 Commit 已推播至 `kitty-sin/Korean-Learning-Wikipedia`。
+   - Commit: `62599b1` 已推播至 `kitty-sin/Korean-Learning-Wikipedia`。
 
 ---
 
 ## 🚦 目前狀態
 
-- **運行狀態**：本地 `index.html` 雙擊即可在瀏覽器完美運行，無報錯。
-- **Git Push 狀態**：✅ 已推播至 `origin/main`（Commit: `6844a2a`）。
+- **運行狀態**：雙擊 [`index.html`](file:///c:/Users/PC/Documents/Google-Antigravity/2026-Miscellaneous/Korean-Learning-Wikipedia/index.html) 即可在瀏覽器直接查閱 15 大領域共 29 頁百科。
+- **Git Push 狀態**：✅ 已推播至 `origin/main`（Commit: `62599b1`）。
 
 ---
 
