@@ -1,16 +1,17 @@
 /**
- * 韓語圖解百科全書互動引擎 (Encyclopedia App Logic)
- * 支援：翻頁切換、Web Speech 韓語發音、全域目錄、鍵盤快速鍵與觸控手勢
+ * 韓語全量圖解生活百科全書互動引擎 (Encyclopedia App Logic)
+ * 涵蓋 15 大生活領域、29 個單元頁、300+ 核心生活詞彙
+ * 支援：領域快捷選單、翻頁動畫、點擊真人發音、全域目錄抽屜、鍵盤與手勢操作
  */
 
 class EncyclopediaApp {
   constructor() {
     this.pages = typeof ENCYCLOPEDIA_PAGES !== 'undefined' ? ENCYCLOPEDIA_PAGES : [];
     this.currentPageIndex = 0;
-    this.isPlayingAudio = false;
     this.synth = window.speechSynthesis || null;
 
     this.initElements();
+    this.renderDomainSelector();
     this.bindEvents();
     this.render();
   }
@@ -26,6 +27,32 @@ class EncyclopediaApp {
     this.tocModal = document.getElementById('toc-modal');
     this.btnCloseModal = document.getElementById('btn-close-modal');
     this.tocList = document.getElementById('toc-list');
+    this.domainBar = document.getElementById('domain-bar');
+  }
+
+  // 頂部 15 大生活領域快捷水平滾動列
+  renderDomainSelector() {
+    if (!this.domainBar) return;
+
+    // 提取不重複的 15 大領域
+    const domainMap = new Map();
+    this.pages.forEach((p, idx) => {
+      if (!domainMap.has(p.domainId)) {
+        domainMap.set(p.domainId, {
+          domainId: p.domainId,
+          name: p.domainName.replace(/^\d+_/, ''),
+          icon: p.domainIcon,
+          firstPageIndex: idx
+        });
+      }
+    });
+
+    this.domainBar.innerHTML = Array.from(domainMap.values()).map(d => `
+      <button class="domain-tab-btn" data-domain="${d.domainId}" data-index="${d.firstPageIndex}" onclick="app.goToPage(${d.firstPageIndex})">
+        <span class="domain-tab-icon">${d.icon}</span>
+        <span class="domain-tab-label">${d.name}</span>
+      </button>
+    `).join('');
   }
 
   bindEvents() {
@@ -92,13 +119,25 @@ class EncyclopediaApp {
     // 更新 Stepper Dots
     if (this.pageStepper) {
       this.pageStepper.innerHTML = this.pages.map((_, idx) => `
-        <div class="step-dot ${idx === this.currentPageIndex ? 'active' : ''}" data-index="${idx}"></div>
+        <div class="step-dot ${idx === this.currentPageIndex ? 'active' : ''}" title="第 ${idx + 1} 頁" data-index="${idx}"></div>
       `).join('');
 
       this.pageStepper.querySelectorAll('.step-dot').forEach(dot => {
         dot.addEventListener('click', () => {
           this.goToPage(parseInt(dot.dataset.index, 10));
         });
+      });
+    }
+
+    // 更新領域選擇器 Active 狀態
+    if (this.domainBar) {
+      this.domainBar.querySelectorAll('.domain-tab-btn').forEach(btn => {
+        if (btn.dataset.domain === page.domainId) {
+          btn.classList.add('active');
+          btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+          btn.classList.remove('active');
+        }
       });
     }
 
@@ -113,100 +152,52 @@ class EncyclopediaApp {
   renderPageCanvas(page) {
     if (!this.pageCanvas) return;
 
-    // 動畫淡出淡入
+    // 平滑淡入淡出動畫
     this.pageCanvas.style.opacity = '0';
     this.pageCanvas.style.transform = 'translateY(8px)';
 
     setTimeout(() => {
-      let sectionsHtml = '';
+      let cardsHtml = '';
 
-      page.sections.forEach(sec => {
-        sectionsHtml += `<div class="page-section">`;
-        if (sec.sectionTitle) {
-          sectionsHtml += `<h3 class="section-heading">${sec.sectionTitle}</h3>`;
-        }
-
-        if (sec.type === 'cards-list' || sec.type === 'cards-grid-compact') {
-          const gridClass = sec.type === 'cards-list' ? 'cards-grid' : 'cards-grid-compact';
-          sectionsHtml += `<div class="${gridClass}">`;
-          sec.items.forEach(item => {
-            sectionsHtml += `
+      if (page.items && page.items.length) {
+        cardsHtml = `
+          <div class="cards-grid">
+            ${page.items.map(item => `
               <div class="vocab-card" onclick="app.speak('${item.kr}', this)">
                 <div class="card-top">
                   <span class="card-icon">${item.icon || '🏷️'}</span>
                   <button class="btn-sound-mini" title="點擊發音">🔊</button>
                 </div>
                 <div class="card-word-ko">${item.kr}</div>
-                <div class="card-word-rom">${item.rom}</div>
-                <div class="card-word-zh">${item.zh}</div>
+                <div class="card-word-rom">${item.rom || ''}</div>
+                <div class="card-word-zh">${item.zh || ''}</div>
                 ${item.tip ? `<div class="card-tip">${item.tip}</div>` : ''}
               </div>
-            `;
-          });
-          sectionsHtml += `</div>`;
-        } else if (sec.type === 'pills-list') {
-          sectionsHtml += `<div class="pills-list">`;
-          sec.items.forEach(item => {
-            sectionsHtml += `
-              <div class="pill-card" onclick="app.speak('${item.kr}', this)">
-                <span class="pill-icon">${item.icon || '📍'}</span>
-                <div class="pill-content">
-                  <div class="pill-ko">${item.kr} <span style="font-size:0.8rem;color:var(--text-rom);font-weight:normal;">(${item.rom})</span></div>
-                  <div class="pill-zh">${item.zh} · <span style="color:#7F8C8D;font-weight:normal;">${item.tip || ''}</span></div>
-                </div>
-              </div>
-            `;
-          });
-          sectionsHtml += `</div>`;
-        } else if (sec.type === 'comparison-box') {
-          sectionsHtml += `<div class="comparison-grid">`;
-          sec.items.forEach(group => {
-            sectionsHtml += `
-              <div class="comparison-box">
-                <div class="comparison-label">${group.label}</div>
-                <div class="comparison-items">
-                  ${group.items.map(item => `
-                    <div class="vocab-card" style="margin-bottom:0;" onclick="app.speak('${item.kr}', this)">
-                      <div class="card-top">
-                        <span class="card-icon">${item.icon || '✨'}</span>
-                        <button class="btn-sound-mini">🔊</button>
-                      </div>
-                      <div class="card-word-ko">${item.kr}</div>
-                      <div class="card-word-rom">${item.rom}</div>
-                      <div class="card-word-zh">${item.zh}</div>
-                      ${item.tip ? `<div class="card-tip">${item.tip}</div>` : ''}
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-            `;
-          });
-          sectionsHtml += `</div>`;
-        }
-
-        sectionsHtml += `</div>`;
-      });
+            `).join('')}
+          </div>
+        `;
+      }
 
       this.pageCanvas.innerHTML = `
         <div class="page-hero">
-          <div class="page-category-tag" style="background:${page.accentBg || '#F5F5F5'};color:${page.themeColor || '#333'};">
-            ${page.categoryIcon || '📚'} ${page.category}
+          <div class="page-category-tag" style="background:${page.accentBg || '#F5F5F5'};color:${page.themeColor || '#333'};border: 1px solid ${page.themeColor}33;">
+            ${page.domainIcon || '📚'} ${page.domainName}
           </div>
           <div class="page-title-row">
             <h1 class="page-title-ko">${page.titleKo}</h1>
             <span class="page-title-zh">${page.titleZh}</span>
             <span class="page-title-rom">(${page.titleRom})</span>
           </div>
-          <p class="page-desc">${page.description || ''}</p>
+          <p class="page-desc">${page.desc || ''}</p>
         </div>
         <div class="page-body">
-          ${sectionsHtml}
+          ${cardsHtml}
         </div>
       `;
 
       this.pageCanvas.style.opacity = '1';
       this.pageCanvas.style.transform = 'translateY(0)';
-    }, 150);
+    }, 120);
   }
 
   prevPage() {
@@ -235,10 +226,10 @@ class EncyclopediaApp {
       <div class="toc-item ${idx === this.currentPageIndex ? 'active' : ''}" onclick="app.goToPage(${idx}); app.closeToc();">
         <div class="toc-item-left">
           <span class="toc-item-num">${String(idx + 1).padStart(2, '0')}</span>
-          <span style="font-size:1.2rem;">${p.categoryIcon || '📖'}</span>
+          <span style="font-size:1.3rem;">${p.domainIcon || '📖'}</span>
           <div>
-            <div class="toc-item-title">${p.titleKo}</div>
-            <div class="toc-item-zh">${p.titleZh}</div>
+            <div class="toc-item-title">${p.titleKo} · <span style="color:#718096;font-size:0.9rem;">${p.titleZh}</span></div>
+            <div class="toc-item-zh" style="font-size:0.78rem;color:#A0AEC0;">${p.domainName}</div>
           </div>
         </div>
         <span style="font-size:0.85rem;color:#A0AEC0;">➔</span>
@@ -257,7 +248,6 @@ class EncyclopediaApp {
     if (!this.synth) return;
     this.synth.cancel();
 
-    // 視覺回饋
     if (el) {
       el.classList.add('is-playing');
       setTimeout(() => el.classList.remove('is-playing'), 800);
@@ -266,7 +256,7 @@ class EncyclopediaApp {
     const cleanText = text.split('/')[0].trim();
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = 'ko-KR';
-    utterance.rate = 0.88; // 稍微放慢，發音更清晰
+    utterance.rate = 0.88;
 
     this.synth.speak(utterance);
   }

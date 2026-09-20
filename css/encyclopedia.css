@@ -102,11 +102,67 @@ body {
   transform: translateY(-1px);
 }
 
+/* 15 大生活領域水平滑動列 */
+.domain-bar-container {
+  position: sticky;
+  top: 57px;
+  z-index: 95;
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-soft);
+  padding: 8px 16px;
+}
+
+.domain-bar {
+  max-width: 980px;
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+  padding: 2px 0;
+}
+
+.domain-bar::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.domain-tab-btn {
+  background: #FFFFFF;
+  border: 1px solid #ECE6DB;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #4A5568;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: var(--transition-smooth);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.domain-tab-btn:hover {
+  background: #F4F0E8;
+  border-color: #D3C9B8;
+  transform: translateY(-1px);
+}
+
+.domain-tab-btn.active {
+  background: #2D3748;
+  color: #FFFFFF;
+  border-color: #2D3748;
+  box-shadow: 0 4px 12px rgba(45, 55, 72, 0.2);
+}
+
 /* 主容器 */
 .encyclopedia-container {
   max-width: 980px;
   margin: 0 auto;
-  padding: 24px 20px 100px;
+  padding: 20px 20px 100px;
   width: 100%;
   flex: 1;
 }
@@ -125,20 +181,22 @@ body {
 
 .page-stepper {
   display: flex;
-  gap: 6px;
+  gap: 4px;
+  flex-wrap: wrap;
+  max-width: 80%;
 }
 
 .step-dot {
-  width: 24px;
+  width: 12px;
   height: 6px;
-  border-radius: 4px;
+  border-radius: 3px;
   background: #E2DCD2;
   cursor: pointer;
   transition: var(--transition-smooth);
 }
 
 .step-dot.active {
-  width: 42px;
+  width: 26px;
   background: var(--primary);
 }
 
