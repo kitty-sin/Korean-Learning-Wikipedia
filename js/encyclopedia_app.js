@@ -6,10 +6,55 @@
 
 class EncyclopediaApp {
   constructor() {
-    this.currentMode = 'noun'; // 'noun' 或 'verb'
-    this.nounPages = typeof ENCYCLOPEDIA_PAGES !== 'undefined' ? ENCYCLOPEDIA_PAGES : [];
-    this.verbPages = typeof VERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? VERB_ENCYCLOPEDIA_PAGES : [];
-    this.pages = this.nounPages;
+    this.currentMode = 'noun';
+    
+    // 7 大詞性圖鑑資料庫註冊
+    this.modes = {
+      noun: {
+        id: 'noun',
+        label: '名詞篇',
+        icon: '🌸',
+        pages: typeof ENCYCLOPEDIA_PAGES !== 'undefined' ? ENCYCLOPEDIA_PAGES : []
+      },
+      verb: {
+        id: 'verb',
+        label: '動詞篇',
+        icon: '⚡',
+        pages: typeof VERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? VERB_ENCYCLOPEDIA_PAGES : []
+      },
+      adjective: {
+        id: 'adjective',
+        label: '形容詞篇',
+        icon: '🌈',
+        pages: typeof ADJECTIVE_ENCYCLOPEDIA_PAGES !== 'undefined' ? ADJECTIVE_ENCYCLOPEDIA_PAGES : []
+      },
+      adverb: {
+        id: 'adverb',
+        label: '副詞篇',
+        icon: '✨',
+        pages: typeof ADVERB_ENCYCLOPEDIA_PAGES !== 'undefined' ? ADVERB_ENCYCLOPEDIA_PAGES : []
+      },
+      pronoun: {
+        id: 'pronoun',
+        label: '代名詞篇',
+        icon: '👤',
+        pages: typeof PRONOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? PRONOUN_ENCYCLOPEDIA_PAGES : []
+      },
+      proper_noun: {
+        id: 'proper_noun',
+        label: '專有名詞篇',
+        icon: '🏛️',
+        pages: typeof PROPER_NOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? PROPER_NOUN_ENCYCLOPEDIA_PAGES : []
+      },
+      dependent_noun: {
+        id: 'dependent_noun',
+        label: '依存名詞篇',
+        icon: '📦',
+        pages: typeof DEPENDENT_NOUN_ENCYCLOPEDIA_PAGES !== 'undefined' ? DEPENDENT_NOUN_ENCYCLOPEDIA_PAGES : []
+      }
+    };
+
+    this.pages = this.modes[this.currentMode].pages;
     this.currentPageIndex = 0;
     this.synth = window.speechSynthesis || null;
 
@@ -31,37 +76,24 @@ class EncyclopediaApp {
     this.btnCloseModal = document.getElementById('btn-close-modal');
     this.tocList = document.getElementById('toc-list');
     this.domainBar = document.getElementById('domain-bar');
-    this.tabNoun = document.getElementById('tab-noun');
-    this.tabVerb = document.getElementById('tab-verb');
   }
 
-  // 切換名詞篇 / 動詞篇
+  // 切換 7 大詞性圖鑑模式
   setMode(mode) {
-    if (this.currentMode === mode) return;
+    if (!this.modes[mode]) return;
     this.currentMode = mode;
+    this.pages = this.modes[mode].pages;
     this.currentPageIndex = 0;
 
-    if (mode === 'noun') {
-      this.pages = this.nounPages;
-      if (this.tabNoun) {
-        this.tabNoun.classList.add('active');
-        this.tabNoun.setAttribute('aria-selected', 'true');
+    // 更新頂部模式按鈕 active 狀態與橫向捲動可視度
+    document.querySelectorAll('.mode-tab-btn').forEach(btn => {
+      const isActive = (btn.dataset.mode === mode);
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if (isActive) {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       }
-      if (this.tabVerb) {
-        this.tabVerb.classList.remove('active');
-        this.tabVerb.setAttribute('aria-selected', 'false');
-      }
-    } else {
-      this.pages = this.verbPages;
-      if (this.tabVerb) {
-        this.tabVerb.classList.add('active');
-        this.tabVerb.setAttribute('aria-selected', 'true');
-      }
-      if (this.tabNoun) {
-        this.tabNoun.classList.remove('active');
-        this.tabNoun.setAttribute('aria-selected', 'false');
-      }
-    }
+    });
 
     this.renderDomainSelector();
     this.render();
@@ -151,7 +183,8 @@ class EncyclopediaApp {
 
     // 更新指示器與計數
     const pageNumStr = `${String(this.currentPageIndex + 1).padStart(2, '0')} / ${String(this.pages.length).padStart(2, '0')}`;
-    const modeBadge = this.currentMode === 'noun' ? '名詞篇' : '動詞篇';
+    const modeConfig = this.modes[this.currentMode] || { label: '百科', icon: '📖' };
+    const modeBadge = `${modeConfig.icon} ${modeConfig.label}`;
     if (this.pageCounter) this.pageCounter.textContent = `${modeBadge} ${pageNumStr}`;
     if (this.navPageInfo) this.navPageInfo.textContent = `${modeBadge} Page ${pageNumStr}`;
 
@@ -262,7 +295,8 @@ class EncyclopediaApp {
 
   openToc() {
     if (!this.tocList || !this.tocModal) return;
-    const modeName = this.currentMode === 'noun' ? '🌸 名詞篇主題目錄' : '⚡ 動詞篇主題目錄';
+    const modeConfig = this.modes[this.currentMode] || { label: '百科', icon: '📖' };
+    const modeName = `${modeConfig.icon} ${modeConfig.label}主題目錄`;
     const tocModalTitle = document.querySelector('.toc-modal .toc-title');
     if (tocModalTitle) tocModalTitle.textContent = modeName;
 

@@ -24,16 +24,36 @@
     </div>
   </header>
 
-  <!-- 名詞 / 動詞雙圖鑑模式切換列 -->
+  <!-- 7 大詞性圖鑑模式切換列 -->
   <div class="mode-switcher-container">
-    <div class="mode-switch-pill" role="tablist" aria-label="圖鑑類別切換">
-      <button class="mode-tab-btn" id="tab-noun" onclick="app.setMode('noun')" role="tab" aria-selected="false">
+    <div class="mode-switch-pill" role="tablist" aria-label="圖鑑詞性類別切換">
+      <button class="mode-tab-btn" data-mode="noun" onclick="app.setMode('noun')" role="tab" aria-selected="false">
         <span>🌸</span>
-        <span>生活名詞圖鑑 (Noun · 29頁)</span>
+        <span>名詞 (Noun · 29頁)</span>
       </button>
-      <button class="mode-tab-btn active" id="tab-verb" onclick="app.setMode('verb')" role="tab" aria-selected="true">
+      <button class="mode-tab-btn active" data-mode="verb" onclick="app.setMode('verb')" role="tab" aria-selected="true">
         <span>⚡</span>
-        <span>日常動詞圖鑑 (Verb · 12領域)</span>
+        <span>動詞 (Verb · 12領域)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="adjective" onclick="app.setMode('adjective')" role="tab" aria-selected="false">
+        <span>🌈</span>
+        <span>形容詞 (Adjective · 4領域)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="adverb" onclick="app.setMode('adverb')" role="tab" aria-selected="false">
+        <span>✨</span>
+        <span>副詞 (Adverb · 3領域)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="pronoun" onclick="app.setMode('pronoun')" role="tab" aria-selected="false">
+        <span>👤</span>
+        <span>代名詞 (Pronoun · 2領域)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="proper_noun" onclick="app.setMode('proper_noun')" role="tab" aria-selected="false">
+        <span>🏛️</span>
+        <span>專有名詞 (Proper · 2領域)</span>
+      </button>
+      <button class="mode-tab-btn" data-mode="dependent_noun" onclick="app.setMode('dependent_noun')" role="tab" aria-selected="false">
+        <span>📦</span>
+        <span>依存名詞/量詞 (2領域)</span>
       </button>
     </div>
   </div>
@@ -90,6 +110,11 @@
   <!-- 載入資料集與應用核心邏輯 -->
   <script src="js/encyclopedia_data.js"></script>
   <script src="js/verbs_data.js"></script>
+  <script src="js/adjectives_data.js"></script>
+  <script src="js/adverbs_data.js"></script>
+  <script src="js/pronouns_data.js"></script>
+  <script src="js/proper_nouns_data.js"></script>
+  <script src="js/dependent_nouns_data.js"></script>
   <script src="js/encyclopedia_app.js"></script>
   <script>
     // 預設進入動詞篇模式
