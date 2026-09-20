@@ -92,7 +92,7 @@
 ## 🚦 目前狀態
 
 - **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。首頁僅展示 13 大合頁標籤，點選即彈出 15 色多彩副頁領域膠囊抽屜；所有雙詞彙卡片（如 `아버지 / 아빠`）均支援雙單字獨立點讀發音。
-- **Git 狀態**：已更新 `index.html`、`verbs.html`、`js/encyclopedia_app.js`、`css/encyclopedia.css`、`.gitignore` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
+- **Git 狀態**：已全數提交 Commit（`bb238a5`）並順利推播至 GitHub 遠端儲存庫 `origin/main`，工作目錄乾淨無未提交變更。
 
 ---
 
