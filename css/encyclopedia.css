@@ -257,25 +257,31 @@ body[data-mode="sanrio_food"] {
 
 .btn-toc {
   background: #FFFFFF;
-  border: 1.5px solid #FFD8E2;
-  color: #E91E63;
-  font-size: 0.9rem;
-  font-weight: 700;
-  padding: 8px 18px;
-  border-radius: var(--radius-pill);
+  border: 1.8px solid #FFCCD5;
+  color: #E11D48;
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 8px 20px;
+  border-radius: 9999px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.08);
-  transition: var(--transition-smooth);
+  box-shadow: 0 3px 10px rgba(225, 29, 72, 0.08);
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.3px;
 }
 
 .btn-toc:hover {
-  background: #FFEBF0;
-  border-color: #FF6584;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 105, 180, 0.16);
+  background: #FFF5F7;
+  border-color: #FB7185;
+  color: #BE123C;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(225, 29, 72, 0.16);
+}
+
+.btn-toc:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* 7 大詞性圖鑑模式切換按鈕 (Mode Switcher) */
@@ -1399,118 +1405,305 @@ body.domain-popout-open .mode-tab-btn.active::after {
   flex-direction: column;
 }
 
-.toc-header {
+/* 🌟 全域 13 大合頁主題導航大綱頁 (依使用者設計圖稿 01~13 精密還原) */
+.toc-global-modal {
+  max-width: 980px !important;
+  width: 92vw !important;
+  max-height: 86vh !important;
+  border-radius: 24px !important;
+  padding: 22px 26px !important;
+  border: 1.8px solid #FFE4E8 !important;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18), 0 4px 16px rgba(225, 29, 72, 0.08) !important;
+  background: #FFFFFF !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.toc-global-modal .toc-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   padding-bottom: 14px;
-  border-bottom: 1.5px solid #FFE8EE;
+  border-bottom: 1.5px solid #F3F4F6;
+  flex-shrink: 0;
 }
 
-.toc-title {
-  font-size: 1.35rem;
-  font-weight: 900;
-  color: #2D3142;
-  display: flex;
+/* 頂部標題膠囊徽章 (依設計圖 1) */
+.toc-title-pill {
+  background: #FFFFFF;
+  border: 1.8px solid #FFCCD5;
+  color: #E11D48;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.08);
+  letter-spacing: 0.5px;
 }
 
 .btn-close-modal {
   background: #FFEBF0;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   font-size: 1.2rem;
-  color: #E91E63;
+  color: #E11D48;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-smooth);
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
 }
 
 .btn-close-modal:hover {
-  background: #FF4071;
+  background: #E11D48;
   color: #FFFFFF;
-  transform: rotate(90deg);
+  transform: rotate(90deg) scale(1.08);
 }
 
-.toc-list {
+/* 全域分類滾動清單容器 */
+.toc-global-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow-y: auto;
+  padding-right: 8px;
+  margin-right: -4px;
+  flex: 1;
 }
 
-.toc-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 18px;
-  border-radius: var(--radius-md);
-  border: 1.5px solid #FFF0F4;
-  background: #FFFDFE;
-  cursor: pointer;
-  transition: var(--transition-smooth);
+/* 自訂精美平滑捲軸 */
+.toc-global-list::-webkit-scrollbar {
+  width: 7px;
+}
+.toc-global-list::-webkit-scrollbar-track {
+  background: #F9FAFB;
+  border-radius: 10px;
+}
+.toc-global-list::-webkit-scrollbar-thumb {
+  background: #FBCFE8;
+  border-radius: 10px;
+}
+.toc-global-list::-webkit-scrollbar-thumb:hover {
+  background: #F472B6;
 }
 
-.toc-item:hover {
-  background: #FFEBF0;
-  border-color: #FFAEC1;
-  transform: translateX(4px);
-}
-
-.toc-item.active {
-  background: #FFF0F5;
-  border-color: #FF5E86;
-  box-shadow: 0 4px 14px rgba(255, 94, 134, 0.15);
-}
-
-.toc-item-left {
+/* 單一大分類行 (Category Row) */
+.toc-category-row {
   display: flex;
   align-items: center;
   gap: 14px;
+  padding: 10px 14px;
+  border-radius: 18px;
+  background: #FFFFFF;
+  border: 1.5px solid #F3F4F6;
+  transition: all 0.2s ease;
 }
 
-.toc-item-num {
-  font-size: 0.85rem;
-  font-weight: 900;
-  padding: 3px 9px;
-  border-radius: 12px;
-  border: 1px solid transparent;
+.toc-category-row:hover {
+  border-color: #E5E7EB;
+  background: #FAFAFB;
 }
 
-.toc-item[data-color="0"] .toc-item-num { background: #FFF0F3; color: #D61B52; border-color: #FFCCD7; }
-.toc-item[data-color="1"] .toc-item-num { background: #FFF5EB; color: #D95A00; border-color: #FFE0C2; }
-.toc-item[data-color="2"] .toc-item-num { background: #FFFBEB; color: #B45309; border-color: #FDE68A; }
-.toc-item[data-color="3"] .toc-item-num { background: #ECFDF5; color: #047857; border-color: #A7F3D0; }
-.toc-item[data-color="4"] .toc-item-num { background: #ECFEFF; color: #0E7490; border-color: #A5F3FC; }
-.toc-item[data-color="5"] .toc-item-num { background: #EFF6FF; color: #1D4ED8; border-color: #BFDBFE; }
-.toc-item[data-color="6"] .toc-item-num { background: #EEF2FF; color: #4338CA; border-color: #C7D2FE; }
-.toc-item[data-color="7"] .toc-item-num { background: #F5F3FF; color: #6D28D9; border-color: #DDD6FE; }
-.toc-item[data-color="8"] .toc-item-num { background: #FDF2F8; color: #BE185D; border-color: #FBCFE8; }
-.toc-item[data-color="9"] .toc-item-num { background: #FFF1F2; color: #BE123C; border-color: #FECDD3; }
-.toc-item[data-color="10"] .toc-item-num { background: #F7FEE7; color: #4D7C0F; border-color: #D9F99D; }
-.toc-item[data-color="11"] .toc-item-num { background: #F0F9FF; color: #0369A1; border-color: #BAE6FD; }
-.toc-item[data-color="12"] .toc-item-num { background: #FFF1F5; color: #D81B60; border-color: #F8BBD0; }
-.toc-item[data-color="13"] .toc-item-num { background: #FFF7ED; color: #C2410C; border-color: #FFEDD5; }
-.toc-item[data-color="14"] .toc-item-num { background: #FAF5FF; color: #7E22CE; border-color: #E9D5FF; }
-
-.toc-item:hover {
-  transform: translateX(4px);
-  filter: brightness(0.98);
+.toc-category-row.is-active-category {
+  background: #FFF8FA;
+  border-color: #FECDD3;
+  box-shadow: 0 3px 12px rgba(244, 114, 182, 0.12);
 }
 
-.toc-item-title {
-  font-weight: 800;
-  color: #2D3748;
+.toc-row-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
-.toc-item-zh {
+/* 01~13 糖果彩虹編號膠囊 */
+.toc-number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 28px;
+  padding: 0 8px;
+  border-radius: 9999px;
   font-size: 0.82rem;
-  color: #718096;
+  font-weight: 900;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.5px;
+  border: 1.2px solid transparent;
+}
+
+.toc-number-badge[data-mode="noun"] { background: #FFF0F5; color: #E11D48; border-color: #FECDD3; }
+.toc-number-badge[data-mode="verb"] { background: #EFF6FF; color: #1D4ED8; border-color: #BFDBFE; }
+.toc-number-badge[data-mode="adjective"] { background: #FDF2F8; color: #BE185D; border-color: #FBCFE8; }
+.toc-number-badge[data-mode="adverb"] { background: #F5F3FF; color: #6D28D9; border-color: #DDD6FE; }
+.toc-number-badge[data-mode="pronoun"] { background: #ECFEFF; color: #0E7490; border-color: #A5F3FC; }
+.toc-number-badge[data-mode="proper_noun"] { background: #ECFDF5; color: #047857; border-color: #A7F3D0; }
+.toc-number-badge[data-mode="dependent_noun"] { background: #FFFBEB; color: #B45309; border-color: #FDE68A; }
+.toc-number-badge[data-mode="numeral"] { background: #FFF5EB; color: #D95A00; border-color: #FFE0C2; }
+.toc-number-badge[data-mode="determiner"] { background: #F7FEE7; color: #4D7C0F; border-color: #D9F99D; }
+.toc-number-badge[data-mode="particle"] { background: #EEF2FF; color: #4338CA; border-color: #C7D2FE; }
+.toc-number-badge[data-mode="greeting"] { background: #F0FDF4; color: #15803D; border-color: #BBF7D0; }
+.toc-number-badge[data-mode="loanword"] { background: #FFF1F2; color: #BE123C; border-color: #FECDD3; }
+.toc-number-badge[data-mode="sanrio_food"] { background: #FFF0F7; color: #DB2777; border-color: #FBCFE8; }
+
+/* 主分類切換膠囊按鈕 */
+.toc-main-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.toc-main-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.toc-main-pill:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.toc-main-arrow {
+  font-size: 0.85rem;
+  margin-left: 2px;
+  animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
+}
+
+/* 13 大分類主膠囊色彩配對 */
+.toc-main-pill[data-mode="noun"] { background: #FFE4E6; color: #BE123C; border-color: #FDA4AF; }
+.toc-main-pill[data-mode="verb"] { background: #DBEAFE; color: #1E40AF; border-color: #93C5FD; }
+.toc-main-pill[data-mode="adjective"] { background: #FCE7F3; color: #9D174D; border-color: #F9A8D4; }
+.toc-main-pill[data-mode="adverb"] { background: #EDE9FE; color: #5B21B6; border-color: #C4B5FD; }
+.toc-main-pill[data-mode="pronoun"] { background: #CFFAFE; color: #155E75; border-color: #67E8F9; }
+.toc-main-pill[data-mode="proper_noun"] { background: #D1FAE5; color: #065F46; border-color: #6EE7B7; }
+.toc-main-pill[data-mode="dependent_noun"] { background: #FEF3C7; color: #92400E; border-color: #FCD34D; }
+.toc-main-pill[data-mode="numeral"] { background: #FFEDD5; color: #9A3412; border-color: #FDBA74; }
+.toc-main-pill[data-mode="determiner"] { background: #ECFCCB; color: #3F6212; border-color: #BEF264; }
+.toc-main-pill[data-mode="particle"] { background: #E0E7FF; color: #3730A3; border-color: #A5B4FC; }
+.toc-main-pill[data-mode="greeting"] { background: #DCFCE7; color: #166534; border-color: #86EFAC; }
+.toc-main-pill[data-mode="loanword"] { background: #FFE4E6; color: #9F1239; border-color: #FDA4AF; }
+.toc-main-pill[data-mode="sanrio_food"] { background: #FCE7F3; color: #831843; border-color: #F472B6; }
+
+.toc-main-pill.active {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+  filter: saturate(1.15);
+}
+
+/* 副頁領域標籤橫向排開包覆區 */
+.toc-sub-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+/* 副頁領域快捷膠囊按鈕 */
+.toc-sub-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 1.2px solid transparent;
+  cursor: pointer;
+  background: #F9FAFB;
+  color: #374151;
+  transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+}
+
+.toc-sub-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.toc-sub-pill:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.toc-sub-pill .sub-pill-icon {
+  font-size: 0.88rem;
+}
+
+.toc-sub-pill .sub-pill-name {
+  line-height: 1.2;
+}
+
+/* 15 款專屬生活主題糖果色彩 */
+.toc-sub-pill[data-color="0"] { background: #FFF1F2; color: #BE123C; border-color: #FECDD3; }
+.toc-sub-pill[data-color="1"] { background: #FFF7ED; color: #C2410C; border-color: #FFEDD5; }
+.toc-sub-pill[data-color="2"] { background: #FEFCE8; color: #A16207; border-color: #FEF08A; }
+.toc-sub-pill[data-color="3"] { background: #F0FDF4; color: #15803D; border-color: #BBF7D0; }
+.toc-sub-pill[data-color="4"] { background: #ECFEFF; color: #0E7490; border-color: #A5F3FC; }
+.toc-sub-pill[data-color="5"] { background: #EFF6FF; color: #1D4ED8; border-color: #BFDBFE; }
+.toc-sub-pill[data-color="6"] { background: #EEF2FF; color: #4338CA; border-color: #C7D2FE; }
+.toc-sub-pill[data-color="7"] { background: #FAF5FF; color: #7E22CE; border-color: #E9D5FF; }
+.toc-sub-pill[data-color="8"] { background: #FDF2F8; color: #BE185D; border-color: #FBCFE8; }
+.toc-sub-pill[data-color="9"] { background: #FFF1F5; color: #D81B60; border-color: #F8BBD0; }
+.toc-sub-pill[data-color="10"] { background: #F7FEE7; color: #4D7C0F; border-color: #D9F99D; }
+.toc-sub-pill[data-color="11"] { background: #F0F9FF; color: #0369A1; border-color: #BAE6FD; }
+.toc-sub-pill[data-color="12"] { background: #FEF2F2; color: #B91C1C; border-color: #FECACA; }
+.toc-sub-pill[data-color="13"] { background: #FFFBEB; color: #B45309; border-color: #FDE68A; }
+.toc-sub-pill[data-color="14"] { background: #F3E8FF; color: #6B21A8; border-color: #E9D5FF; }
+
+.toc-sub-pill.active {
+  box-shadow: 0 0 0 2px #E11D48, 0 4px 12px rgba(225, 29, 72, 0.25) !important;
+  font-weight: 900;
+  transform: scale(1.04);
+}
+
+/* 響應式適配：手機螢幕下類別行轉為卡片縱向排列 */
+@media (max-width: 768px) {
+  .toc-global-modal {
+    padding: 16px 14px !important;
+    width: 96vw !important;
+    max-height: 90vh !important;
+    border-radius: 20px !important;
+  }
+  .toc-category-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  .toc-row-left {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .toc-sub-pills-wrap {
+    width: 100%;
+    padding-left: 4px;
+  }
+  .toc-sub-pill {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+  }
 }
 
 /* 響應式優化 */

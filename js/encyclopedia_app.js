@@ -506,27 +506,83 @@ class EncyclopediaApp {
     }, 280);
   }
 
+  // 全域 13 大合頁主題導航大綱頁 (依使用者設計圖稿 01~13 編號與副頁展開)
   openToc() {
     if (!this.tocList || !this.tocModal) return;
-    const modeConfig = this.modes[this.currentMode] || { label: '百科', icon: '📖' };
-    const modeName = `${modeConfig.icon} ${modeConfig.label}主題目錄`;
-    const tocModalTitle = document.querySelector('.toc-modal .toc-title');
-    if (tocModalTitle) tocModalTitle.textContent = modeName;
 
-    this.tocList.innerHTML = this.pages.map((p, idx) => `
-      <div class="toc-item ${idx === this.currentPageIndex ? 'active' : ''}" data-color="${idx % 15}" onclick="app.goToPage(${idx}); app.closeToc();">
-        <div class="toc-item-left">
-          <span class="toc-item-num">${String(idx + 1).padStart(2, '0')}</span>
-          <span style="font-size:1.3rem;">${p.domainIcon || '📖'}</span>
-          <div>
-            <div class="toc-item-title">${p.titleKo} · <span style="color:#718096;font-size:0.9rem;">${p.titleZh}</span></div>
-            <div class="toc-item-zh" style="font-size:0.78rem;color:#A0AEC0;">${p.domainName}</div>
+    const modeOrder = [
+      { key: 'noun', idx: '01' },
+      { key: 'verb', idx: '02' },
+      { key: 'adjective', idx: '03' },
+      { key: 'adverb', idx: '04' },
+      { key: 'pronoun', idx: '05' },
+      { key: 'proper_noun', idx: '06' },
+      { key: 'dependent_noun', idx: '07' },
+      { key: 'numeral', idx: '08' },
+      { key: 'determiner', idx: '09' },
+      { key: 'particle', idx: '10' },
+      { key: 'greeting', idx: '11' },
+      { key: 'loanword', idx: '12' },
+      { key: 'sanrio_food', idx: '13' }
+    ];
+
+    const currentPage = this.pages[this.currentPageIndex];
+    const currentDomainId = currentPage ? currentPage.domainId : '';
+
+    this.tocList.innerHTML = modeOrder.map(item => {
+      const modeConfig = this.modes[item.key];
+      if (!modeConfig) return '';
+      const isActiveMode = (this.currentMode === item.key);
+
+      // 提取該分類下的所有生活主題領域 (若無獨立 domainId 則依頁面排開)
+      const domainMap = new Map();
+      modeConfig.pages.forEach((p, pIdx) => {
+        const dId = p.domainId || `p-${pIdx}`;
+        if (!domainMap.has(dId)) {
+          const cleanName = (p.domainName || p.titleZh || p.titleKo || '').replace(/^(v|adj|adv|pro|prop|dep|num|det|par|grt|loan|s)?\d+_/, '');
+          domainMap.set(dId, {
+            domainId: dId,
+            name: cleanName || p.titleZh || p.titleKo,
+            icon: p.domainIcon || '📖',
+            firstPageIndex: pIdx
+          });
+        }
+      });
+      const domains = Array.from(domainMap.values());
+
+      return `
+        <div class="toc-category-row ${isActiveMode ? 'is-active-category' : ''}" data-mode="${item.key}">
+          <div class="toc-row-left">
+            <span class="toc-number-badge" data-mode="${item.key}">${item.idx}</span>
+            <button type="button" class="toc-main-pill ${isActiveMode ? 'active' : ''}" data-mode="${item.key}" onclick="app.jumpFromToc('${item.key}', 0)" title="前往 ${modeConfig.label} 首頁">
+              <span class="toc-main-icon">${modeConfig.icon}</span>
+              <span class="toc-main-label">${modeConfig.label}</span>
+              ${isActiveMode ? '<span class="toc-main-arrow">▾</span>' : ''}
+            </button>
+          </div>
+          <div class="toc-sub-pills-wrap">
+            ${domains.map((d, dIdx) => {
+              const isCurrentDomain = isActiveMode && (currentDomainId === d.domainId);
+              return `
+                <button type="button" class="toc-sub-pill ${isCurrentDomain ? 'active' : ''}" data-color="${dIdx % 15}" onclick="app.jumpFromToc('${item.key}', ${d.firstPageIndex})" title="直達：${d.name}">
+                  <span class="sub-pill-icon">${d.icon}</span>
+                  <span class="sub-pill-name">${d.name}</span>
+                </button>
+              `;
+            }).join('')}
           </div>
         </div>
-        <span style="font-size:0.85rem;color:#A0AEC0;">➔</span>
-      </div>
-    `).join('');
+      `;
+    }).join('');
+
     this.tocModal.classList.add('show');
+  }
+
+  // 從全域目錄直達指定模式與頁面
+  jumpFromToc(mode, pageIndex) {
+    this.closeToc();
+    this.setMode(mode, false);
+    this.goToPage(pageIndex);
   }
 
   closeToc() {

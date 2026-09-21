@@ -6,10 +6,50 @@
   <title>韓語圖解生活百科全書 · Korean Visual Encyclopedia</title>
   <meta name="description" content="韓語生活圖解百科全書：每頁聚焦核心生活單字、清晰圖像、道地繁體中文釋義、韓文發音點讀與極致舒適留白排版。">
   <!-- 引入樣式表 (附帶版本快取控制) -->
-  <link rel="stylesheet" href="css/encyclopedia.css?v=20260920_v3">
+  <link rel="stylesheet" href="css/encyclopedia.css?v=20260920_v4">
 
-  <!-- 核心搜尋欄精緻美化樣式 (即刻渲染，零延遲與零違和感) -->
+  <!-- 核心搜尋欄與百科目錄膠囊按鈕精緻樣式 (即刻渲染，零延遲與零違和感) -->
   <style id="search-bar-critical-css">
+    .btn-toc {
+      background: #FFFFFF !important;
+      border: 1.8px solid #FFCCD5 !important;
+      color: #E11D48 !important;
+      font-size: 0.92rem !important;
+      font-weight: 800 !important;
+      padding: 8px 20px !important;
+      border-radius: 9999px !important;
+      cursor: pointer !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      box-shadow: 0 3px 10px rgba(225, 29, 72, 0.08) !important;
+      transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+      letter-spacing: 0.3px !important;
+    }
+    .btn-toc:hover {
+      background: #FFF5F7 !important;
+      border-color: #FB7185 !important;
+      color: #BE123C !important;
+      transform: translateY(-2px) scale(1.03) !important;
+      box-shadow: 0 6px 18px rgba(225, 29, 72, 0.16) !important;
+    }
+    .btn-toc:active {
+      transform: translateY(0) scale(0.98) !important;
+    }
+    .toc-title-pill {
+      background: #FFFFFF !important;
+      border: 1.8px solid #FFCCD5 !important;
+      color: #E11D48 !important;
+      font-size: 1.05rem !important;
+      font-weight: 800 !important;
+      padding: 6px 18px !important;
+      border-radius: 9999px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      box-shadow: 0 2px 8px rgba(225, 29, 72, 0.08) !important;
+      letter-spacing: 0.5px !important;
+    }
     .search-section-wrapper {
       position: relative;
       max-width: 880px;
@@ -292,15 +332,18 @@
     </button>
   </nav>
 
-  <!-- 百科全域目錄彈窗 (Table of Contents Modal) -->
+  <!-- 百科全域目錄彈窗 (Table of Contents Modal · 01~13 全景導航大綱) -->
   <div class="modal-backdrop" id="toc-modal" role="dialog" aria-modal="true">
-    <div class="toc-modal">
+    <div class="toc-modal toc-global-modal">
       <div class="toc-header">
-        <div class="toc-title">📚 圖解百科主題總覽</div>
+        <div class="toc-title-pill">
+          <span>📑</span>
+          <span>百科目錄</span>
+        </div>
         <button class="btn-close-modal" id="btn-close-modal" aria-label="關閉目錄">✕</button>
       </div>
-      <div class="toc-list" id="toc-list">
-        <!-- JS 動態渲染目錄列表 -->
+      <div class="toc-list toc-global-list" id="toc-list">
+        <!-- JS 動態渲染 01~13 全景導航清單 -->
       </div>
     </div>
   </div>
@@ -317,10 +360,10 @@
   <script src="js/determiners_data.js"></script>
   <script src="js/particles_data.js"></script>
   <script src="js/greetings_data.js"></script>
-  <script src="js/loanwords_data.js?v=20260920_v3"></script>
-  <script src="js/sanrio_food_data.js?v=20260920_v3"></script>
-  <script src="js/encyclopedia_app.js?v=20260920_v3"></script>
-  <script src="js/search_index.js?v=20260920_v3" defer></script>
-  <script src="js/encyclopedia_search.js?v=20260920_v3" defer></script>
+  <script src="js/loanwords_data.js?v=20260920_v4"></script>
+  <script src="js/sanrio_food_data.js?v=20260920_v4"></script>
+  <script src="js/encyclopedia_app.js?v=20260920_v4"></script>
+  <script src="js/search_index.js?v=20260920_v4" defer></script>
+  <script src="js/encyclopedia_search.js?v=20260920_v4" defer></script>
 </body>
 </html>
