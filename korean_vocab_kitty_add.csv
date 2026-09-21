@@ -1,4 +1,4 @@
-﻿序號,韓文單字,羅馬拼音,中文解釋,英文釋義,TOPIK等級,詞性說明
+序號,韓文單字,羅馬拼音,中文解釋,英文釋義,TOPIK等級,詞性說明
 5667,홍콩,hongkong,香港,Hong Kong,D,專有名詞 (Proper Noun / 고유명사)，如 대구（大邱）。
 5668,대만,daeman,台灣（臺灣）,Taiwan,D,專有名詞 (Proper Noun / 고유명사)，如 대구（大邱）。
 5669,로스앤젤레스,roseuaenjellesseu,洛杉磯（LA）,Los Angeles (LA),D,專有名詞 (Proper Noun / 고유명사)，如 대구（大邱）。
@@ -35,3 +35,9 @@
 5700,핥다,haltda,舔、舔舐（雙收音 ㄾ 代表音 ㄹ，如 고양이가 손을 핥다 貓舔手、아이스크림을 핥다 舔冰淇淋）,"To lick, lap up (e.g. cat licking paws, licking ice cream)",A,動詞 (Verb / 동사)，如 하다（做）、가다（去）。
 5701,읊다,eulpda,吟誦、吟詠、誦讀（詩歌/文章）（雙收音 ㄿ 發右邊音 ㅂ/ㅍ，如 시를 읊다 吟詩）,"To recite, chant (a poem or verse)",B,動詞 (Verb / 동사)，如 하다（做）、가다（去）。
 5702,곽,gwak,小盒子、包、盒、槨 (量詞/名詞：如牛奶盒、火柴盒、煙盒等紙盒；或指外槨、姓氏郭/霍),small box / pack / carton / case,A,名詞 (Noun / 명사)，如 사람（人）、집（家）。
+5703,수분,subun,水分、水氣、濕度（漢字詞：水分；如 수분 크림 保濕霜、수분 섭취 補充水分）,"Moisture, water content, hydration",B,名詞 (Noun / 명사)，如 사람（人）、집（家）。
+5704,동의,dongui,同意、贊成、認同（漢字詞：同意；如 동의서 同意書、동의를 구하다 尋求同意）,"Agreement, consent, approval",B,名詞 (Noun / 명사)，如 사람（人）、집（家）。
+5705,인맥,inmaek,人脈、人際網絡、社交圈（漢字詞：人脈；如 인맥을 쌓다 累積人脈、넓은 인맥 廣泛的人脈）,"Personal connections, network, social ties",B,名詞 (Noun / 명사)，如 사람（人）、집（家）。
+5706,신장,sinjang,身高/身材（身長）；腎臟；拓展/增強（伸長）（多義漢字詞：① 身長 ② 腎臟 ③ 伸長）,"Height/stature (身長); kidney (腎臟); expansion/growth (伸長)",B,名詞 (Noun / 명사)，如 사람（人）、집（家）。
+5707,지연,jiyeon,延遲、耽擱、拖延（漢字詞：遲延；如 열차 지연 列車延誤、출발 지연 出發延期）,"Delay, postponement, retardation",B,名詞 (Noun / 명사)，如 사람（人）、집（家）。
+5708,활약,hwalyak,活躍、大顯身手、出色表現（漢字詞：活躍；如 대활약 大顯身手、활약이 기대되다 令人期待其活躍表現）,"Outstanding activity, great performance, active role",B,名詞 (Noun / 명사)，如 사람（人）、집（家）。

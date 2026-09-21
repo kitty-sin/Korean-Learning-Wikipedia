@@ -177,17 +177,25 @@
     - **外來語借詞全量 242 詞**：
       - 8 大領域逐一配置 178 款代表生活 Emoji（如 奶油 🧈、蛋糕 🍰、香檳 🍾、相機 📷、電腦 💻、吉他 🎸、沙發 🛋️、世界各都會地標與國家國旗 🇹🇭 🇨🇳 🇩🇪 🇺🇸 🇫🇷 🇯🇵 🇹🇼 等）。
     - **版本升級與快取更新**：
-15. **收工標準程序正式納入「🔥 Firebase 自動發布」規範 (2026-09-20)**：
-    - 依使用者指示，將 Firebase Hosting 部署（`$env:NODE_OPTIONS="--use-system-ca"; npx -y firebase-tools@latest deploy --only hosting`）永久寫入 `AGENTS.md` 收工鐵律。
-    - 實現「L1 本地檔 ➔ L2 GitHub ➔ 🔥 Firebase 線上發布 ➔ L3 Obsidian」四軌一體化收工標準程序。
+16. **Kitty 自訂詞庫擴展入庫 (#5703~#5708) 與全域搜尋同步 (2026-09-20)**：
+    - 依使用者指示，新增 6 組生活與商務實用核心詞彙：
+      - `#5703` **수분**（水分、水氣、濕度 / subun）
+      - `#5704` **동의**（同意、贊成、認同 / dongui）
+      - `#5705` **인맥**（人脈、社交圈 / inmaek）
+      - `#5706` **신장**（身高/身材、腎臟、伸長 / sinjang）
+      - `#5707` **지연**（延遲、耽擱、拖延 / jiyeon）
+      - `#5708` **활약**（活躍、大顯身手 / hwalyak）
+    - 規範化補全羅馬拼音、中英釋義、TOPIK B 級與名詞品詞說明。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
+    - 重新編譯 `scratch/build_search_index.py`，全域 9,461 筆檢索索引即刻生效並已成功部署至 Firebase Hosting。
 
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。外來語與三麗鷗美食兩大圖鑑專屬 Emoji 已正式於全球 CDN 上線生效！
-- **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置就緒。
-- **Git 狀態**：已 Commit 並成功推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。新增的 6 顆核心詞彙已可於線上即時搜尋並點讀發音！
+- **本地狀態**：工作目錄乾淨，詞庫與檢索資料庫保持 100% 同步。
+- **Git 狀態**：即將 Commit 並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
 ---
 
@@ -209,7 +217,7 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 22:34 PT（收工四部曲全面自動執行完畢）
+- **時間**：2026-09-20 23:46 PT（Kitty 擴充詞庫 #5703~#5708 入庫與 Firebase 同步完成）
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 
 
