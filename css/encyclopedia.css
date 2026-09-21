@@ -2198,35 +2198,35 @@ body.domain-popout-open .mode-tab-btn.active::after {
   margin-top: 6px;
 }
 
-/* 🎯 單字卡直達脈衝高亮動畫 (持續 5.5 秒，涵蓋 3 秒轉跳等待 + 朗讀發音全程) */
+/* 🎯 單字卡直達脈衝高亮動畫 (持續 4.2 秒，涵蓋 2 秒轉跳等待 + 朗讀發音全程) */
 @keyframes cardJumpPulse {
   0% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.75);
   }
-  12% {
+  14% {
     transform: scale(1.05);
     box-shadow: 0 0 0 14px rgba(236, 72, 153, 0.35);
   }
-  24% {
+  28% {
     transform: scale(1.02);
     box-shadow: 0 0 0 18px rgba(236, 72, 153, 0.18);
   }
-  50% {
-    /* 轉跳抵達約 2.75 秒時輕柔呼吸微動，提醒即將朗讀發音 */
+  42% {
+    /* 轉跳抵達約 1.8 秒時輕柔呼吸微動，提醒即將朗讀發音 */
     transform: scale(1.03);
     box-shadow: 0 0 0 12px rgba(236, 72, 153, 0.3);
   }
-  62% {
-    /* 3.4 秒語音播放時二次脈衝光暈 */
+  52% {
+    /* 2.2 秒語音播放時二次脈衝光暈 */
     transform: scale(1.05);
     box-shadow: 0 0 0 20px rgba(236, 72, 153, 0.38);
   }
-  76% {
+  72% {
     transform: scale(1.02);
     box-shadow: 0 0 0 10px rgba(236, 72, 153, 0.15);
   }
-  90% {
+  88% {
     transform: scale(1.01);
     box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.06);
   }
@@ -2237,7 +2237,7 @@ body.domain-popout-open .mode-tab-btn.active::after {
 }
 
 .highlight-pulse {
-  animation: cardJumpPulse 5.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  animation: cardJumpPulse 4.2s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   border: 2.5px solid #EC4899 !important;
   background: #FFF7FA !important;
 }

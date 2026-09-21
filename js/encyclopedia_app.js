@@ -516,17 +516,17 @@ class EncyclopediaApp {
         void targetCard.offsetWidth;
         targetCard.classList.add('highlight-pulse');
 
-        // 依使用者指示：自動朗讀發音延遲 3 秒，等平滑轉跳完成並看清字卡後才開始播放
+        // 依使用者指示：自動朗讀發音延遲 2 秒，等平滑轉跳完成並看清字卡後才開始播放
         const wordToSpeak = targetWord || targetCard.getAttribute('data-card-kr');
         if (wordToSpeak) {
           this.autoSpeakTimer = setTimeout(() => {
             this.speak(wordToSpeak, targetCard);
             this.autoSpeakTimer = null;
-          }, 3000);
+          }, 2000);
         }
 
-        // 高亮光暈持續 5.5 秒，涵蓋 3 秒轉跳等待 + 朗讀發音全程
-        setTimeout(() => targetCard.classList.remove('highlight-pulse'), 5500);
+        // 高亮光暈持續 4.2 秒，涵蓋 2 秒轉跳等待 + 朗讀發音全程
+        setTimeout(() => targetCard.classList.remove('highlight-pulse'), 4200);
       }
     }, 280);
   }
