@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>韓語圖解日常動詞百科 · Korean Visual Verb Encyclopedia</title>
   <meta name="description" content="韓語日常動詞圖解百科：涵蓋12大動作生活領域、韓文原形、日常해요體變形、實用生活搭配句、清晰動作圖示與真人發音點讀。">
+  <!-- PWA 與行動裝置配置 -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#FF85A2">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="韓語圖解百科">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="shortcut icon" href="icons/favicon.png">
+
   <!-- 引入樣式表 (附帶版本快取控制) -->
   <link rel="stylesheet" href="css/encyclopedia.css?v=20260920_v5">
 
@@ -372,6 +383,15 @@
         window.app.setMode('verb');
       }
     });
+
+    // PWA Service Worker 智慧離線快取註冊
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('PWA ServiceWorker registered successfully:', reg.scope))
+          .catch(err => console.error('PWA ServiceWorker registration failed:', err));
+      });
+    }
   </script>
 </body>
 </html>

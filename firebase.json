@@ -4,7 +4,8 @@
     "ignore": [
       "firebase.json",
       ".firebaserc",
-      "**/.*",
+      ".git/**",
+      ".firebase/**",
       "**/node_modules/**",
       "scratch/**",
       "rdq/**",
@@ -33,6 +34,45 @@
       {
         "source": "**/*.@(js|css|html)",
         "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "sw.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          },
+          {
+            "key": "Service-Worker-Allowed",
+            "value": "/"
+          }
+        ]
+      },
+      {
+        "source": "manifest.@(webmanifest|json)",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/manifest+json; charset=utf-8"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": ".well-known/assetlinks.json",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          },
           {
             "key": "Cache-Control",
             "value": "no-cache, no-store, must-revalidate"

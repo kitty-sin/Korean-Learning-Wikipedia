@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>韓語圖解生活百科全書 · Korean Visual Encyclopedia</title>
   <meta name="description" content="韓語生活圖解百科全書：每頁聚焦核心生活單字、清晰圖像、道地繁體中文釋義、韓文發音點讀與極致舒適留白排版。">
+  <!-- PWA 與行動裝置配置 -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#FF85A2">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="韓語圖解百科">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="shortcut icon" href="icons/favicon.png">
+
   <!-- 引入樣式表 (附帶版本快取控制) -->
   <link rel="stylesheet" href="css/encyclopedia.css?v=20260920_v5">
 
@@ -365,5 +376,16 @@
   <script src="js/encyclopedia_app.js?v=20260920_v5"></script>
   <script src="js/search_index.js?v=20260920_v5" defer></script>
   <script src="js/encyclopedia_search.js?v=20260920_v5" defer></script>
+
+  <!-- PWA Service Worker 智慧離線快取註冊 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('PWA ServiceWorker registered successfully:', reg.scope))
+          .catch(err => console.error('PWA ServiceWorker registration failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>

@@ -1,0 +1,37 @@
+{
+  "name": "韓語學習圖解百科",
+  "short_name": "韓語百科",
+  "description": "結構化、可檢索、多維度的韓語百科詞典與生活圖鑑知識庫",
+  "start_url": "./index.html",
+  "id": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0a0c",
+  "theme_color": "#FF85A2",
+  "lang": "zh-TW",
+  "categories": [
+    "education",
+    "reference"
+  ],
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

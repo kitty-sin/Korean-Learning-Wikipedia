@@ -139,20 +139,41 @@
     - 脈衝光暈動畫時間同步延長至 5.5 秒，並於第 2.8 秒輕柔呼吸、第 3.4 秒語音播放瞬間觸發二次高亮脈衝，視覺與聽覺節奏完全合拍。
     - 內建 `autoSpeakTimer` 防禦機制，在使用者快速切換分頁或翻頁時自動取消前次排程，避免重疊干擾。
 
+12. **Android App 封裝與 PWA 原生化全量上線（採用 R2-D2 經典封面）**：
+    - **封面與 App 圖標生成**：
+      - 依使用者上傳之 R2-D2 經典圖稿，經過精準邊界裁切與高解析 Lanczos 重採樣，生成全套 Android/iOS 標準圖標：
+        - `icons/icon-192.png`（192×192 標準桌面圖標）
+        - `icons/icon-512.png`（512×512 高解析啟動圖標）
+        - `icons/icon-maskable-512.png`（512×512 Android 自適應安全邊距遮罩圖標）
+        - `icons/apple-touch-icon.png`（180×180 iOS 專用圖標）
+        - `icons/favicon.png`（64×64 網站標籤圖標）
+    - **PWA 應用程式清單（Manifest）**：
+      - 建立 `manifest.webmanifest` 與 `manifest.json`：
+        - App 名稱：`韓語學習圖解百科`、簡稱：`韓語百科`。
+        - 啟動模式：`standalone`（全螢幕獨立運行，移除瀏覽器頂部網址列與底部導航欄）。
+        - 視窗旋轉：`any`，主色系：`#FF85A2`，背景底色：`#0a0a0c`。
+    - **Service Worker（`sw.js`）智慧離線快取**：
+      - 預先快取 27 項核心 HTML/CSS/JS、全景詞庫與圖標資產。
+      - 實踐「頁面導航網路優先＋快取備援、靜態資源快取優先＋背景更新（Stale-While-Revalidate）」雙軌策略，支援完全斷網時秒開百科瀏覽。
+    - **Google TWA 數位資產連結（Digital Asset Links）**：
+      - 建立並部署 `.well-known/assetlinks.json` 模板，更新 `firebase.json` 快取標頭與 MIME 映射。
+    - **Firebase Hosting 再次發布完成**：
+      - 實時部署至 [https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)，Android 裝置以 Chrome 開啟可直接一鍵「安裝應用程式」至桌面。
+
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。13 大分類全景導航轉跳目錄與延遲 3 秒自動朗讀已全面上線！
-- **本地狀態**：工作目錄乾淨無未提交檔案，本地服務器運行正常。
-- **Git 狀態**：已提交最新 Commit 並推播至遠端 GitHub `origin/main`（[kitty-sin/Korean-Learning-Wikipedia](https://github.com/kitty-sin/Korean-Learning-Wikipedia)）。
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 原生安裝、R2-D2 App 圖標、全域 13 大分類導航與離線快取已全面生效！
+- **本地狀態**：工作目錄乾淨，所有 PWA 靜態資源就緒。
+- **Git 狀態**：待提交本次 Android PWA 成果並推播至遠端 GitHub。
 
 ---
 
 ## ➡️ 下一步
 
-1. 依使用者後續回饋微調任何特定單元頁面、排版間距或互動回饋。
-2. 評估與 `Korean-Learning` 前端互動樂園進行跨專案雙向資料管道整合。
+1. 協助使用者在 Android 手機上點擊安裝測試獨立全螢幕 App 體驗。
+2. 視使用者需求透過 PWABuilder / TWA 產出獨立下載之 `.apk` 安裝包檔案。
 
 ---
 
@@ -165,7 +186,7 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 17:51 PT（本日工作已收工，全端同步完成）
+- **時間**：2026-09-20 18:32 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 
 
