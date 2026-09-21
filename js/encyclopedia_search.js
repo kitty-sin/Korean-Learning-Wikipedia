@@ -318,12 +318,16 @@
         const hasWiki = wikiList.length > 0;
         const firstWiki = hasWiki ? wikiList[0] : null;
 
+        const cardClickAction = hasWiki
+          ? `window.encyclopediaSearch.jumpToCard('${firstWiki.mode}', ${firstWiki.pageIdx}, ${firstWiki.cardIdx}, '${kr.replace(/'/g, "\\'")}')`
+          : `window.app && window.app.speak('${kr.replace(/'/g, "\\'")}', this)`;
+
         html += `
-          <div class="search-result-card ${hasWiki ? 'has-wiki-card' : ''}">
+          <div class="search-result-card ${hasWiki ? 'has-wiki-card is-clickable' : 'is-clickable'}" onclick="${cardClickAction}" title="${hasWiki ? '點擊直達圖解百科單元頁' : '點擊朗讀發音'}">
             <div class="result-card-main">
               <div class="result-word-header">
                 <span class="result-kr-word">${this.highlightMatch(kr, q)}</span>
-                <button type="button" class="btn-sound-chip btn-search-tts" onclick="window.app && window.app.speak('${kr}', this)" title="朗讀發音">
+                <button type="button" class="btn-sound-chip btn-search-tts" onclick="event.stopPropagation(); window.app && window.app.speak('${kr.replace(/'/g, "\\'")}', this);" title="朗讀發音">
                   🔊
                 </button>
                 <span class="result-rom">${rom ? `[${this.highlightMatch(rom, q)}]` : ''}</span>
@@ -337,7 +341,7 @@
 
             ${hasWiki ? `
               <div class="result-wiki-action">
-                <button type="button" class="btn-jump-wiki" onclick="window.encyclopediaSearch.jumpToCard('${firstWiki.mode}', ${firstWiki.pageIdx}, ${firstWiki.cardIdx})">
+                <button type="button" class="btn-jump-wiki" onclick="event.stopPropagation(); ${cardClickAction}">
                   <span class="wiki-jump-icon">${firstWiki.icon || '📖'}</span>
                   <span class="wiki-jump-text">
                     <span class="wiki-tag">圖解百科直達</span>
@@ -362,10 +366,10 @@
       this.resultsList.innerHTML = html;
     }
 
-    jumpToCard(mode, pageIdx, cardIdx) {
+    jumpToCard(mode, pageIdx, cardIdx, targetWord = '') {
       this.closeResults();
       if (window.app && typeof window.app.jumpToCard === 'function') {
-        window.app.jumpToCard(mode, pageIdx, cardIdx);
+        window.app.jumpToCard(mode, pageIdx, cardIdx, targetWord);
       } else if (window.app && typeof window.app.setMode === 'function') {
         window.app.setMode(mode, false);
         window.app.currentPageIndex = pageIdx;

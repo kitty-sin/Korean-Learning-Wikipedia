@@ -348,7 +348,7 @@ class EncyclopediaApp {
       if (page.items && page.items.length) {
         cardsHtml = `
           <div class="cards-grid">
-            ${page.items.map(item => {
+            ${page.items.map((item, cIdx) => {
               const hasSlash = item.kr && item.kr.includes('/');
               let wordKoHtml = '';
               let topSoundBtnHtml = '';
@@ -380,8 +380,9 @@ class EncyclopediaApp {
                 wordKoHtml = `<div class="card-word-ko">${item.kr}</div>`;
               }
 
+              const safeKr = (item.kr || '').replace(/"/g, '&quot;');
               return `
-                <div class="vocab-card" onclick="${cardClickAction}">
+                <div class="vocab-card" id="card-item-${cIdx}" data-card-idx="${cIdx}" data-card-kr="${safeKr}" onclick="${cardClickAction}">
                   <div class="card-top">
                     <span class="card-icon">${item.icon || '🏷️'}</span>
                     ${topSoundBtnHtml}
@@ -451,8 +452,8 @@ class EncyclopediaApp {
     }
   }
 
-  // 跨模式直達指定單元頁與單字卡片（支援平滑捲動與高亮光暈）
-  jumpToCard(mode, pageIndex, cardIndex) {
+  // 跨模式直達指定單元頁與單字卡片（支援平滑捲動、高亮光暈與自動朗讀）
+  jumpToCard(mode, pageIndex, cardIndex, targetWord = '') {
     if (!this.modes[mode]) return;
 
     this.currentMode = mode;
@@ -476,14 +477,31 @@ class EncyclopediaApp {
 
     // 捲動並為目標單字卡片加上炫彩高亮光暈脈衝動畫
     setTimeout(() => {
-      const cards = document.querySelectorAll('.vocab-card, .verb-card');
-      const targetCard = (cardIndex !== undefined && cards[cardIndex]) ? cards[cardIndex] : cards[0];
+      let targetCard = null;
+      if (targetWord) {
+        targetCard = document.querySelector(`.vocab-card[data-card-kr*="${targetWord}"]`);
+      }
+      if (!targetCard && cardIndex !== undefined) {
+        targetCard = document.getElementById(`card-item-${cardIndex}`);
+      }
+      if (!targetCard) {
+        const cards = document.querySelectorAll('.vocab-card');
+        targetCard = (cardIndex !== undefined && cards[cardIndex]) ? cards[cardIndex] : cards[0];
+      }
+
       if (targetCard) {
         targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
         targetCard.classList.remove('highlight-pulse');
         void targetCard.offsetWidth;
         targetCard.classList.add('highlight-pulse');
-        setTimeout(() => targetCard.classList.remove('highlight-pulse'), 3200);
+
+        // 自動播放目標詞彙發音提供即時回饋
+        const wordToSpeak = targetWord || targetCard.getAttribute('data-card-kr');
+        if (wordToSpeak) {
+          this.speak(wordToSpeak, targetCard);
+        }
+
+        setTimeout(() => targetCard.classList.remove('highlight-pulse'), 3500);
       }
     }, 280);
   }
@@ -564,8 +582,17 @@ class EncyclopediaApp {
   }
 }
 
-// 初始化全域應用
+// 初始化全域應用並掛載至 window
 let app = null;
-window.addEventListener('DOMContentLoaded', () => {
-  app = new EncyclopediaApp();
-});
+function initEncyclopediaApp() {
+  if (!window.app) {
+    app = new EncyclopediaApp();
+    window.app = app;
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initEncyclopediaApp);
+} else {
+  initEncyclopediaApp();
+}
