@@ -162,11 +162,21 @@
 
 ---
 
+13. **外來語借詞「洛杉磯 (LA)」歸類移轉與全名升級 (2026-09-20)**：
+    - 依使用者指示，將原誤置於「07 生活家居好物與日常設施 (loanword-domain-7)」沙發圖示之 `엘에이` 移除。
+    - 正式移轉並升級至「08 世界大都會與著名國家外來語 (loanword-domain-8)」分頁：
+      - 升級為雙詞彙發音卡片：`로스앤젤레스 / 엘에이` (洛杉磯 / LA)
+      - 配備世界圖標 🌍、雙獨立發音點讀晶片與標準英文源釋義。
+    - 重新編譯全域搜尋引擎（`build_search_index.py`），精準指向 loanword-domain-8 直達定位與光暈高亮。
+    - PWA 快取與版本戳記全面升級（`v20260920_v6`），完成 Firebase Hosting 線上重新發布。
+
+---
+
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 原生安裝、R2-D2 封面圖標、全域 13 大分類導航與離線快取已全面生效！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。外來語借詞「로스앤젤레스 / 엘에이」已在「08 世界大都會」就緒！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置就緒。
-- **Git 狀態**：已完成 Commit (`1e66bde`) 並同步推播至遠端 GitHub `origin/main`。
+- **Git 狀態**：即將 Commit 並推播至遠端 GitHub `origin/main`。
 
 ---
 
@@ -186,8 +196,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 21:06 PT（Android PWA 與 R2-D2 封面封裝全量收工）
+- **時間**：2026-09-20 21:28 PT（外來語借詞 洛杉磯 LA 遷移與百科發布收工）
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+
 
 
 

@@ -1072,13 +1072,6 @@ const LOANWORD_ENCYCLOPEDIA_PAGES = [
         "tip": "源自英文: Kremlin"
       },
       {
-        "kr": "엘에이",
-        "rom": "elei",
-        "zh": "洛杉磯 (LA)",
-        "icon": "🛋️",
-        "tip": "源自英文: LA"
-      },
-      {
         "kr": "리터",
         "rom": "riteo",
         "zh": "公升 (Liter)",
@@ -1707,6 +1700,13 @@ const LOANWORD_ENCYCLOPEDIA_PAGES = [
         "zh": "羅馬",
         "icon": "🌍",
         "tip": "源自英文: Roma"
+      },
+      {
+        "kr": "로스앤젤레스 / 엘에이",
+        "rom": "roseuaenjellesseu / elei",
+        "zh": "洛杉磯 (LA)",
+        "icon": "🌍",
+        "tip": "源自英文: Los Angeles (LA)"
       },
       {
         "kr": "러시아",

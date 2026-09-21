@@ -1,5 +1,5 @@
 // Service Worker for Korean Illustrated Encyclopedia (韓語學習圖解百科 PWA)
-const CACHE_NAME = 'korean-wiki-pwa-v1';
+const CACHE_NAME = 'korean-wiki-pwa-v2';
 
 const PRECACHE_ASSETS = [
   './',
