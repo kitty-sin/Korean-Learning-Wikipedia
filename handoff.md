@@ -177,8 +177,9 @@
     - **外來語借詞全量 242 詞**：
       - 8 大領域逐一配置 178 款代表生活 Emoji（如 奶油 🧈、蛋糕 🍰、香檳 🍾、相機 📷、電腦 💻、吉他 🎸、沙發 🛋️、世界各都會地標與國家國旗 🇹🇭 🇨🇳 🇩🇪 🇺🇸 🇫🇷 🇯🇵 🇹🇼 等）。
     - **版本升級與快取更新**：
-      - 更新 `index.html` 與 `verbs.html` 引用之資料版本戳記為 `?v=20260920_v7`。
-      - Service Worker 快取名稱升級至 `korean-wiki-pwa-v3`，確保使用者端即時取得全新卡片 Emoji。
+15. **收工標準程序正式納入「🔥 Firebase 自動發布」規範 (2026-09-20)**：
+    - 依使用者指示，將 Firebase Hosting 部署（`$env:NODE_OPTIONS="--use-system-ca"; npx -y firebase-tools@latest deploy --only hosting`）永久寫入 `AGENTS.md` 收工鐵律。
+    - 實現「L1 本地檔 ➔ L2 GitHub ➔ 🔥 Firebase 線上發布 ➔ L3 Obsidian」四軌一體化收工標準程序。
 
 ---
 
@@ -192,8 +193,8 @@
 
 ## ➡️ 下一步
 
-1. 若使用者端瀏覽器快取尚未更新，引導使用 `Ctrl + F5`（或強制重新整理）刷新 Service Worker 快取。
-2. 隨時依使用者需求微調百科介面或擴充單元內容。
+1. 隨時依使用者需求微調百科介面或擴充單元內容。
+2. 任何 session 輸入「收工」，嚴格自動執行四部曲。
 
 ---
 
@@ -208,8 +209,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 22:30 PT（Firebase Hosting 重新發布成功並驗證上線）
+- **時間**：2026-09-20 22:34 PT（收工四部曲全面自動執行完畢）
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+
 
 
 
