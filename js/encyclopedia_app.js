@@ -451,6 +451,43 @@ class EncyclopediaApp {
     }
   }
 
+  // 跨模式直達指定單元頁與單字卡片（支援平滑捲動與高亮光暈）
+  jumpToCard(mode, pageIndex, cardIndex) {
+    if (!this.modes[mode]) return;
+
+    this.currentMode = mode;
+    this.pages = this.modes[mode].pages;
+    this.currentPageIndex = Math.max(0, Math.min(pageIndex, this.pages.length - 1));
+
+    document.body.dataset.mode = mode;
+
+    document.querySelectorAll('.mode-tab-btn').forEach(btn => {
+      const isActive = (btn.dataset.mode === mode);
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if (isActive) {
+        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+
+    this.renderDomainSelector();
+    this.render();
+    this.closeDomainPopout();
+
+    // 捲動並為目標單字卡片加上炫彩高亮光暈脈衝動畫
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.vocab-card, .verb-card');
+      const targetCard = (cardIndex !== undefined && cards[cardIndex]) ? cards[cardIndex] : cards[0];
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetCard.classList.remove('highlight-pulse');
+        void targetCard.offsetWidth;
+        targetCard.classList.add('highlight-pulse');
+        setTimeout(() => targetCard.classList.remove('highlight-pulse'), 3200);
+      }
+    }, 280);
+  }
+
   openToc() {
     if (!this.tocList || !this.tocModal) return;
     const modeConfig = this.modes[this.currentMode] || { label: '百科', icon: '📖' };

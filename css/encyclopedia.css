@@ -1538,3 +1538,508 @@ body.domain-popout-open .mode-tab-btn.active::after {
     font-size: 0.85rem;
   }
 }
+
+/* ==========================================================================
+   🔍 全域即時多向搜尋欄 (Instant Multi-directional Search Bar & Panel)
+   依據使用者設計圖稿：暖米白圓角膠囊、金黃琥珀邊框、活力橘搜尋按鈕
+   ========================================================================== */
+.search-section-wrapper {
+  position: relative;
+  max-width: 1060px;
+  margin: 12px auto 8px auto;
+  padding: 0 16px;
+  z-index: 95;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* 暖米白圓角膠囊輸入框 */
+.search-input-pill {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #FFFDF7;
+  border: 1.8px solid #FCD34D;
+  border-radius: 9999px;
+  padding: 8px 18px;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.search-input-pill:hover {
+  border-color: #F59E0B;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.12);
+}
+
+.search-input-pill:focus-within {
+  background: #FFFFFF;
+  border-color: #D97706;
+  box-shadow: 0 0 0 3.5px rgba(245, 158, 11, 0.22), 0 4px 14px rgba(245, 158, 11, 0.15);
+}
+
+.search-icon-lens {
+  font-size: 1.15rem;
+  margin-right: 10px;
+  user-select: none;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.96rem;
+  font-weight: 500;
+  color: #374151;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+.search-input::placeholder {
+  color: #9CA3AF;
+  font-size: 0.91rem;
+  font-weight: 400;
+}
+
+.btn-search-clear {
+  background: #F3F4F6;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #6B7280;
+  font-size: 0.72rem;
+  margin-left: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-search-clear:hover {
+  background: #E5E7EB;
+  color: #111827;
+}
+
+/* 活力琥珀橘圓角搜尋按鈕 */
+.btn-search-submit {
+  background: linear-gradient(135deg, #EA580C 0%, #D97706 50%, #B45309 100%);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 9999px;
+  padding: 9px 24px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(217, 119, 6, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.5px;
+}
+
+.btn-search-submit:hover {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 5px 14px rgba(217, 119, 6, 0.45);
+}
+
+.btn-search-submit:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* 懸浮搜尋結果下拉面板 */
+.search-results-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 16px;
+  right: 16px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid #FCD34D;
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14), 0 4px 12px rgba(245, 158, 11, 0.15);
+  max-height: 520px;
+  overflow-y: auto;
+  animation: popoutSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.search-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+  background: rgba(254, 243, 199, 0.45);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stats-badge {
+  background: #FEF3C7;
+  color: #B45309;
+  border: 1px solid #FCD34D;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.search-filter-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #E5E7EB;
+  color: #4B5563;
+  padding: 4px 11px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-pill:hover {
+  background: #FFFBEB;
+  border-color: #FCD34D;
+  color: #B45309;
+}
+
+.filter-pill.active {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  border-color: #D97706;
+  color: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(217, 119, 6, 0.25);
+}
+
+.btn-results-close {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #4B5563;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-results-close:hover {
+  background: #FEE2E2;
+  color: #DC2626;
+}
+
+.search-results-list {
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 搜尋結果單字卡 */
+.search-result-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: #FFFFFF;
+  border: 1px solid #F3F4F6;
+  border-radius: 14px;
+  transition: all 0.2s ease;
+  gap: 12px;
+}
+
+.search-result-card:hover {
+  background: #FFFDF9;
+  border-color: #FCD34D;
+  transform: translateX(3px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-result-card.has-wiki-card {
+  border-left: 4px solid #EC4899;
+  background: #FFFBFD;
+}
+
+.search-result-card.has-wiki-card:hover {
+  border-color: #F472B6;
+  border-left: 4px solid #DB2777;
+}
+
+.result-card-main {
+  flex: 1;
+}
+
+.result-word-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+}
+
+.result-kr-word {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1F2937;
+}
+
+.btn-search-tts {
+  background: #FFF1F5;
+  border: 1px solid #FFD8E2;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.btn-search-tts:hover {
+  background: #FF4071;
+  color: #FFFFFF;
+  transform: scale(1.15);
+}
+
+.result-rom {
+  font-size: 0.85rem;
+  color: #6B7280;
+  font-style: italic;
+}
+
+.result-py-badge {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
+  padding: 1px 7px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.result-lvl-badge {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.result-zh-mean {
+  font-size: 0.95rem;
+  color: #374151;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.result-en-mean {
+  font-size: 0.82rem;
+  color: #6B7280;
+  line-height: 1.35;
+}
+
+.result-pos-note {
+  font-size: 0.74rem;
+  color: #9CA3AF;
+  margin-top: 2px;
+}
+
+/* 直達圖解百科按鈕 */
+.result-wiki-action {
+  flex-shrink: 0;
+}
+
+.btn-jump-wiki {
+  background: linear-gradient(135deg, #FFF0F5 0%, #FCE7F3 100%);
+  border: 1.5px solid #F472B6;
+  border-radius: 12px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: left;
+}
+
+.btn-jump-wiki:hover {
+  background: linear-gradient(135deg, #EC4899 0%, #DB2777 100%);
+  border-color: #BE185D;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 4px 12px rgba(219, 39, 119, 0.35);
+}
+
+.btn-jump-wiki:hover .wiki-tag,
+.btn-jump-wiki:hover .wiki-title,
+.btn-jump-wiki:hover .wiki-arrow {
+  color: #FFFFFF !important;
+}
+
+.wiki-jump-icon {
+  font-size: 1.3rem;
+}
+
+.wiki-jump-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.wiki-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #BE185D;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.wiki-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.wiki-arrow {
+  font-size: 0.95rem;
+  color: #BE185D;
+  transition: transform 0.2s ease;
+}
+
+.btn-jump-wiki:hover .wiki-arrow {
+  transform: translateX(3px);
+}
+
+/* 關鍵字高亮樣式 */
+.search-highlight {
+  background: #FEF08A;
+  color: #854D0E;
+  padding: 0 3px;
+  border-radius: 3px;
+  font-weight: 800;
+}
+
+/* 空白狀態 */
+.search-empty-state {
+  text-align: center;
+  padding: 36px 16px;
+  color: #6B7280;
+}
+
+.search-empty-state .empty-icon {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+
+.search-empty-state .empty-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.search-empty-state .empty-hint {
+  font-size: 0.86rem;
+  color: #9CA3AF;
+}
+
+.search-more-hint {
+  text-align: center;
+  font-size: 0.82rem;
+  color: #9CA3AF;
+  padding: 10px 0;
+  border-top: 1px dashed #E5E7EB;
+  margin-top: 6px;
+}
+
+/* 🎯 單字卡直達脈衝高亮動畫 */
+@keyframes cardJumpPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.75);
+  }
+  20% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 14px rgba(236, 72, 153, 0.35);
+  }
+  40% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 18px rgba(236, 72, 153, 0.18);
+  }
+  60% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 10px rgba(236, 72, 153, 0.12);
+  }
+  80% {
+    transform: scale(1.01);
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.05);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.highlight-pulse {
+  animation: cardJumpPulse 3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  border: 2.5px solid #EC4899 !important;
+  background: #FFF7FA !important;
+}
+
+/* 搜尋欄響應式適配 */
+@media (max-width: 640px) {
+  .search-section-wrapper {
+    margin: 8px auto 4px auto;
+    padding: 0 12px;
+  }
+  .search-input-pill {
+    padding: 6px 14px;
+  }
+  .search-input {
+    font-size: 0.88rem;
+  }
+  .search-input::placeholder {
+    font-size: 0.82rem;
+  }
+  .btn-search-submit {
+    padding: 8px 16px;
+    font-size: 0.88rem;
+  }
+  .search-result-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .result-wiki-action {
+    margin-top: 6px;
+  }
+  .btn-jump-wiki {
+    justify-content: space-between;
+  }
+}

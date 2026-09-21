@@ -24,6 +24,45 @@
     </div>
   </header>
 
+  <!-- 全域即時多向搜尋欄 (依使用者設計圖稿) -->
+  <section class="search-section-wrapper" id="search-section-wrapper">
+    <div class="search-bar-container">
+      <div class="search-input-pill">
+        <span class="search-icon-lens">🔍</span>
+        <input type="text"
+               id="search-input"
+               class="search-input"
+               placeholder="即時搜尋：輸入韓文 (애정)、中文 (愛情)、拼音 (aiqing)、羅馬拼音 (aejeong) 或英文..."
+               autocomplete="off"
+               spellcheck="false">
+        <button type="button" class="btn-search-clear" id="btn-search-clear" title="清空" style="display: none;">✕</button>
+      </div>
+      <button type="button" class="btn-search-submit" id="btn-search-submit">
+        <span>🔍</span>
+        <span>搜尋</span>
+      </button>
+    </div>
+
+    <!-- 懸浮搜尋結果下拉面板 -->
+    <div class="search-results-panel" id="search-results-panel" style="display: none;">
+      <div class="search-results-header">
+        <div class="search-stats">
+          <span class="stats-badge" id="search-stats-badge">找到 0 筆結果</span>
+        </div>
+        <div class="search-filter-pills" id="search-filter-pills">
+          <button type="button" class="filter-pill active" data-filter="all">全部 (0)</button>
+          <button type="button" class="filter-pill" data-filter="wiki">📖 圖解百科 (0)</button>
+          <button type="button" class="filter-pill" data-filter="dict">📚 核心詞庫 (0)</button>
+          <button type="button" class="filter-pill" data-filter="hanja">🀄 漢字詞 (0)</button>
+        </div>
+        <button type="button" class="btn-results-close" id="btn-results-close" title="關閉搜尋結果">✕</button>
+      </div>
+      <div class="search-results-list" id="search-results-list">
+        <!-- JS 動態渲染卡片清單 -->
+      </div>
+    </div>
+  </section>
+
   <!-- 13 大全景韓語圖解模式切換列 (7大品詞 + 4大語法核心 + 2大專題圖鑑) -->
   <div class="mode-switcher-container">
     <div class="mode-switch-pill" role="tablist" aria-label="圖鑑模式分類切換">
@@ -162,5 +201,7 @@
   <script src="js/loanwords_data.js"></script>
   <script src="js/sanrio_food_data.js"></script>
   <script src="js/encyclopedia_app.js"></script>
+  <script src="js/search_index.js" defer></script>
+  <script src="js/encyclopedia_search.js" defer></script>
 </body>
 </html>

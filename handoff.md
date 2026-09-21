@@ -97,19 +97,37 @@
      - 🌟 **主要網址**：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)
      - 🔗 **備用網址**：[https://korean-learning-1ec2a.firebaseapp.com](https://korean-learning-1ec2a.firebaseapp.com)
 
+9. **全域多向即時搜尋引擎上線（依使用者設計圖稿建構）**：
+   - **視覺外觀精確還原**：
+     - 暖米白圓角膠囊輸入框（`border-radius: 9999px`、金黃琥珀外框 `#FCD34D`、紫色/藍色放大鏡 `🔍`）。
+     - 完整提示字：`即時搜尋：輸入韓文 (애정)、中文 (愛情)、拼音 (aiqing)、羅馬拼音 (aejeong) 或英文...`。
+     - 右側活力琥珀橘圓角按鈕（`linear-gradient(135deg, #EA580C, #D97706)`）＋ `🔍 搜尋`。
+   - **五向跨語言即時檢索 (9,505 筆辭典詞庫)**：
+     - 🇰🇷 **韓文**（如 `애정`、`사과`、`먹다`、`아버지`）
+     - 🇹🇼 **中文**（如 `愛情`、`蘋果`、`吃`、`父親`）
+     - 🔤 **漢語拼音免聲調**（輸入 `aiqing` 精準命中 `àiqíng` ➔ `愛情`）
+     - 🔠 **羅馬拼音**（輸入 `aejeong`、`meok-da`、`abeoji`）
+     - 🇬🇧 **英文釋義**（輸入 `love`、`eat`、`father`）
+   - **百科卡片直達與高亮脈衝動畫**：
+     - 若搜尋詞彙存在於 13 大生活圖解單元中，結果卡片直接提供「📖 圖解百科直達」按鈕。
+     - 點擊後平滑切換至該單元頁面，目標卡片觸發 3 秒粉紅脈衝光暈高亮動畫（`highlight-pulse`）。
+   - **發音與分類過濾**：
+     - 搜尋結果列表每筆單字均具備 🔊 獨立語音點讀。
+     - 頂部提供「全部 / 📖 圖解百科 / 📚 核心詞庫 / 🀄 漢字詞」分類過濾標籤。
+
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。支援全裝置、手機與桌面即時多向瀏覽與點讀發音！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。全站支援全域即時五向搜尋、卡片直達與雙詞彙獨立點讀！
 - **本地狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。
-- **Git 狀態**：新增 `.firebaserc`、`firebase.json`，更新 `AGENTS.md`、`README.md` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
+- **Git 狀態**：已完成本地搜尋模組建置與樣式調整，即將 Commit 並推播至遠端 GitHub。
 
 ---
 
 ## ➡️ 下一步
 
-1. 依使用者後續回饋微調任何特定單元頁面或排版間距。
+1. 依使用者後續回饋微調任何特定單元頁面、搜尋結果權重或排版間距。
 2. 評估與 `Korean-Learning` 前端互動樂園進行跨專案雙向資料管道整合。
 
 ---
@@ -123,7 +141,8 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 17:05 PT
+- **時間**：2026-09-20 17:18 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+
 
 
