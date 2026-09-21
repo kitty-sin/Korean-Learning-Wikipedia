@@ -78,11 +78,14 @@ Korean-Learning-Wikipedia/
 4. **編碼安全**：
    - 韓文字串一律使用 **UTF-8 with BOM / UTF-8** 編碼儲存。
    - 在 Windows PowerShell 環境下若有批次處理指令，優先使用 Python 腳本避免中韓文編碼亂碼。
-5. **🎯 收工 3 步標準程序（極重要鐵律）**：
-   - 每當使用者輸入「**收工**」，**必須自動完整執行並回報以下 3 步收工程序**：
+5. **🎯 收工標準程序（極重要鐵律）**：
+   - 每當使用者輸入「**收工**」，**必須自動完整依序執行並回報以下收工程序**：
      - **第 1 步【L1 本地檔】**：完整更新並整理 `handoff.md`，確保任務紀錄與最新進度清晰，工作區乾淨。
      - **第 2 步【L2 GitHub】**：執行 `git add`、撰寫精準 commit 訊息並 `git push origin main` 推播至遠端儲存庫。
-     - **第 3 步【L3 Obsidian】**：同步更新 `G:\My Drive\2ndbrain-Obsidian`：
+     - **第 3 步【🔥 Firebase 線上發布】**：**自動無條件執行 Firebase Hosting 部署**：
+       - 嚴格使用含系統 CA 憑證指令：`$env:NODE_OPTIONS="--use-system-ca"; npx -y firebase-tools@latest deploy --only hosting`
+       - 確認終端輸出 `+ Deploy complete!`，確保線上發布網址（`https://korean-learning-1ec2a.web.app`）與最新程式碼 100% 同步生效。
+     - **第 4 步【L3 Obsidian】**：同步更新 `G:\My Drive\2ndbrain-Obsidian`：
        - `專案工作流程/Korean-Learning-Wikipedia.md`（開發工作流程、決策與踩坑紀錄）
        - `創作庫/Korean-Learning-Wikipedia.md`（全景架構與功能規格對照表）
 
