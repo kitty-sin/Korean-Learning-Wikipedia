@@ -2,6 +2,9 @@
 
 歡迎來到 **Korean-Learning-Wikipedia**！本專案旨在打造一個結構完整、高檢索性、多維度的韓語學習百科系統與語料知識庫。
 
+🌐 **線上發布網址（Firebase Hosting）**：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)
+（備用網址：[https://korean-learning-1ec2a.firebaseapp.com](https://korean-learning-1ec2a.firebaseapp.com)）
+
 ---
 
 ## 🌟 專案核心特色

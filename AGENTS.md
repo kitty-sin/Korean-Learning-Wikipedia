@@ -11,6 +11,7 @@
 - **關聯專案**：
   - 前端應用／互動樂園：`Korean-Learning`（[GitHub Pages 線上版](https://kitty-sin.github.io/sanrio-korean-learning/)）
   - 閱讀與跟讀系統：`Korean-Learning-OpenCode`（두루책방 1–6단계 124本繪本）
+- **線上發布版（Firebase Hosting）**：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)
 - **GitHub 倉庫**：[https://github.com/kitty-sin/Korean-Learning-Wikipedia](https://github.com/kitty-sin/Korean-Learning-Wikipedia)（私有倉庫）
 - **Obsidian 關聯筆記**：創作庫 / Korean-Learning-Wikipedia.md
 

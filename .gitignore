@@ -32,3 +32,6 @@ __pycache__/
 *$py.class
 .venv/
 env/
+
+# Firebase 暫存檔
+.firebase/

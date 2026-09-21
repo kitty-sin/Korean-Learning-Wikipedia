@@ -87,12 +87,23 @@
    - [`js/loanwords_data.js`](./js/loanwords_data.js) (外來語 242 詞)
    - [`js/sanrio_food_data.js`](./js/sanrio_food_data.js) (三麗鷗 100 美食)
 
+8. **Firebase Hosting 線上發布部署（專案：`Korean-Learning` / `korean-learning-1ec2a`）**：
+   - 依使用者指示將百科知識庫發布為正式線上網頁，綁定至 Google Firebase 的 `Korean-Learning` 專案（Project ID: `korean-learning-1ec2a`）。
+   - 建立標準版控設定檔：
+     - [`.firebaserc`](./.firebaserc)：指定 default 專案為 `korean-learning-1ec2a`。
+     - [`firebase.json`](./firebase.json)：配置 hosting 靜態站點規則，過濾排除不必要的原始資料集與草稿檔案，並加入快取標頭配置。
+   - 解決 Windows 環境下 Node.js v24 TLS 憑證驗證問題（配置 `$env:NODE_OPTIONS="--use-system-ca"` 順暢認證）。
+   - 部署成功！全球 CDN 線上發布網址：
+     - 🌟 **主要網址**：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)
+     - 🔗 **備用網址**：[https://korean-learning-1ec2a.firebaseapp.com](https://korean-learning-1ec2a.firebaseapp.com)
+
 ---
 
 ## 🚦 目前狀態
 
-- **運行狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。首頁僅展示 13 大合頁標籤，點選即彈出 15 色多彩副頁領域膠囊抽屜；所有雙詞彙卡片（如 `아버지 / 아빠`）均支援雙單字獨立點讀發音。
-- **Git 狀態**：已全數提交 Commit（`bb238a5`）並順利推播至 GitHub 遠端儲存庫 `origin/main`，工作目錄乾淨無未提交變更。
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。支援全裝置、手機與桌面即時多向瀏覽與點讀發音！
+- **本地狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。
+- **Git 狀態**：新增 `.firebaserc`、`firebase.json`，更新 `AGENTS.md`、`README.md` 與 `handoff.md`，即將 Commit 並推播至遠端 GitHub。
 
 ---
 
@@ -112,6 +123,7 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 16:55 PT
+- **時間**：2026-09-20 17:05 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+
 
