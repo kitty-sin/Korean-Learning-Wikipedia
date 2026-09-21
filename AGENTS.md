@@ -13,7 +13,9 @@
   - 閱讀與跟讀系統：`Korean-Learning-OpenCode`（두루책방 1–6단계 124本繪本）
 - **線上發布版（Firebase Hosting）**：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)
 - **GitHub 倉庫**：[https://github.com/kitty-sin/Korean-Learning-Wikipedia](https://github.com/kitty-sin/Korean-Learning-Wikipedia)（私有倉庫）
-- **Obsidian 關聯筆記**：創作庫 / Korean-Learning-Wikipedia.md
+- **Obsidian 關聯筆記**：
+  - 專案工作流程：`專案工作流程 / Korean-Learning-Wikipedia.md`（開發流程、決策與踩坑紀錄）
+  - 知識百科架構：`創作庫 / Korean-Learning-Wikipedia.md`（全景架構與規格對照表）
 
 ---
 
@@ -80,7 +82,9 @@ Korean-Learning-Wikipedia/
    - 每當使用者輸入「**收工**」，**必須自動完整執行並回報以下 3 步收工程序**：
      - **第 1 步【L1 本地檔】**：完整更新並整理 `handoff.md`，確保任務紀錄與最新進度清晰，工作區乾淨。
      - **第 2 步【L2 GitHub】**：執行 `git add`、撰寫精準 commit 訊息並 `git push origin main` 推播至遠端儲存庫。
-     - **第 3 步【L3 Obsidian】**：同步更新 `G:\My Drive\2ndbrain-Obsidian\創作庫\Korean-Learning-Wikipedia.md` 筆記，確保架構與功能與實作完全同步。
+     - **第 3 步【L3 Obsidian】**：同步更新 `G:\My Drive\2ndbrain-Obsidian`：
+       - `專案工作流程/Korean-Learning-Wikipedia.md`（開發工作流程、決策與踩坑紀錄）
+       - `創作庫/Korean-Learning-Wikipedia.md`（全景架構與功能規格對照表）
 
 ---
 
