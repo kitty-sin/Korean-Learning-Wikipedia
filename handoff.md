@@ -121,19 +121,31 @@
        2. 於所有靜態資源加入快取版本查詢參數（`?v=20260920_v3`），並調整 `firebase.json` 快取標頭為 `no-cache`。
        3. 確保 `window.app = app` 全域掛載，並強化 `jumpToCard`：點擊搜尋結果整列即可平滑跳轉至該單元頁，精準聚焦至該單字文字框，觸發 3.5 秒炫彩粉紅脈衝光暈（`highlight-pulse`）並自動播放該詞語音！
 
+10. **全域 13 大合頁主題導航轉跳頁（Table of Contents Navigation & Jump Modal）全面上線**：
+    - **依使用者上傳圖稿精密打造**：
+      - **圖 1 頂部按鈕**：右上角常駐按鈕 `[ 📑 百科目錄 ]` 升級為精緻粉嫩白色圓角膠囊按鈕（`border: 1.8px solid #FFCCD5; background: #FFFFFF; color: #E11D48; border-radius: 9999px; font-weight: 800;`），滑鼠懸停時綻放柔粉微光與懸浮動畫。
+      - **圖 2 全景導覽彈窗**：點擊開啟寬幅白色卡片彈窗（`.toc-global-modal`，`max-width: 980px`），依序呈現 13 大品詞與圖鑑篇章（01 至 13）：
+        - 每列左側配備專屬糖果編號徽章（`01`~`13`，各自具備獨立粉彩色系）。
+        - 主分類膠囊按鈕（如 `🌸 名詞 Noun`、`⚡ 動詞 Verb`、`🌈 形容詞 Adjective` ... 至 `🍲 三麗鷗美食`），點擊直達該模式首頁，作用中時右側浮現動態 `▾` 開合小箭頭。
+        - 橫向鋪展該分類下的所有副頁生活主題膠囊標籤（如 `📅 時間曆法`、`🌤️ 季節天氣`、`👨‍👩‍👧‍👦 家族親屬`...），各分配 15 款獨立彩虹糖果色（`data-color="0..14"`）。
+      - **一鍵直達轉跳（`jumpFromToc(mode, pageIndex)`）**：
+        - 點擊目錄中的任一副頁生活主題膠囊，立即平滑切換至對應的模式與單元頁面，自動關閉目錄抽屜並滑動至頁面頂部。
+      - **首屏樣式無損渲染**：
+        - 同步將 `.btn-toc` 與 `.toc-title-pill` 關鍵樣式內嵌至 `<head>` 關鍵 CSS 區塊，並更新全域樣式表與腳本快取版本號至 `?v=20260920_v4`，杜絕任何瀏覽器快取跑版。
+
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。搜尋欄已全面美化，並完美支援一鍵直達高亮目標單字文字框！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。13 大分類全景導航轉跳目錄已全面上線！
 - **本地狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。
-- **Git 狀態**：已提交 Commit（`0ddc163`）並推播至遠端 GitHub `origin/main`。
+- **Git 狀態**：已提交 Commit 並推播至遠端 GitHub `origin/main`（[kitty-sin/Korean-Learning-Wikipedia](https://github.com/kitty-sin/Korean-Learning-Wikipedia)）。
 
 ---
 
 ## ➡️ 下一步
 
-1. 依使用者後續回饋微調任何特定單元頁面、搜尋結果權重或排版間距。
+1. 依使用者後續回饋微調任何特定單元頁面、排版間距或互動回饋。
 2. 評估與 `Korean-Learning` 前端互動樂園進行跨專案雙向資料管道整合。
 
 ---
@@ -147,7 +159,7 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 17:28 PT
+- **時間**：2026-09-20 17:40 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 
 
