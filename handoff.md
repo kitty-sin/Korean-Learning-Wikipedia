@@ -184,7 +184,7 @@
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。外來語與三麗鷗美食兩大圖鑑專屬 Emoji 已就緒！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。外來語與三麗鷗美食兩大圖鑑專屬 Emoji 已正式於全球 CDN 上線生效！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置就緒。
 - **Git 狀態**：已 Commit 並成功推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
@@ -192,8 +192,8 @@
 
 ## ➡️ 下一步
 
-1. 隨時依使用者需求微調百科介面或擴充單元內容。
-2. 評估是否由具備 Firebase CLI 授權之環境推播部署最新資源至 Firebase Hosting。
+1. 若使用者端瀏覽器快取尚未更新，引導使用 `Ctrl + F5`（或強制重新整理）刷新 Service Worker 快取。
+2. 隨時依使用者需求微調百科介面或擴充單元內容。
 
 ---
 
@@ -201,13 +201,16 @@
 
 - 本專案嚴格獨立運作，絕不觸碰鄰近目錄 `..\Korean-Learning` 的任何檔案。
 - 所有程式碼與文字保持 UTF-8 編碼。
+- **Firebase 部署標準指令**：Windows 環境下必須帶 `$env:NODE_OPTIONS="--use-system-ca"`，例如：
+  `$env:NODE_OPTIONS="--use-system-ca"; npx -y firebase-tools@latest deploy --only hosting`
 
 ---
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 21:44 PT（收工交接完畢，GitHub 推播同步完成）
+- **時間**：2026-09-20 22:30 PT（Firebase Hosting 重新發布成功並驗證上線）
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+
 
 
 
