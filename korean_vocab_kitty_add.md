@@ -46,3 +46,32 @@
 | 5706 | 신장 | sinjang | 身高/身材（身長）；腎臟；拓展/增強（伸長）（多義漢字詞：① 身長 ② 腎臟 ③ 伸長） | Height/stature (身長); kidney (腎臟); expansion/growth (伸長) | B | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
 | 5707 | 지연 | jiyeon | 延遲、耽擱、拖延（漢字詞：遲延；如 열차 지연 列車延誤、출발 지연 出發延期） | Delay, postponement, retardation | B | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
 | 5708 | 활약 | hwalyak | 活躍、大顯身手、出色表現（漢字詞：活躍；如 대활약 大顯身手、활약이 기대되다 令人期待其活躍表現） | Outstanding activity, great performance, active role | B | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5709 | 저기요 | jeogiyo | 那個... / 不好意思 / 服務員（在餐廳叫店員、呼喚服務生時的必備用語） | Excuse me (used to call a waiter/waitress) | A | 感嘆詞 / 呼格 (Interjection) |
+| 5710 | 주세요 | juseyo | 請給我... / 請給（點餐祈使敬語，動詞 주다 的 해요體敬語形） | Please give me (polite imperative of 주다) | A | 動詞 / 敬語句型 (Verb phrase) |
+| 5711 | 하나 주세요 | hana juseyo | 請給我一個（餐廳點餐常用短句：固有詞 1 + 請給我） | Please give me one (ordering phrase) | A | 常用句型 / 點餐短語 (Phrase) |
+| 5712 | 두 개 | du gae | 兩個（固有詞 2 + 個，計量名詞短語） | Two items / two (count) | A | 名詞 / 數量詞 (Numeral phrase) |
+| 5713 | 1인분 | il-in-bun | 一人份（餐廳烤肉、炒年糕、部隊鍋等餐點計量單位） | One serving / 1 portion | A | 依存名詞 / 計量名詞 (Measure noun) |
+| 5714 | 2인분 | i-in-bun | 二人份 / 兩份（韓國烤肉店很多低消為 2人份起點） | Two servings / 2 portions | A | 依存名詞 / 計量名詞 (Measure noun) |
+| 5715 | 소자로 주세요 | so-ja-ro juseyo | 請給我小份的 / 小碗的（소자 小號/小份 + 助詞 로 + 주세요） | Please give me the small size/portion | A | 常用句型 / 點餐短語 (Phrase) |
+| 5716 | 중자로 주세요 | jung-ja-ro juseyo | 請給我中份的 / 中碗的（중자 中號/中份 + 助詞 로 + 주세요） | Please give me the medium size/portion | A | 常用句型 / 點餐短語 (Phrase) |
+| 5717 | 대자로 주세요 | dae-ja-ro juseyo | 請給我大份的 / 大碗的（대자 大號/大份 + 助詞 로 + 주세요） | Please give me the large size/portion | A | 常用句型 / 點餐短語 (Phrase) |
+| 5718 | 메뉴판 | menyupan | 菜單板 / 價目表 / 菜單（外來語 메뉴 Menu + 漢字 판 板） | Menu board, menu | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5719 | 모듬 | modeum | 綜合拼盤 / 什錦（如 모듬구이 綜合烤肉、모듬회 綜合生魚片；標準語寫作 모둠） | Assorted platter, combo dish | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5720 | 셀프 | selpeu | 自助 / Self（韓國餐廳極常見標示，如 물은 셀프 水是自取、반찬 셀프 小菜自助） | Self-service (loanword) | A | 名詞 / 外來語 (Noun / Loanword) |
+| 5721 | 단무지 | danmuji | 醃黃蘿蔔 / 黃蘿蔔片（吃炸醬麵、紫菜包飯必備甜脆醃蘿蔔） | Yellow pickled radish (danmuji) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5722 | 깻잎 | kkaennip | 芝麻葉 / 紫蘇葉（包烤肉、包飯必備的清香生菜，讀音鼻音化 [깬닙]） | Perilla leaves, sesame leaves (for wrapping meat) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5723 | 쌈장 | ssamjang | 包飯醬 / 韓式包肉沾醬（大醬加苦椒醬調製，包烤肉靈魂沾醬） | Ssamjang (Korean wrapping / dipping sauce) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5724 | 기름장 | gireumjang | 香油鹽碟（麻油加胡椒鹽，沾烤五花肉或韓牛的解膩沾料） | Sesame oil with salt dip (for grilled meat) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5725 | 멜젓 | meljeot | 醃鯷魚醬 / 濟州鯷魚醬（濟州黑豬肉必備沾醬，放烤盤上加熱沾肉） | Salted anchovy dipping sauce (Jeju specialty) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5726 | 사리 | sari | 加料 / 配料 / 麵條加料（火鍋、部隊鍋額外加點的泡麵、年糕配料；如 라면사리 泡麵加料） | Additional noodles / topping add-on (for stew) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5727 | 떡 | tteok | 年糕 / 韓式米糕（如辣炒年糕、部隊鍋年糕片、年糕湯） | Rice cake, tteok | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5728 | 수제비 | sujebi | 麵疙瘩 / 麵片湯（韓式傳統手工撕捏麵疙瘩，常當火鍋加料或主食） | Hand-pulled dough soup / noodles (sujebi) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5729 | 밤 막걸리 | bam makgeolli | 栗子瑪格利酒（公州特產著名甜香栗子傳統米酒） | Chestnut rice wine (Makgeolli) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5730 | 밤 먹걸리 | bam meokgeolli | 栗子瑪格利酒（밤 막걸리 的常見通俗音變/打字寫法） | Chestnut rice wine (spelling variant of 밤 막걸리) | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5731 | 처음처럼 | cheoeum-cheoreom | 初飲初樂燒酒 / 像最初一樣（樂天旗下國民人氣綠瓶燒酒品牌） | Chum Churum (popular Korean soju brand by Lotte) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
+| 5732 | 후레쉬 | hureswi | 真露 Fresh 燒酒（참이슬 Fresh，韓國市佔率最高經典藍標原味燒酒） | Chamisul Fresh (iconic HiteJinro soju) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
+| 5733 | 진로 | jinro | 真露（經典藍色復古青蛙燒酒品牌，漢字：眞露） | Jinro (historic soju brand featuring the blue toad) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
+| 5734 | 새로 | saero | 初飲初樂「零糖燒酒」Sae-ro（樂天無糖透明瓶燒酒，九尾狐吉祥物） | Saero zero-sugar soju (Lotte zero-sugar soju) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
+| 5735 | 테라 | tera | TERRA 啤酒（HiteJinro 旗下極受歡迎的綠瓶澳洲麥芽碳酸啤酒） | Terra beer (popular Korean lager by HiteJinro) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
+| 5736 | 카스 | kaseu | Cass 啤酒（OB 啤酒旗下長年銷量第一的清爽透明瓶國民啤酒） | Cass beer (best-selling Korean beer brand by OB) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
+| 5737 | 켈리 | kelri | Kelly 啤酒（HiteJinro 推出的雙重熟成琥珀麥香啤酒，孫錫久代言） | Kelly beer (all-malt Korean beer by HiteJinro) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
