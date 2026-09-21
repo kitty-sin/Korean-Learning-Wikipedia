@@ -143,9 +143,9 @@
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。13 大分類全景導航轉跳目錄已全面上線！
-- **本地狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。
-- **Git 狀態**：已提交 Commit 並推播至遠端 GitHub `origin/main`（[kitty-sin/Korean-Learning-Wikipedia](https://github.com/kitty-sin/Korean-Learning-Wikipedia)）。
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。13 大分類全景導航轉跳目錄與延遲 3 秒自動朗讀已全面上線！
+- **本地狀態**：工作目錄乾淨無未提交檔案，本地服務器運行正常。
+- **Git 狀態**：已提交最新 Commit 並推播至遠端 GitHub `origin/main`（[kitty-sin/Korean-Learning-Wikipedia](https://github.com/kitty-sin/Korean-Learning-Wikipedia)）。
 
 ---
 
@@ -165,7 +165,7 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 17:40 PT
+- **時間**：2026-09-20 17:51 PT（本日工作已收工，全端同步完成）
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 
 
