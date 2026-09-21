@@ -114,14 +114,20 @@
    - **發音與分類過濾**：
      - 搜尋結果列表每筆單字均具備 🔊 獨立語音點讀。
      - 頂部提供「全部 / 📖 圖解百科 / 📚 核心詞庫 / 🀄 漢字詞」分類過濾標籤。
+   - **美化與直達跳轉問題徹底修復**：
+     - 原因診斷：瀏覽器快取了舊版 CSS/JS，導致新搜尋欄缺少樣式而呈現瀏覽器預設黑框醜陋外觀；且 `app` 變數未正確掛載至全域 `window.app`，導致跳轉函數未被觸發。
+     - 解決方案：
+       1. 將搜尋欄核心精緻美化樣式直接內嵌於 HTML `<head>`（`<style id="search-bar-critical-css">`），確保首屏 100% 即刻渲染暖米白圓角框（`#FFFDF8`）、金黃琥珀外框（`#FCD34D`）與活力橘漸層按鈕，絕不因快取而跑版。
+       2. 於所有靜態資源加入快取版本查詢參數（`?v=20260920_v3`），並調整 `firebase.json` 快取標頭為 `no-cache`。
+       3. 確保 `window.app = app` 全域掛載，並強化 `jumpToCard`：點擊搜尋結果整列即可平滑跳轉至該單元頁，精準聚焦至該單字文字框，觸發 3.5 秒炫彩粉紅脈衝光暈（`highlight-pulse`）並自動播放該詞語音！
 
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。全站支援全域即時五向搜尋、卡片直達與雙詞彙獨立點讀！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。搜尋欄已全面美化，並完美支援一鍵直達高亮目標單字文字框！
 - **本地狀態**：本地服務器運行於 `http://localhost:8080/index.html` 與 `http://localhost:8080/verbs.html`。
-- **Git 狀態**：已完成本地搜尋模組建置與樣式調整，即將 Commit 並推播至遠端 GitHub。
+- **Git 狀態**：已提交 Commit（`0ddc163`）並推播至遠端 GitHub `origin/main`。
 
 ---
 
@@ -141,8 +147,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-20 17:18 PT
+- **時間**：2026-09-20 17:28 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+
 
 
 
