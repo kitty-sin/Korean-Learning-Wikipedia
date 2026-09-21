@@ -207,6 +207,15 @@ body[data-mode="sanrio_food"] {
   --bg-grid-dot: rgba(216, 27, 96, 0.12);
 }
 
+/* 14. 🥩 韓國烤肉與小酌居酒屋 BBQ & Pub (炭火焦香橘紅) */
+body[data-mode="bbq_pub"] {
+  --bg-ambient-top: #FFEDD5;
+  --bg-ambient-bottom: #FFF7ED;
+  --bg-canvas-base: #FFFBF8;
+  --bg-grid-line: rgba(234, 88, 12, 0.045);
+  --bg-grid-dot: rgba(234, 88, 12, 0.12);
+}
+
 /* 頂部導航列 */
 .app-header {
   position: sticky;
@@ -548,6 +557,21 @@ body.domain-popout-open .mode-tab-btn.active::after {
 .mode-tab-btn[data-mode="sanrio_food"].active {
   background: linear-gradient(135deg, #FF6584 0%, #D81B60 100%);
   box-shadow: 0 4px 14px rgba(216, 27, 96, 0.35);
+}
+
+/* 14. 🥩 韓國烤肉與小酌居酒屋 BBQ & Pub - 炭火焦香橘紅 (Sunset Amber Orange) */
+.mode-tab-btn[data-mode="bbq_pub"] {
+  background: #FFF7ED;
+  color: #C2410C;
+  border-color: #FED7AA;
+}
+.mode-tab-btn[data-mode="bbq_pub"]:hover {
+  background: #FFEDD5;
+  border-color: #FDBA74;
+}
+.mode-tab-btn[data-mode="bbq_pub"].active {
+  background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
 }
 
 .mode-divider {
@@ -1554,6 +1578,7 @@ body.domain-popout-open .mode-tab-btn.active::after {
 .toc-number-badge[data-mode="greeting"] { background: #F0FDF4; color: #15803D; border-color: #BBF7D0; }
 .toc-number-badge[data-mode="loanword"] { background: #FFF1F2; color: #BE123C; border-color: #FECDD3; }
 .toc-number-badge[data-mode="sanrio_food"] { background: #FFF0F7; color: #DB2777; border-color: #FBCFE8; }
+.toc-number-badge[data-mode="bbq_pub"] { background: #FFF7ED; color: #C2410C; border-color: #FDBA74; }
 
 /* 主分類切換膠囊按鈕 */
 .toc-main-pill {
@@ -1605,6 +1630,7 @@ body.domain-popout-open .mode-tab-btn.active::after {
 .toc-main-pill[data-mode="greeting"] { background: #DCFCE7; color: #166534; border-color: #86EFAC; }
 .toc-main-pill[data-mode="loanword"] { background: #FFE4E6; color: #9F1239; border-color: #FDA4AF; }
 .toc-main-pill[data-mode="sanrio_food"] { background: #FCE7F3; color: #831843; border-color: #F472B6; }
+.toc-main-pill[data-mode="bbq_pub"] { background: #FFEDD5; color: #9A3412; border-color: #FB923C; }
 
 .toc-main-pill.active {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.8);

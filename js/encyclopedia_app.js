@@ -92,6 +92,12 @@ class EncyclopediaApp {
         label: '三麗鷗美食 Sanrio Food',
         icon: '🍲',
         pages: typeof SANRIO_FOOD_ENCYCLOPEDIA_PAGES !== 'undefined' ? SANRIO_FOOD_ENCYCLOPEDIA_PAGES : []
+      },
+      bbq_pub: {
+        id: 'bbq_pub',
+        label: '烤肉居酒屋 BBQ & Pub',
+        icon: '🥩',
+        pages: typeof BBQ_PUB_ENCYCLOPEDIA_PAGES !== 'undefined' ? BBQ_PUB_ENCYCLOPEDIA_PAGES : []
       }
     };
 
@@ -542,7 +548,8 @@ class EncyclopediaApp {
       { key: 'particle', idx: '10' },
       { key: 'greeting', idx: '11' },
       { key: 'loanword', idx: '12' },
-      { key: 'sanrio_food', idx: '13' }
+      { key: 'sanrio_food', idx: '13' },
+      { key: 'bbq_pub', idx: '14' }
     ];
 
     const currentPage = this.pages[this.currentPageIndex];
