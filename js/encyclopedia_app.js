@@ -99,6 +99,7 @@ class EncyclopediaApp {
     this.currentPageIndex = 0;
     this.synth = window.speechSynthesis || null;
     this.isDomainPopoutOpen = false;
+    this.autoSpeakTimer = null;
 
     // 同步 body data-mode 屬性以驅動背景主題色氛圍聯動
     document.body.dataset.mode = this.currentMode;
@@ -134,6 +135,11 @@ class EncyclopediaApp {
     if (fromTabClick && this.currentMode === mode) {
       this.toggleDomainPopout();
       return;
+    }
+
+    if (this.autoSpeakTimer) {
+      clearTimeout(this.autoSpeakTimer);
+      this.autoSpeakTimer = null;
     }
 
     this.currentMode = mode;
@@ -445,6 +451,10 @@ class EncyclopediaApp {
   }
 
   goToPage(index) {
+    if (this.autoSpeakTimer) {
+      clearTimeout(this.autoSpeakTimer);
+      this.autoSpeakTimer = null;
+    }
     if (index >= 0 && index < this.pages.length) {
       this.currentPageIndex = index;
       this.render();
@@ -452,9 +462,14 @@ class EncyclopediaApp {
     }
   }
 
-  // 跨模式直達指定單元頁與單字卡片（支援平滑捲動、高亮光暈與自動朗讀）
+  // 跨模式直達指定單元頁與單字卡片（支援平滑捲動、高亮光暈與延遲 3 秒自動朗讀）
   jumpToCard(mode, pageIndex, cardIndex, targetWord = '') {
     if (!this.modes[mode]) return;
+
+    if (this.autoSpeakTimer) {
+      clearTimeout(this.autoSpeakTimer);
+      this.autoSpeakTimer = null;
+    }
 
     this.currentMode = mode;
     this.pages = this.modes[mode].pages;
@@ -495,13 +510,17 @@ class EncyclopediaApp {
         void targetCard.offsetWidth;
         targetCard.classList.add('highlight-pulse');
 
-        // 自動播放目標詞彙發音提供即時回饋
+        // 依使用者指示：自動朗讀發音延遲 3 秒，等平滑轉跳完成並看清字卡後才開始播放
         const wordToSpeak = targetWord || targetCard.getAttribute('data-card-kr');
         if (wordToSpeak) {
-          this.speak(wordToSpeak, targetCard);
+          this.autoSpeakTimer = setTimeout(() => {
+            this.speak(wordToSpeak, targetCard);
+            this.autoSpeakTimer = null;
+          }, 3000);
         }
 
-        setTimeout(() => targetCard.classList.remove('highlight-pulse'), 3500);
+        // 高亮光暈持續 5.5 秒，涵蓋 3 秒轉跳等待 + 朗讀發音全程
+        setTimeout(() => targetCard.classList.remove('highlight-pulse'), 5500);
       }
     }, 280);
   }

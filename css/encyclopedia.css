@@ -2172,27 +2172,37 @@ body.domain-popout-open .mode-tab-btn.active::after {
   margin-top: 6px;
 }
 
-/* 🎯 單字卡直達脈衝高亮動畫 */
+/* 🎯 單字卡直達脈衝高亮動畫 (持續 5.5 秒，涵蓋 3 秒轉跳等待 + 朗讀發音全程) */
 @keyframes cardJumpPulse {
   0% {
     transform: scale(1);
     box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.75);
   }
-  20% {
+  12% {
     transform: scale(1.05);
     box-shadow: 0 0 0 14px rgba(236, 72, 153, 0.35);
   }
-  40% {
+  24% {
     transform: scale(1.02);
     box-shadow: 0 0 0 18px rgba(236, 72, 153, 0.18);
   }
-  60% {
-    transform: scale(1.04);
-    box-shadow: 0 0 0 10px rgba(236, 72, 153, 0.12);
+  50% {
+    /* 轉跳抵達約 2.75 秒時輕柔呼吸微動，提醒即將朗讀發音 */
+    transform: scale(1.03);
+    box-shadow: 0 0 0 12px rgba(236, 72, 153, 0.3);
   }
-  80% {
+  62% {
+    /* 3.4 秒語音播放時二次脈衝光暈 */
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(236, 72, 153, 0.38);
+  }
+  76% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 10px rgba(236, 72, 153, 0.15);
+  }
+  90% {
     transform: scale(1.01);
-    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.05);
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.06);
   }
   100% {
     transform: scale(1);
@@ -2201,7 +2211,7 @@ body.domain-popout-open .mode-tab-btn.active::after {
 }
 
 .highlight-pulse {
-  animation: cardJumpPulse 3s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  animation: cardJumpPulse 5.5s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   border: 2.5px solid #EC4899 !important;
   background: #FFF7FA !important;
 }
