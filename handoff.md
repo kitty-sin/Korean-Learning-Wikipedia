@@ -233,58 +233,53 @@
     - 全景目錄彈窗 (TOC) 新增第 14 列，鋪展 8 大生活單元彩色直達標籤。
     - 搜尋引擎（`build_search_index.py`）全量索引聯動，所有字卡點讀發音與搜尋一鍵直達。
     - PWA 快取升級至 `v5`，Firebase Hosting 全球 CDN 部署完畢。
-236: 
-237: ---
-238: 
-239: 20. **Kitty 自訂詞庫擴展入庫 (#5738~#5743) 與外來語大阪 (오사카) 圖解卡片上線 (2026-09-22)**：
-240:     - 依使用者指示，全量收錄 6 組實用詞彙並完成字卡連結與全庫檢索索引：
-241:       - `#5738` **뒤**（後面 / 後方 / 背後；dwi）➔ 名詞圖解（15_空間位置與方向 · 空間前後左右與相對方位 · ⏪）
-242:       - `#5739` **비자**（簽證 / 簽注 Visa；bija）➔ 外來語圖解（07_生活家居好物與設施 · 🛂）
-243:       - `#5740` **러시아**（俄羅斯 Russia；reosia）➔ 外來語圖解（08_世界大都會與著名國家 · 🇷🇺）
-244:       - `#5741` **회사원**（上班族 / 公司職員；hoe-sa-won）➔ 名詞圖解（12_學校與職場 · 職場辦公與職務日常 · 💼）
-245:       - `#5742` **오사카**（大阪 Osaka；osaka）➔ 外來語圖解（全新新增至 08_世界大都會與著名國家 · 🏯）
-246:       - `#5743` **드라마**（電視劇 / 韓劇 Drama；deu-ra-ma）➔ 名詞圖解（13_休閒運動娛樂 · 流行娛樂文化生活 · 📺）
-247:     - 補齊標準羅馬拼音、中英雙語釋義、TOPIK 等級與品詞結構。
-248:     - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
-249:     - 外來語模組 `js/loanwords_data.js` 新增 `오사카` 大阪圖解字卡。
-250:     - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 9,531 筆，所有 6 詞具備 100% 直達導航。
-251:     - PWA 快取升級至 `korean-wiki-pwa-v6`，版本戳記更新為 `v20260922_v1`。
-252: 
-253: ---
-254: 
-255: ## 🚦 目前狀態
-256: 
-257: - **線上狀態**：已部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。
-258: - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
-259: - **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
-260: 
-261: ---
-262: 
-263: ## ➡️ 下一步
-264: 
-265: 1. 隨時依使用者需求微調百科介面或擴充單元內容。
-266: 2. 任何 session 輸入「收工」，嚴格自動執行四部曲。
-267: 
-268: ---
-269: 
-270: ## ⚠️ 注意事項
-271: 
-272: - 本專案嚴格獨立運作，絕不觸碰鄰近目錄 `..\Korean-Learning` 的任何檔案。
-273: - 所有程式碼與文字保持 UTF-8 編碼。
-274: - **Firebase 部署標準指令**：Windows 環境下必須帶 `$env:NODE_OPTIONS="--use-system-ca"`，例如：
-275:   `$env:NODE_OPTIONS="--use-system-ca"; npx -y firebase-tools@latest deploy --only hosting`
-276: 
-277: ---
-278: 
-279: ## 🕐 最後更新
-280: 
-281: - **時間**：2026-09-22 17:35 PT
-282: - **更新者**：Antigravity @ DESKTOP-QROANQ2
 
+---
 
+20. **Kitty 自訂詞庫擴展入庫 (#5738~#5743) 與外來語大阪 (오사카) 圖解卡片上線 (2026-09-22)**：
+    - 依使用者指示，全量收錄 6 組實用詞彙並完成字卡連結與全庫檢索索引：
+      - `#5738` **뒤**（後面 / 後方 / 背後；dwi）➔ 名詞圖解（15_空間位置與方向 · 空間前後左右與相對方位 · ⏪）
+      - `#5739` **비자**（簽證 / 簽注 Visa；bija）➔ 外來語圖解（07_生活家居好物與設施 · 🛂）
+      - `#5740` **러시아**（俄羅斯 Russia；reosia）➔ 外來語圖解（08_世界大都會與著名國家 · 🇷🇺）
+      - `#5741` **회사원**（上班族 / 公司職員；hoe-sa-won）➔ 名詞圖解（12_學校與職場 · 職場辦公與職務日常 · 💼）
+      - `#5742` **오사카**（大阪 Osaka；osaka）➔ 外來語圖解（全新新增至 08_世界大都會與著名國家 · 🏯）
+      - `#5743` **드라마**（電視劇 / 韓劇 Drama；deu-ra-ma）➔ 名詞圖解（13_休閒運動娛樂 · 流行娛樂文化生活 · 📺）
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK 等級與品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
+    - 外來語模組 `js/loanwords_data.js` 新增 `오사카` 大阪圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 9,531 筆，所有 6 詞具備 100% 直達導航。
+    - PWA 快取升級至 `korean-wiki-pwa-v6`，版本戳記更新為 `v20260922_v1`。
 
+---
 
+## 🚦 目前狀態
 
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v6`，6 大新詞搜尋直達與 4.2 秒脈衝光暈全域上線生效！
+- **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
+- **Git 狀態**：已全量 Commit 並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。工作目錄完全乾淨。
+
+---
+
+## ➡️ 下一步
+
+1. 隨時依使用者需求微調百科介面或擴充單元內容。
+2. 任何 session 輸入「收工」，嚴格自動執行四部曲。
+
+---
+
+## ⚠️ 注意事項
+
+- 本專案嚴格獨立運作，絕不觸碰鄰近目錄 `..\Korean-Learning` 的任何檔案。
+- 所有程式碼與文字保持 UTF-8 編碼。
+- **Firebase 部署標準指令**：Windows 環境下必須帶 `$env:NODE_OPTIONS="--use-system-ca"`，例如：
+  `$env:NODE_OPTIONS="--use-system-ca"; npx -y firebase-tools@latest deploy --only hosting`
+
+---
+
+## 🕐 最後更新
+
+- **時間**：2026-09-22 17:40 PT（收工四部曲全面自動執行完畢）
+- **更新者**：Antigravity @ DESKTOP-QROANQ2
 
 
 
