@@ -1793,6 +1793,13 @@ const LOANWORD_ENCYCLOPEDIA_PAGES = [
         "tip": "源自英文: Tokyo"
       },
       {
+        "kr": "오사카",
+        "rom": "osaka",
+        "zh": "大阪",
+        "icon": "🏯",
+        "tip": "源自日語: Osaka (關西大都會)"
+      },
+      {
         "kr": "토론토",
         "rom": "toronto",
         "zh": "多倫多",

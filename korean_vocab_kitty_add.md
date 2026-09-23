@@ -75,3 +75,9 @@
 | 5735 | 테라 | tera | TERRA 啤酒（HiteJinro 旗下極受歡迎的綠瓶澳洲麥芽碳酸啤酒） | Terra beer (popular Korean lager by HiteJinro) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
 | 5736 | 카스 | kaseu | Cass 啤酒（OB 啤酒旗下長年銷量第一的清爽透明瓶國民啤酒） | Cass beer (best-selling Korean beer brand by OB) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
 | 5737 | 켈리 | kelri | Kelly 啤酒（HiteJinro 推出的雙重熟成琥珀麥香啤酒，孫錫久代言） | Kelly beer (all-malt Korean beer by HiteJinro) | A | 專有名詞 / 品牌 (Proper Noun / Brand) |
+| 5738 | 뒤 | dwi | 後面 / 後方 / 背後（空間方位或時間在...之後） | Behind; back; rear | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5739 | 비자 | bija | 簽證 / 簽注（出入境旅行許可；外來語 Visa） | Visa (entry/exit visa) | A | 名詞 / 外來語 (Noun / Loanword) |
+| 5740 | 러시아 | reosia | 俄羅斯（歐亞大國；外來語 Russia） | Russia | A | 專有名詞 / 國家 (Proper Noun / Country) |
+| 5741 | 회사원 | hoe-sa-won | 上班族 / 公司職員（企業受雇人員；漢字：會社員） | Office worker; company employee | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
+| 5742 | 오사카 | osaka | 大阪（日本關西著名大都會；日語地名外來語 Osaka） | Osaka | A | 專有名詞 / 都市 (Proper Noun / City) |
+| 5743 | 드라마 | deu-ra-ma | 電視劇 / 韓劇 / 劇集（影視廣播劇；外來語 Drama） | Drama; TV series | A | 名詞 / 外來語 (Noun / Loanword) |
