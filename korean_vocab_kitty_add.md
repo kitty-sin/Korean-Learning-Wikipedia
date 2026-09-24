@@ -81,3 +81,4 @@
 | 5741 | 회사원 | hoe-sa-won | 上班族 / 公司職員（企業受雇人員；漢字：會社員） | Office worker; company employee | A | 名詞 (Noun / 명사)，如 사람（人）、집（家）。 |
 | 5742 | 오사카 | osaka | 大阪（日本關西著名大都會；日語地名外來語 Osaka） | Osaka | A | 專有名詞 / 都市 (Proper Noun / City) |
 | 5743 | 드라마 | deu-ra-ma | 電視劇 / 韓劇 / 劇集（影視廣播劇；外來語 Drama） | Drama; TV series | A | 名詞 / 外來語 (Noun / Loanword) |
+| 5744 | 스위트 | seuwiteu | 套房 / 豪華套房 (Suite)；甜美 / 甜蜜 (Sweet) | Suite (suite room); sweet | A | 名詞 / 外來語 (Noun / Loanword) |

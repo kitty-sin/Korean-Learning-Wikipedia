@@ -252,11 +252,21 @@
 
 ---
 
+21. **Kitty 自訂詞庫擴展入庫 (#5744) 與外來語飯店套房 (스위트) 圖解卡片上線 (2026-09-23)**：
+    - 依使用者指示，新增實用詞彙 `#5744` **스위트**（套房 / 豪華套房 Suite；甜美 Sweet / seuwiteu）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與外來語名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
+    - 外來語模組 `js/loanwords_data.js` 於 `05_交通出行與飯店旅宿外來語` 分頁中新增「🛋️ **스위트**（套房 Suite / 甜美 Sweet）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 9,532 筆，支援 1-click 直達導航與自動朗讀。
+    - PWA 快取升級至 `korean-wiki-pwa-v7`，版本戳記更新為 `v20260923_v1`。
+
+---
+
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v6`，6 大新詞搜尋直達與 4.2 秒脈衝光暈全域上線生效！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v7`，新詞 `스위트` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
-- **Git 狀態**：已全量 Commit 並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。工作目錄完全乾淨。
+- **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
 ---
 
@@ -278,8 +288,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-22 17:40 PT（收工四部曲全面自動執行完畢）
+- **時間**：2026-09-23 17:48 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+
 
 
 

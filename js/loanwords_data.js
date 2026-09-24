@@ -523,7 +523,7 @@ const LOANWORD_ENCYCLOPEDIA_PAGES = [
     "titleRom": "loanword-domain-5",
     "themeColor": "#E67E22",
     "accentBg": "#FBEEE6",
-    "desc": "收錄 13 款生活核心外來語借詞，對照英文發音秒速掌握！",
+    "desc": "收錄 14 款生活核心外來語借詞，對照英文發音秒速掌握！",
     "items": [
       {
         "kr": "오토바이",
@@ -573,6 +573,13 @@ const LOANWORD_ENCYCLOPEDIA_PAGES = [
         "zh": "飯店、酒店",
         "icon": "🏨",
         "tip": "源自英文: hotel"
+      },
+      {
+        "kr": "스위트",
+        "rom": "seuwiteu",
+        "zh": "套房 (Suite) / 甜美 (Sweet)",
+        "icon": "🛋️",
+        "tip": "源自英文: suite / sweet (如 스위트룸 飯店套房)"
       },
       {
         "kr": "로비",
