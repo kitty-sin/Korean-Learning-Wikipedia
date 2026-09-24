@@ -114,6 +114,9 @@ class EncyclopediaApp {
     this.renderDomainSelector();
     this.bindEvents();
     this.render();
+
+    // 🌌 啟動星際韓語宇宙 URL 意圖解析引擎 (Galaxy Intent Receiver)
+    this.handleGalaxyIntent();
   }
 
   initElements() {
@@ -392,6 +395,8 @@ class EncyclopediaApp {
                 wordKoHtml = `<div class="card-word-ko">${item.kr}</div>`;
               }
 
+              const primaryWord = (item.kr || '').split('/')[0].trim();
+              const encodedWord = encodeURIComponent(primaryWord);
               const safeKr = (item.kr || '').replace(/"/g, '&quot;');
               return `
                 <div class="vocab-card" id="card-item-${cIdx}" data-card-idx="${cIdx}" data-card-kr="${safeKr}" onclick="${cardClickAction}">
@@ -415,6 +420,21 @@ class EncyclopediaApp {
                   ` : ''}
                   <div class="card-word-zh">${item.zh || ''}</div>
                   ${item.tip ? `<div class="card-tip">${item.tip}</div>` : ''}
+                  <!-- 🌌 星際韓語宇宙跨站快捷膠囊 -->
+                  <div class="card-galaxy-actions" onclick="event.stopPropagation();">
+                    <a href="https://korean-writing-1ec2a.web.app/?word=${encodedWord}&from=r2d2"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-galaxy-link link-bb8"
+                       title="前往 🟠 BB-8 觸控手寫練習 ${primaryWord}">
+                      <span>✍️ 練手寫</span>
+                    </a>
+                    <a href="https://kitty-sin.github.io/sanrio-korean-learning/korean_vocab_dictionary.html?search=${encodedWord}&from=r2d2"
+                       target="_blank" rel="noopener noreferrer"
+                       class="btn-galaxy-link link-yoda"
+                       title="前往 🟢 Yoda 查深度語法與例句 ${primaryWord}">
+                      <span>🧩 查語法</span>
+                    </a>
+                  </div>
                 </div>
               `;
             }).join('')}
@@ -661,6 +681,171 @@ class EncyclopediaApp {
         this.synth.speak(utter);
       }
     });
+  }
+
+  // 🌌 星際韓語宇宙通用 URL 意圖解析引擎 (Galaxy Intent Receiver)
+  handleGalaxyIntent() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const word = params.get('word') || params.get('q');
+      const text = params.get('text');
+      const mode = params.get('mode');
+      const from = params.get('from'); // 'yoda' | 'bb8'
+
+      if (!word && !text && !mode && !from) return;
+
+      const targetWord = (word || text || '').trim();
+
+      // 1. 來源歡迎浮動橫幅 (Welcome Banner & Return Shortcut)
+      if (from) {
+        this.showGalaxyWelcomeBanner(from, targetWord);
+      }
+
+      // 2. 指定單字或文字直達定位
+      if (targetWord) {
+        this.routeGalaxyWord(targetWord, mode);
+      } else if (mode && this.modes[mode]) {
+        this.setMode(mode, false);
+      }
+    } catch (err) {
+      console.warn('[Galaxy Ecosystem] URL intent parse warning:', err);
+    }
+  }
+
+  showGalaxyWelcomeBanner(from, targetWord = '') {
+    const existingBanner = document.querySelector('.galaxy-welcome-banner');
+    if (existingBanner) existingBanner.remove();
+
+    const banner = document.createElement('div');
+    banner.className = `galaxy-welcome-banner banner-from-${from}`;
+
+    let icon = '🌌';
+    let sourceName = '星際韓語宇宙';
+    let backUrl = '';
+    let backLabel = '返回來源站';
+
+    const safeTarget = targetWord ? targetWord.split('/')[0].trim() : '';
+    const encodedTarget = encodeURIComponent(safeTarget);
+
+    if (from === 'yoda') {
+      icon = '🌿';
+      sourceName = 'Yoda 韓語發音積木樂園';
+      backUrl = safeTarget 
+        ? `https://kitty-sin.github.io/sanrio-korean-learning/korean_vocab_dictionary.html?search=${encodedTarget}&from=r2d2`
+        : `https://kitty-sin.github.io/sanrio-korean-learning/`;
+      backLabel = '↩️ 返回 Yoda 查例句';
+    } else if (from === 'bb8') {
+      icon = '✍️';
+      sourceName = 'BB-8 韓語觸控書寫樂園';
+      backUrl = safeTarget
+        ? `https://korean-writing-1ec2a.web.app/?word=${encodedTarget}&from=r2d2`
+        : `https://korean-writing-1ec2a.web.app/`;
+      backLabel = '↩️ 返回 BB-8 練手寫';
+    }
+
+    const wordHtml = safeTarget ? `單字 <strong>「${this.escapeHtml(safeTarget)}」</strong>` : '學習任務';
+
+    banner.innerHTML = `
+      <span class="banner-icon">${icon}</span>
+      <div class="banner-text">已載入來自【${sourceName}】的 ${wordHtml}！</div>
+      ${backUrl ? `<a href="${backUrl}" class="btn-galaxy-back" title="回到 ${sourceName}">${backLabel}</a>` : ''}
+      <button type="button" class="btn-banner-close" title="關閉提示" onclick="this.closest('.galaxy-welcome-banner').remove()">✕</button>
+    `;
+
+    document.body.appendChild(banner);
+
+    requestAnimationFrame(() => {
+      banner.classList.add('show');
+    });
+
+    setTimeout(() => {
+      if (banner && banner.parentNode) {
+        banner.classList.remove('show');
+        setTimeout(() => banner.remove(), 400);
+      }
+    }, 8500);
+  }
+
+  routeGalaxyWord(word, targetMode) {
+    const cleanQuery = word.trim().toLowerCase();
+    
+    // 若指定特定 mode，優先在該 mode 搜尋
+    const modeKeys = targetMode && this.modes[targetMode] 
+      ? [targetMode, ...Object.keys(this.modes).filter(k => k !== targetMode)]
+      : Object.keys(this.modes);
+
+    let match = null;
+
+    for (const mKey of modeKeys) {
+      const modeObj = this.modes[mKey];
+      if (!modeObj || !modeObj.pages) continue;
+
+      for (let pIdx = 0; pIdx < modeObj.pages.length; pIdx++) {
+        const page = modeObj.pages[pIdx];
+        if (!page.items) continue;
+
+        for (let cIdx = 0; cIdx < page.items.length; cIdx++) {
+          const item = page.items[cIdx];
+          const itemKr = (item.kr || '').toLowerCase();
+          
+          if (itemKr === cleanQuery || itemKr.split('/').map(s => s.trim().toLowerCase()).includes(cleanQuery)) {
+            match = { mode: mKey, pageIdx: pIdx, cardIdx: cIdx, word: item.kr };
+            break;
+          }
+        }
+        if (match) break;
+      }
+      if (match) break;
+    }
+
+    if (match) {
+      setTimeout(() => {
+        this.jumpToCard(match.mode, match.pageIdx, match.cardIdx, word);
+      }, 350);
+      return;
+    }
+
+    // 容錯降級：若生活圖解未直接命中，調用全域搜尋引擎（9,532 詞庫與漢字詞）
+    this.fallbackGalaxySearch(word);
+  }
+
+  fallbackGalaxySearch(word) {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+      searchInput.value = word;
+      const clearBtn = document.getElementById('btn-search-clear');
+      if (clearBtn) clearBtn.style.display = 'inline-flex';
+    }
+
+    const triggerSearch = () => {
+      if (window.encyclopediaSearch && typeof window.encyclopediaSearch.executeSearch === 'function') {
+        window.encyclopediaSearch.executeSearch(word);
+        window.encyclopediaSearch.openResults();
+      }
+    };
+
+    if (window.encyclopediaSearch && window.encyclopediaSearch.isIndexLoaded) {
+      triggerSearch();
+    } else {
+      let attempts = 0;
+      const pollTimer = setInterval(() => {
+        attempts++;
+        if ((window.encyclopediaSearch && window.encyclopediaSearch.isIndexLoaded) || attempts > 20) {
+          clearInterval(pollTimer);
+          triggerSearch();
+        }
+      }, 150);
+    }
+  }
+
+  escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 }
 

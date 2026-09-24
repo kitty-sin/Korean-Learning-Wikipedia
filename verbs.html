@@ -17,7 +17,7 @@
   <link rel="shortcut icon" href="icons/favicon.png">
 
   <!-- 引入樣式表 (附帶版本快取控制) -->
-  <link rel="stylesheet" href="css/encyclopedia.css?v=20260921_v3">
+  <link rel="stylesheet" href="css/encyclopedia.css?v=20260923_galaxy_v1">
 
   <!-- 核心搜尋欄與百科目錄膠囊按鈕精緻樣式 (即刻渲染，零延遲與零違和感) -->
   <style id="search-bar-critical-css">
@@ -187,6 +187,32 @@
       <div class="brand-title">⚡ 韓語日常動詞圖解百科</div>
     </div>
     <div class="header-controls">
+      <!-- 🌌 星際韓語宇宙三站聯邦導航膠囊 (Galaxy Ecosystem Dock) -->
+      <nav class="galaxy-ecosystem-dock" aria-label="星際韓語宇宙跨站導航">
+        <!-- 🟢 Yoda 發音語法積木 -->
+        <a href="https://kitty-sin.github.io/sanrio-korean-learning/" 
+           target="_blank" rel="noopener noreferrer"
+           class="galaxy-chip chip-yoda" title="前往 🟢 Yoda 韓語發音語法積木樂園 (40音/積木屋/例句)">
+          <span class="chip-avatar">🟢</span>
+          <span class="chip-label">🧩 Yoda積木</span>
+        </a>
+
+        <!-- 🔵 R2-D2 生活圖解百科 (本站 Active) -->
+        <a href="https://korean-learning-1ec2a.web.app/" 
+           class="galaxy-chip chip-r2d2 active" title="目前所在站點：🔵 R2-D2 韓語生活圖解百科">
+          <span class="chip-avatar">🔵</span>
+          <span class="chip-label">🖼️ 圖解百科</span>
+        </a>
+
+        <!-- 🟠 BB-8 觸控手寫樂園 -->
+        <a href="https://korean-writing-1ec2a.web.app/" 
+           target="_blank" rel="noopener noreferrer"
+           class="galaxy-chip chip-bb8" title="前往 🟠 BB-8 韓語觸控書寫樂園 (筆順/田字格/原稿紙)">
+          <span class="chip-avatar">🟠</span>
+          <span class="chip-label">✍️ 觸控手寫</span>
+        </a>
+      </nav>
+
       <button class="btn-toc" id="btn-toc">
         <span>📑</span>
         <span>動詞目錄</span>
@@ -374,9 +400,9 @@
   <script src="js/loanwords_data.js?v=20260921_v3"></script>
   <script src="js/sanrio_food_data.js?v=20260921_v3"></script>
   <script src="js/bbq_pub_data.js?v=20260921_v3"></script>
-  <script src="js/encyclopedia_app.js?v=20260921_v3"></script>
-  <script src="js/search_index.js?v=20260921_v3" defer></script>
-  <script src="js/encyclopedia_search.js?v=20260921_v3" defer></script>
+  <script src="js/encyclopedia_app.js?v=20260923_galaxy_v1"></script>
+  <script src="js/search_index.js?v=20260923_v1" defer></script>
+  <script src="js/encyclopedia_search.js?v=20260923_galaxy_v1" defer></script>
   <script>
     // 預設進入動詞篇模式
     window.addEventListener('DOMContentLoaded', () => {

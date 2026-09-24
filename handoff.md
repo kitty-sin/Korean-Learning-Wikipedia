@@ -260,20 +260,48 @@
     - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 9,532 筆，支援 1-click 直達導航與自動朗讀。
     - PWA 快取升級至 `korean-wiki-pwa-v7`，版本戳記更新為 `v20260923_v1`。
 
+22. **星際韓語宇宙三站聯邦（Galaxy Korean Ecosystem）跨站深度串聯落成 (2026-09-23)**：
+    - **跨站協議標準化**：正式收錄並落實 [`GALAXY_ECOSYSTEM_PROTOCOL.md`](./GALAXY_ECOSYSTEM_PROTOCOL.md)（三站統一跨站 URL 意圖驅動深度串聯協議規範）。
+    - **頂部常駐導航聯邦膠囊（Galaxy Ecosystem Dock）**：
+      - 在 `index.html` 與 `verbs.html` 的頂部常駐導航列（`.header-controls`）增設三站聯邦導航膠囊：
+        - 🟢 **`🧩 Yoda積木`** ➔ `https://kitty-sin.github.io/sanrio-korean-learning/`
+        - 🔵 **`🖼️ 圖解百科`** ➔ **Active 作用中晴空科技藍**（代表學員當前探索位置）
+        - 🟠 **`✍️ 觸控手寫`** ➔ `https://korean-writing-1ec2a.web.app/`
+      - 響應式優化：手機窄螢幕自動隱藏標籤文字、保留可愛頭像徽章，窄屏不擠壓目錄按鈕。
+    - **圖解百科字卡跨站快捷膠囊（Card Cross-Site Action Chips）**：
+      - 每張生活圖解字卡底端全面配備微型馬卡龍捷徑按鈕：
+        - **`✍️ 練手寫`**（BB-8 暖杏橘）：點擊新分頁直開 BB-8 觸控手寫，帶入字卡單字（`?word=${word}&from=r2d2`），依字數自動匹配練習格。
+        - **`🧩 查語法`**（Yoda 草莓粉）：點擊新分頁直開 Yoda 核心大辭典，帶入單字查閱時態、發音與例句（`?search=${word}&from=r2d2`）。
+      - 內建 `event.stopPropagation()` 阻止事件冒泡，點擊不會誤觸字卡發音。
+      - 智慧過濾斜線詞彙（如 `아버지 / 아빠` ➔ 取主要詞 `아버지` 傳遞）。
+    - **URL 意圖解析引擎（Galaxy Intent Receiver）**：
+      - 在 `EncyclopediaApp` 實作 `handleGalaxyIntent()`：
+        1. **來源歡迎橫幅 (Galaxy Welcome Toast Banner)**：
+           - 偵測到 `from=yoda` ➔ 彈出粉嫩歡迎條「🌿 已載入來自【Yoda 韓語發音積木樂園】的單字：XXX！」並附帶「`↩️ 返回 Yoda 查例句`」回跳按鈕。
+           - 偵測到 `from=bb8` ➔ 彈出暖杏歡迎條「✍️ 已載入來自【BB-8 韓語觸控書寫樂園】的單字：XXX！」並附帶「`↩️ 返回 BB-8 練手寫`」回跳按鈕。
+        2. **智慧字卡定位與高亮**：
+           - 收到 `?word=...`（如 `냉장고`、`사과`、`먹다`），即刻自動切換至該生活主題頁面。
+           - 觸發 **4.2 秒炫彩粉紅脈衝光暈（`highlight-pulse`）** 與 **2 秒自動朗讀發音**。
+        3. **極致優雅降級**：
+           - 若該詞僅收錄於 5,666 基準詞庫或漢字大辭典（非圖解卡片），自動在搜尋欄帶入關鍵字並彈出全域檢索結果面板，絕不報錯不空白。
+    - **PWA 快取與版本升級**：
+      - Service Worker 快取名稱推進至 `korean-wiki-pwa-v8`。
+      - 靜態資產版本控制全面升級為 `?v=20260923_galaxy_v1`。
+
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v7`，新詞 `스위트` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
+- **線上狀態**：待執行 Firebase Hosting 部署。PWA 快取版本 `korean-wiki-pwa-v8`，星際三站聯邦深度串聯全量上線！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
-- **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
+- **Git 狀態**：待推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
 ---
 
 ## ➡️ 下一步
 
 1. 隨時依使用者需求微調百科介面或擴充單元內容。
-2. 任何 session 輸入「收工」，嚴格自動執行四部曲。
+2. 配合 Yoda 與 BB-8 進行跨站端對端實機互聯體驗優化。
 
 ---
 
@@ -288,8 +316,10 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-23 17:48 PT
+- **時間**：2026-09-23 18:26 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
+- **Git Push 狀態**：待推
+
 
 
 
