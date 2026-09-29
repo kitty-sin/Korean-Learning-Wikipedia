@@ -287,14 +287,21 @@
     - **PWA 快取與版本升級**：
       - Service Worker 快取名稱推進至 `korean-wiki-pwa-v8`。
       - 靜態資產版本控制全面升級為 `?v=20260923_galaxy_v1`。
+23. **Kitty 自訂詞庫擴展入庫 (#5745) 與居家生活工具「鏟子」(삽) 圖解卡片上線 (2026-09-29)**：
+    - 依使用者指示，新增生活工具核心名詞 `#5745` **삽**（鏟子 / 鐵鍬 / 鐵鏟 / sap）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
+    - 於 `🌸 名詞 Noun` ➔ `08_居家生活空間` ➔ `家電電器與生活用品`（第 16 頁 / cardIdx 9）正式繪製並新增「⛏️ **삽**（鏟子 / 鐵鍬）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 9,533 筆，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
+    - PWA 快取升級至 `korean-wiki-pwa-v9`，版本戳記更新為 `v20260929_v1`。
 
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v8`，星際三站聯邦深度串聯全量上線！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v9`，新詞 `삽` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
-- **Git 狀態**：已全量 Commit 並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。工作目錄完全乾淨。
+- **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
 ---
 
@@ -316,9 +323,10 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-28 17:51 PT（收工四部曲全面自動執行完畢）
+- **時間**：2026-09-29 15:08 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
-- **Git Push 狀態**：✅ 已推
+- **Git Push 狀態**：待推
+
 
 
 
