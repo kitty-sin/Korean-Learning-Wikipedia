@@ -292,9 +292,9 @@
 
 ## 🚦 目前狀態
 
-- **線上狀態**：待執行 Firebase Hosting 部署。PWA 快取版本 `korean-wiki-pwa-v8`，星際三站聯邦深度串聯全量上線！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v8`，星際三站聯邦深度串聯全量上線！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
-- **Git 狀態**：待推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
+- **Git 狀態**：已全量 Commit 並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。工作目錄完全乾淨。
 
 ---
 
@@ -316,7 +316,7 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-23 18:26 PT
+- **時間**：2026-09-28 17:51 PT（收工四部曲全面自動執行完畢）
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 - **Git Push 狀態**：✅ 已推
 
