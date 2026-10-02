@@ -1290,6 +1290,13 @@ const ENCYCLOPEDIA_PAGES = [
         "zh": "冰淇淋",
         "icon": "🍦",
         "tip": "甜筒或雪糕 (Ice cream)"
+      },
+      {
+        "kr": "감말랭이",
+        "rom": "gam-mal-raeng-i",
+        "zh": "柿餅乾 / 柿子乾",
+        "icon": "🍊",
+        "tip": "韓國傳統半乾軟糯嚼勁柿餅片點心"
       }
     ]
   },
