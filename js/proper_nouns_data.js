@@ -139,6 +139,13 @@ const PROPER_NOUN_ENCYCLOPEDIA_PAGES = [
         "zh": "李舜臣將軍",
         "icon": "⚔️",
         "tip": "造龜甲船抗倭名將 (光化門廣場雕像人物)"
+      },
+      {
+        "kr": "엘에이한인축제",
+        "rom": "el-e-i-han-in-chuk-je",
+        "zh": "洛杉磯韓人節 / 韓裔文化節",
+        "icon": "🎉",
+        "tip": "洛杉磯韓國城年度盛大文化嘉年華慶典 (LA Korean Festival)"
       }
     ]
   }

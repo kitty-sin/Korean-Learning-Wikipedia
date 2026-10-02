@@ -297,9 +297,19 @@
 
 ---
 
+24. **Kitty 自訂詞庫擴展入庫 (#5746) 與專有名詞「洛杉磯韓人節」(엘에이한인축제) 圖解卡片上線 (2026-10-02)**：
+    - 依使用者指示，新增文化專有名詞 `#5746` **엘에이한인축제**（洛杉磯韓人節 / 韓裔文化節 LA Korean Festival / el-e-i-han-in-chuk-je）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與專有名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
+    - 於 `🏛️ 專有名詞 Proper Noun` ➔ `02_世界國家與歷史` ➔ `世界主要國家與歷史偉人`（第 2 頁 / cardIdx 8）正式繪製並新增「🎉 **엘에이한인축제**（洛杉磯韓人節 / 韓裔文化節）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 9,534 筆，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
+    - PWA 快取升級至 `korean-wiki-pwa-v10`，版本戳記更新為 `v20261002_v1`。
+
+---
+
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v9`，新詞 `삽` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v10`，新詞 `엘에이한인축제` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
 - **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
@@ -323,9 +333,10 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-09-29 15:08 PT
+- **時間**：2026-10-02 13:36 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 - **Git Push 狀態**：待推
+
 
 
 
