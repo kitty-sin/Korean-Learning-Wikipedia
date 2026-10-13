@@ -346,14 +346,28 @@
     - 於 `🌸 名詞 Noun` ➔ `12_學校與職場` ➔ `職場辦公與職務日常`（pageIdx 23 / cardIdx 10，緊接 `동의` 之後、與 `회사원` 上班族相輝映）正式繪製並新增「🤲 **거지**（乞丐 / 乞討者）」圖解字卡。
     - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,539 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
     - PWA 快取升級至 `korean-wiki-pwa-v16`，版本戳記更新為 `v20261013_v5`（encyclopedia_data.js＋search_index.js）。
+31. **Kitty 自訂詞庫擴展入庫 (#5753) 與人體四肢「食指」(검지) 圖解卡片上線 (2026-10-13)**：
+    - 依使用者指示（`+ 검지`），新增人體四肢核心名詞 `#5753` **검지**（食指 / 第二指 / geom-ji）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`（入庫前以 assert 校驗末列為 #5752，確認無跨電腦同步抹除）。
+    - 於 `🌸 名詞 Noun` ➔ `02_人體與外貌` ➔ `身體軀幹與四肢關節`（pageIdx 4 / cardIdx 13，緊接 `신장` 之後）正式繪製並新增「☝️ **검지**（食指 / 第二指）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,540 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
+    - PWA 快取升級至 `korean-wiki-pwa-v17`，版本戳記更新為 `v20261013_v6`（encyclopedia_data.js＋search_index.js）。
+32. **Kitty 自訂詞庫擴展入庫 (#5754) 與居家器物「秤砣」(추) 圖解卡片上線 (2026-10-13)**：
+    - 依使用者指示（`+ 추`，經確認為「秤砣」之意），新增居家器物核心名詞 `#5754` **추**（秤砣 / 秤錘 / chu；漢字：錘）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`（入庫前以 assert 校驗末列為 #5753，確認無跨電腦同步抹除）。
+    - 於 `🌸 名詞 Noun` ➔ `08_居家生活空間` ➔ `家電電器與生活用品`（pageIdx 16 / cardIdx 10，緊接 `삽` 鏟子之後）正式繪製並新增「⚖️ **추**（秤砣 / 秤錘）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,541 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
+    - PWA 快取升級至 `korean-wiki-pwa-v18`，版本戳記更新為 `v20261013_v7`（encyclopedia_data.js＋search_index.js）。
 
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：✅ 已部署至 Firebase Hosting：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)（`korean-wiki-pwa-v16`，`+ Deploy complete!`，#5750 🌮＋#5751 🌺＋#5752 🤲 全域生效，索引 9,539 筆）。
-- **本地狀態**：工作目錄乾淨，與 `origin/main` 完全同步。
-- **Git 狀態**：✅ 已推送至 `kitty-sin/Korean-Learning-Wikipedia`（`main`，commit `907d937` 起）。
+- **線上狀態**：Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app) 目前為 `korean-wiki-pwa-v16`（#5750~#5752 生效中）。本地 `#5753 검지`＋`#5754 추` 已完成入庫＋製卡＋索引（9,541 筆）＋PWA `v18`，待部署生效！
+- **本地狀態**：工作目錄有未提交變更（#5753＋#5754：CSV＋MD＋encyclopedia_data.js＋search_index.js＋sw.js＋index.html＋handoff.md），待 commit＋push＋部署。
+- **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
 ---
 
@@ -375,9 +389,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-10-13（收工完成：commit＋push＋Firebase 部署＋L3 同步全數到位）
+- **時間**：2026-10-13（收工：#5753＋#5754 commit＋push＋Firebase 部署）
 - **更新者**：Muse Spark @ OpenCode
-- **Git Push 狀態**：✅ 已推＋已部署
+- **Git Push 狀態**：收工推送中（commit 後即 push origin main＋部署 Hosting）
 
 
 
