@@ -317,13 +317,19 @@
     - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
     - 於 `🌸 名詞 Noun` ➔ `13_休閒運動娛樂` ➔ `熱門體育運動項目`（第 24 頁 / cardIdx 10）正式繪製並新增「🏸 **채**（球拍 / 球桿）」圖解字卡。
     - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充完備，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
-    - PWA 快取升級至 `korean-wiki-pwa-v12`，版本戳記更新為 `v20261013_v1`。
+27. **Kitty 自訂詞庫擴展入庫 (#5749) 與學校文具「圖書」(도서) 圖解卡片上線 (2026-10-13)**：
+    - 依使用者指示，新增求學校園學習核心名詞 `#5749` **도서**（圖書 / 書籍 / 藏書 / doseo）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞品詞結構（漢字：圖書）。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
+    - 於 `🌸 名詞 Noun` ➔ `12_學校與職場` ➔ `校園學習生活與文具用品`（第 22 頁 / cardIdx 10）正式繪製並新增「📘 **도서**（圖書 / 書籍）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,536 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
+    - PWA 快取升級至 `korean-wiki-pwa-v13`，版本戳記更新為 `v20261013_v2`。
 
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v12`，新詞 `채` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
+- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v13`，新詞 `도서` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
 - **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
 - **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
@@ -347,9 +353,10 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-10-13 14:56 PT
+- **時間**：2026-10-13 15:18 PT
 - **更新者**：Antigravity @ DESKTOP-QROANQ2
 - **Git Push 狀態**：待推
+
 
 
 
