@@ -12,7 +12,7 @@ const LOANWORD_ENCYCLOPEDIA_PAGES = [
     "titleRom": "loanword-domain-1",
     "themeColor": "#FF5E86",
     "accentBg": "#FFEBF0",
-    "desc": "收錄 21 款生活核心外來語借詞，對照英文發音秒速掌握！",
+    "desc": "收錄 22 款生活核心外來語借詞，對照英文發音秒速掌握！",
     "items": [
       {
         "kr": "버터",
@@ -160,6 +160,13 @@ const LOANWORD_ENCYCLOPEDIA_PAGES = [
         "zh": "電視 (TV)",
         "icon": "📺",
         "tip": "源自英文: TV"
+      },
+      {
+        "kr": "나초",
+        "rom": "nacho",
+        "zh": "墨西哥玉米片、玉米脆片",
+        "icon": "🌮",
+        "tip": "源自西班牙文: nacho，搭配起司醬或莎莎醬的熱門下酒零食"
       }
     ]
   },

@@ -324,13 +324,35 @@
     - 於 `🌸 名詞 Noun` ➔ `12_學校與職場` ➔ `校園學習生活與文具用品`（第 22 頁 / cardIdx 10）正式繪製並新增「📘 **도서**（圖書 / 書籍）」圖解字卡。
     - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,536 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
     - PWA 快取升級至 `korean-wiki-pwa-v13`，版本戳記更新為 `v20261013_v2`。
+28. **Kitty 自訂詞庫擴展入庫 (#5750) 與外來語「墨西哥玉米片」(나초) 圖解卡片上線 (2026-10-13)**：
+    - 依使用者指示，新增西式餐飲外來語核心名詞 `#5750` **나초**（墨西哥玉米片 / 玉米脆片 / nacho）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞 / 外來語品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`（CSV 由使用者預先新增，本 session 補齊 MD 對齊）。
+    - 於 `🌍 外來語借詞 Loanword` ➔ `01_咖啡甜點與西式餐飲`（loanword-domain-1 / pageIdx 0 / cardIdx 21）正式繪製並新增「🌮 **나초**（墨西哥玉米片、玉米脆片）」圖解字卡，tip 標註源自西班牙文並提示起司醬 / 莎莎醬下酒吃法；該分頁描述同步更新為 22 款。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,537 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
+    - PWA 快取升級至 `korean-wiki-pwa-v14`，版本戳記更新為 `v20261013_v3`（loanwords_data.js＋search_index.js）。
+29. **Kitty 自訂詞庫擴展入庫 (#5751) 與自然生態「蘭花」(난초) 圖解卡片上線 (2026-10-13)**：
+    - 依使用者指示（`+ 난초`），新增自然生態核心名詞 `#5751` **난초**（蘭花 / 胡姬花 / nan-cho；漢字：蘭草）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`。
+    - ⚠️ **同步事故復原**：作業中途發現 CSV 的 `#5750 나초` 列被雲端硬碟跨電腦同步抹除（worktree 回到 HEAD 狀態），已連同 #5751 一併補回，CSV↔MD 重新對齊，`나초` 搜尋直達經重新編譯驗證無損。
+    - 於 `🌸 名詞 Noun` ➔ `10_自然生態動物` ➔ `大自然美景與天氣氣象`（pageIdx 20 / cardIdx 12，緊接 `꽃` 花朵）正式繪製並新增「🌺 **난초**（蘭花 / 胡姬花）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,538 筆**，`난초`＋`나초` 雙詞直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦皆驗證通過。
+    - PWA 快取升級至 `korean-wiki-pwa-v15`，版本戳記更新為 `v20261013_v4`（encyclopedia_data.js＋search_index.js）。
+30. **Kitty 自訂詞庫擴展入庫 (#5752) 與社會人物「乞丐」(거지) 圖解卡片上線 (2026-10-13)**：
+    - 依使用者指示（`+ 거지`），新增社會人物核心名詞 `#5752` **거지**（乞丐 / 乞討者 / geo-ji）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`（CSV↔MD 對齊）。
+    - 於 `🌸 名詞 Noun` ➔ `12_學校與職場` ➔ `職場辦公與職務日常`（pageIdx 23 / cardIdx 10，緊接 `동의` 之後、與 `회사원` 上班族相輝映）正式繪製並新增「🤲 **거지**（乞丐 / 乞討者）」圖解字卡。
+    - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,539 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
+    - PWA 快取升級至 `korean-wiki-pwa-v16`，版本戳記更新為 `v20261013_v5`（encyclopedia_data.js＋search_index.js）。
 
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：已正式部署至 Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)。PWA 快取版本 `korean-wiki-pwa-v13`，新詞 `도서` 搜尋直達與 4.2 秒脈衝光暈全域上線生效！
-- **本地狀態**：工作目錄乾淨，所有靜態資源與 PWA 配置保持 100% 同步。
+- **線上狀態**：Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app) 目前為 `korean-wiki-pwa-v13`（`도서` 生效中）。本地 `#5750 나초`＋`#5751 난초`＋`#5752 거지` 已完成入庫＋製卡＋索引（9,539 筆）＋PWA `v16`，待部署生效！
+- **本地狀態**：工作目錄有未提交變更（#5750＋#5751＋#5752：CSV＋MD＋loanwords_data.js＋encyclopedia_data.js＋search_index.js＋sw.js＋index.html＋handoff.md），待 commit＋push＋部署。
 - **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
 ---
@@ -353,9 +375,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-10-13 15:18 PT
-- **更新者**：Antigravity @ DESKTOP-QROANQ2
-- **Git Push 狀態**：待推
+- **時間**：2026-10-13（收工：#5750＋#5751＋#5752 commit＋push＋Firebase 部署）
+- **更新者**：Muse Spark @ OpenCode
+- **Git Push 狀態**：收工推送中（commit 後即 push origin main＋部署 Hosting）
 
 
 
