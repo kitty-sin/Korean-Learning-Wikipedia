@@ -372,9 +372,9 @@
 
 ## 🚦 目前狀態
 
-- **線上狀態**：Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app) 目前為 `korean-wiki-pwa-v18`（#5753 ☝️＋#5754 ⚖️ 生效中）。本地 `#5755 간` 已完成入庫＋製卡＋直達掛載（索引維持 9,541 筆）＋PWA `v19`，待部署生效！
-- **本地狀態**：工作目錄有未提交變更（#5755：CSV＋MD＋encyclopedia_data.js＋search_index.js＋sw.js＋index.html＋handoff.md），待 commit＋push＋部署。
-- **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
+- **線上狀態**：✅ 已部署至 Firebase Hosting：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)（`korean-wiki-pwa-v19`，`+ Deploy complete!`，#5755 🩸 全域生效，索引 9,541 筆）。
+- **本地狀態**：工作目錄乾淨，與 `origin/main` 完全同步。
+- **Git 狀態**：✅ 已推送至 `kitty-sin/Korean-Learning-Wikipedia`（`main`，commit `ab285ad` 起）。
 
 ---
 
@@ -396,9 +396,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-10-13（收工：#5755 commit＋push＋Firebase 部署）
+- **時間**：2026-10-13（收工完成：commit＋push＋Firebase 部署＋L3 同步全數到位）
 - **更新者**：Muse Spark @ OpenCode
-- **Git Push 狀態**：收工推送中（commit 後即 push origin main＋部署 Hosting）
+- **Git Push 狀態**：✅ 已推＋已部署
 
 
 
