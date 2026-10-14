@@ -360,14 +360,21 @@
     - 於 `🌸 名詞 Noun` ➔ `08_居家生活空間` ➔ `家電電器與生活用品`（pageIdx 16 / cardIdx 10，緊接 `삽` 鏟子之後）正式繪製並新增「⚖️ **추**（秤砣 / 秤錘）」圖解字卡。
     - 重新編譯 `scratch/build_search_index.py`，全域搜尋索引擴充至 **9,541 筆**，支援 1-click 直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦。
     - PWA 快取升級至 `korean-wiki-pwa-v18`，版本戳記更新為 `v20261013_v7`（encyclopedia_data.js＋search_index.js）。
+33. **Kitty 自訂詞庫擴展入庫 (#5755) 與人體臟器「肝臟」(간) 圖解卡片上線 (2026-10-13)**：
+    - 依使用者指示（`+ 간 肝、肝臟`），新增人體臟器核心名詞 `#5755` **간**（肝 / 肝臟 / gan；漢字：肝）。
+    - 補齊標準羅馬拼音、中英雙語釋義、TOPIK A 級與名詞品詞結構。
+    - 同步更新 `korean_vocab_kitty_add.csv` 與 `korean_vocab_kitty_add.md`（入庫前以 assert 校驗末列為 #5754，確認無跨電腦同步抹除）。
+    - 於 `🌸 名詞 Noun` ➔ `02_人體與外貌` ➔ `身體軀幹與四肢關節`（pageIdx 4 / cardIdx 14，緊接 `검지` 之後）正式繪製並新增「🩸 **간**（肝 / 肝臟）」圖解字卡（避開 `가슴` 已用之 🫀）。
+    - 重新編譯 `scratch/build_search_index.py`：`간` 早已收錄於 5,666 基準詞庫（B 級・間隔之意），本次為其**新掛圖解百科直達錨點**，全域索引總數維持 **9,541 筆**，直達導航、2 秒語音朗讀與 4.2 秒粉紅光暈聚焦驗證通過。
+    - PWA 快取升級至 `korean-wiki-pwa-v19`，版本戳記更新為 `v20261013_v8`（encyclopedia_data.js＋search_index.js）。
 
 ---
 
 ## 🚦 目前狀態
 
-- **線上狀態**：✅ 已部署至 Firebase Hosting：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app)（`korean-wiki-pwa-v18`，`+ Deploy complete!`，#5753 ☝️＋#5754 ⚖️ 全域生效，索引 9,541 筆）。
-- **本地狀態**：工作目錄乾淨，與 `origin/main` 完全同步。
-- **Git 狀態**：✅ 已推送至 `kitty-sin/Korean-Learning-Wikipedia`（`main`，commit `b9611c3` 起）。
+- **線上狀態**：Firebase Hosting 線上環境：[https://korean-learning-1ec2a.web.app](https://korean-learning-1ec2a.web.app) 目前為 `korean-wiki-pwa-v18`（#5753 ☝️＋#5754 ⚖️ 生效中）。本地 `#5755 간` 已完成入庫＋製卡＋直達掛載（索引維持 9,541 筆）＋PWA `v19`，待部署生效！
+- **本地狀態**：工作目錄有未提交變更（#5755：CSV＋MD＋encyclopedia_data.js＋search_index.js＋sw.js＋index.html＋handoff.md），待 commit＋push＋部署。
+- **Git 狀態**：準備提交並推播至遠端 GitHub `kitty-sin/Korean-Learning-Wikipedia` (`main` 分支)。
 
 ---
 
@@ -389,9 +396,9 @@
 
 ## 🕐 最後更新
 
-- **時間**：2026-10-13（收工完成：commit＋push＋Firebase 部署＋L3 同步全數到位）
+- **時間**：2026-10-13（收工：#5755 commit＋push＋Firebase 部署）
 - **更新者**：Muse Spark @ OpenCode
-- **Git Push 狀態**：✅ 已推＋已部署
+- **Git Push 狀態**：收工推送中（commit 後即 push origin main＋部署 Hosting）
 
 
 
